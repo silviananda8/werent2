@@ -5,19 +5,19 @@ $('#tanggalPenjemputan').datetimepicker({
     minDate: 0,
     beforeShow: function() {
         $(this).datepicker('option', 'maxDate', $('#tanggalPengembalian').val());
-      },
-})
+        }
+});
 
 $('#tanggalPengembalian').datetimepicker({
     datepicker: true,
     timepicker: false,
     format: 'd-m-Y',
-    onShow: function(ct){
-        this.setOptions({
-            minDate: $('#tanggalPenjemputan'). val() ? $('#tanggalPenjemputan'). val() : false
-        })
-    }
-})
+    minDate: 0,
+    beforeShow: function() {
+        $(this).datepicker('option', 'minDate', $('#tanggalPenjemputan').val());
+                                   
+     }
+});
 
 $('#waktuPenjemputan').datetimepicker({
     timepicker: true,
