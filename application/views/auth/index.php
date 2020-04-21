@@ -18,32 +18,32 @@
           <div class="row">
             <div class="col-lg">
                <label for="exampleInputPassword1">Lokasi Penjemputan</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="text" class="form-control" id="tempatPenjemputan">
                <label for="exampleInputPassword1">Waktu Penjemputan</label>
                <div class="row">
                 <div class="col-lg">
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <input type="text" class="form-control" id="tanggalPenjemputan">
                 </div>
                 <div class="col-lg">
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <input type="text" class="form-control" id="waktuPenjemputan">
                 </div>
               </div>
             </div>
             <div class="col-lg">
                <label for="exampleInputPassword1">Lokasi Pengembalian</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="text" class="form-control" id="tempatPengembalian">
                <label for="exampleInputPassword1">Waktu Pengembalian</label>
                <div class="row">
                 <div class="col-lg">
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <input type="text" class="form-control" id="tanggalPengembalian">
                 </div>
                 <div class="col-lg">
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <input type="text" class="form-control" id="waktuPengembalian">
                 </div>
               </div>
             </div>
             <div class="col-lg-2">
-              <a class="btn btn-warning font-weight-bolder tombol-pencarian " href="#">CARI</a>
+              <a class="btn btn-warning font-weight-bolder tombol-pencarian " href="<?php echo site_url('auth/listkendaraan');?>">CARI</a>
             </div>
           </div>
         </div>

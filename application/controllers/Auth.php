@@ -9,4 +9,11 @@ class Auth extends CI_Controller {
 		$this->load->view('auth/index');
 		$this->load->view('templates/footer');
 	}
+
+	public function listKendaraan()
+	{
+		$this->load->view('templates/header');
+		$this->load->view('auth/listKendaraan');
+		$this->load->view('templates/footer');
+	}
 }
