@@ -258,6 +258,10 @@
 }
 
 /* -- == Filter List Kendaraan == -- */
+.filter-kendaraan{
+	margin-bottom: 220px;
+}
+
 #gambarKendaraan{
     width: 200px;
     height: 150px;
@@ -271,9 +275,37 @@
 
 .rating{
     font-size: 20px;
-    color: #ffd900;
+    color: #ffd000;
 }
 
 .icon-map{
     color: #ff1e00;
+}
+
+
+/* -- == Detail Kendaraan == -- */
+
+.panduan-detail-kendaraan{
+	background-color: #1e2228;
+}
+
+.panduan-b{
+	position: absolute;
+	right: 330px;
+}
+
+.panduan-c{
+	position: absolute;
+	right: 120px;
+}
+
+.map{
+	height:	300px;
+	border: 2px;
+	margin-top: 30px;
+	margin-right: 20px;
+}
+
+.filter-pencarian{
+	margin-bottom: 220px;
 }

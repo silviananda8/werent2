@@ -64,7 +64,7 @@
 
                   <div class="row">
                     <div class="col d-flex justify-content-end">
-                      <button type="submit" class="btn btn-info font-weight-bold m-2">
+                      <button type="submit" class="btn btn-warning font-weight-bolder tombol m-2">
                         Cari 
                       </button>
                     </div>
@@ -76,7 +76,7 @@
           <!-- End Form Cari Pada Header -->
 
           <!-- Start Form Filter Kendaraan -->
-            <div class="col-3 mt-3 mr-5 bg-white  rounded p-3 box-shadow" >
+            <div class="col-3 mt-3 mr-5 bg-white  filter-kendaraan rounded p-3 box-shadow" >
               <form action="" class="" method="post">
 
                 <!-- Start Peringkat Rental -->
@@ -162,7 +162,7 @@
 
                 <div class="row m-2">
                   <div class="col d-flex justify-content-center">
-                    <button type="submit" class="btn btn-info font-weight-bold m-2">
+                    <button type="submit" class="btn btn-warning font-weight-bold m-2">
                       Cari 
                     </button>
                   </div>
@@ -234,7 +234,7 @@
                      Rp. 1.782.000,00
                     <p>
   
-                    <button type="submit" class="btn btn-outline-info ml-4">Pesan</button>
+                    <a href="<?php echo site_url('auth/detailKendaraan');?>" class="btn btn-warning font-weight-bolder tombol  ml-4">Pesan</a>
                   </div>
                 </div>
 

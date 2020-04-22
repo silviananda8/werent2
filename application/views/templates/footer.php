@@ -180,8 +180,8 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <p>
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Werent
-</p>
+                          Copyright &copy;<script>document.write(new Date().getFullYear());</script> Werent
+                        </p>
                     </div>
                 </div>
             </div>
