@@ -344,50 +344,68 @@
 
 
 /* -- == Konfirmasi Pemesanan == -- */
+#halaman-konfirmasi{
+	position: relative;
+	margin-top: 30px;
+	margin-bottom: 750px;
+}
+
 #title-konfirmasi-pemesanan{
+	position: relative;
 	text-transform: uppercase;
 	text-align: center;
 	font-weight: bold;
 }
 
-#halaman-konfirmasi{
-	margin-top: 30px;
-	margin-bottom: 50px;
-}
-
 #row-konfirmasi-utama{
+	position: relative;
 	justify-content: center;
 }
-.col-right{
-	margin-left: 40px;
-}
 
-#penyewa{
+#col-left{
+	position: absolute;
 	margin-right: 40px;
 	background-color: white;
 	margin-top: 50px;
 	margin-bottom: 250px;
+	margin-left: -800px;
 }
 
 #nama-penyewa{
+	position: relative;
 	text-transform: uppercase;
 	font-weight: bold;
 }
 
 #col-kode-konfirmasi{
+	position: relative;
 	background-color: white;
 	margin-top: 50px;
 }
 
 #detail-kendaraan{
+	position: relative;
 	margin-top: 30px;
 }
 
 #tarif-layanan{
+	position: relative;
 	margin-top: 30px;
 }
 
+#col-right{
+	position: absolute;
+	margin-left: 40px;
+	margin-right: -300px;
+}
+
 #col-lokasi-penjemputan{
+	position: relative;
 	margin-top: 40px;
+}
+
+#button-tampilkan-pesanan{
+	position: relative;
+	margin-top: 50px;
 }
 

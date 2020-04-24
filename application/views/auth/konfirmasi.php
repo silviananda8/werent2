@@ -3,7 +3,7 @@
         <h3 id="title-konfirmasi-pemesanan">voucher konfirmasi pemesanan</h3>    
 
         <div class="row" id="row-konfirmasi-utama">
-            <div class="col-3 rounded box-shadow" id="penyewa">
+            <div class="col-3 rounded box-shadow" id="col-left">
                 <h5>
                     <p id="nama-penyewa">Nama Penyewa</p>
                     <p id="nama-kendaraan">Nama Kendaraan :</p>
@@ -22,12 +22,25 @@
                 </h5>
             </div>
 
-            <div class="col-8 col-right">
+            <div class="col-8" id="col-right">
                 <div class="col rounded box-shadow" id="col-kode-konfirmasi">
-                    <p id="kode-konfirmasi">Kode Konfirmasi: ...</p>
-                    <p id="kode-permintaan">Kode Permintaan: ...</p>
-                    <p id="perjanjian-kode-harga">Perjanjian Kode Harga: ...</p>
-                    <p id="nama">Nama lengkap: ...</p>
+                    <div class="row">
+                        <div class="col-8">
+                            <p id="kode-konfirmasi">Kode Konfirmasi: ...</p>
+                            <p id="kode-permintaan">Kode Permintaan: ...</p>
+                            <p id="perjanjian-kode-harga">Perjanjian Kode Harga: ...</p>
+                            <p id="nama">Nama lengkap: ...</p>
+                        </div>
+                        
+                        <div class="col-3" id="button-tampilkan-pesanan">
+                            <button type="button" class="btn btn-warning tombol" data-toggle="modal" data-target="#tarifLayanan">
+                                <strong>
+                                    Tampilkan Pesanan
+                                </strong>
+                            </button>
+                        </div>
+                    </div>
+                    
                 </div>
 
                 <div class="col rounded box-shadow" id="col-lokasi-penjemputan">
