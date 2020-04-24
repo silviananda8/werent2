@@ -57,9 +57,9 @@
 
               <div class="row">
                 <div class="col d-flex justify-content-center">
-                  <button type="submit" class="btn btn-warning font-weight-bolder tombol pl-4 pr-4">
+                  <a type="submit" class="btn btn-warning font-weight-bolder tombol pl-4 pr-4">
                     Cari 
-                  </button>
+                  </a>
                 </div>
               </div>
 

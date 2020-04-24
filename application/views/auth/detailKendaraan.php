@@ -77,7 +77,7 @@
 
                         <!-- Lokasi Rental -->
                         <h5 class="mb-1 mt-3">Lokasi Rental</h5>
-                        <p class=""><small>Jl. Semangka no.27-29, Surabaya</small><i class="fas fa-map-marker icon-map ml-1"></i></p>
+                        <p class=""><i class="fas fa-map-marker icon-map ml-1"></i><small> Jl. Semangka no.27-29, Surabaya</small></p>
                     
                         <!-- Jam Buka -->
                         <h5 class="mb-1 mt-3">Jam Buka</h5>
@@ -105,7 +105,7 @@
 
                 <div class="row">
                     <div class="col d-flex justify-content-end pl-3 pr-3">
-                        <a type="button" href="#" class="btn btn-warning font-weight-bolder tombol m-2">Pesan </a>
+                        <a type="button" href="<?php echo site_url('auth/persyaratanPenyewa');?>" class="btn btn-warning font-weight-bolder tombol mr-3 mt-2">Selengkapnya</a>
                     </div>
                 </div>
             </div>

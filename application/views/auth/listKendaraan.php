@@ -173,7 +173,7 @@
           <!-- End Form Filter Kendaraan -->
 
           <!-- Start List Kendaraan -->
-            <div class="col-7 mt-3 ml-5 bg-white rounded p-2 box-shadow">
+            <div class="col-7 mt-3 ml-5 bg-white list-kendaraan rounded p-2 box-shadow">
 
               <div class="card">
                 <div class="row">

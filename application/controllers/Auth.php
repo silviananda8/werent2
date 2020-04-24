@@ -34,4 +34,18 @@ class Auth extends CI_Controller {
 		$this->load->view('auth/persyaratan-penyewa');
 		$this->load->view('templates/footer');
 	}
+
+	function pembayaran(){
+		$this->load->view('templates/header');
+		$this->load->view('tambahan/bar-panduan');
+		$this->load->view('tambahan/filter-pencarian');
+		$this->load->view('auth/pembayaran.php');
+		$this->load->view('templates/footer');
+	}
+
+	function konfirmasi(){
+		$this->load->view('templates/header');
+		$this->load->view('auth/konfirmasi.php');
+		$this->load->view('templates/footer');
+	}
 }

@@ -260,14 +260,21 @@
 /* -- == Filter List Kendaraan == -- */
 .filter-kendaraan{
 	margin-bottom: 220px;
+	position: relative;
+}
+
+.list-kendaraan{
+	position: absolute;
 }
 
 #gambarKendaraan{
+	position: relative;
     width: 200px;
     height: 150px;
 }
 
 .box-shadow{
+	position: relative;
     box-shadow: 0 3px 28px rgba(0,0,0,0.5);
 	border-radius: 12px;
 	background-color: white;
@@ -276,6 +283,10 @@
 .rating{
     font-size: 20px;
     color: #ffd000;
+}
+
+.container{
+	position: relative;
 }
 
 .icon-map{
@@ -289,14 +300,19 @@
 	background-color: #1e2228;
 }
 
+.panduan-a{
+	position: absolute;
+	right: 340px;
+}
+
 .panduan-b{
 	position: absolute;
-	right: 330px;
+	right: 130px;
 }
 
 .panduan-c{
 	position: absolute;
-	right: 120px;
+	right: 0px;
 }
 
 .map{
@@ -304,8 +320,74 @@
 	border: 2px;
 	margin-top: 30px;
 	margin-right: 20px;
+	position: relative;
 }
 
 .filter-pencarian{
 	margin-bottom: 220px;
 }
+
+
+/* -- == Pembayaran Pesanan == -- */
+#card-kendaraan{
+	box-shadow:0 0 30px rgba(0,0,0,0.5);
+	border-radius: 12px;
+	background-color: white;
+	margin-bottom: 40px;
+}
+
+#rincian-biaya{
+	box-shadow:0px 7px 20px 0 rgba(0,0,0,0.5);
+	border-radius: 12px;
+	background-color: white;
+}
+
+
+/* -- == Konfirmasi Pemesanan == -- */
+#title-konfirmasi-pemesanan{
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: bold;
+}
+
+#halaman-konfirmasi{
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+#row-konfirmasi-utama{
+	justify-content: center;
+}
+.col-right{
+	margin-left: 40px;
+}
+
+#penyewa{
+	margin-right: 40px;
+	background-color: white;
+	margin-top: 50px;
+	margin-bottom: 250px;
+}
+
+#nama-penyewa{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#col-kode-konfirmasi{
+	background-color: white;
+	margin-top: 50px;
+}
+
+#detail-kendaraan{
+	margin-top: 30px;
+}
+
+#tarif-layanan{
+	margin-top: 30px;
+}
+
+#col-lokasi-penjemputan{
+	margin-top: 40px;
+}
+

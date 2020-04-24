@@ -1,7 +1,7 @@
 $('#tanggalPenjemputan').datetimepicker({
     datepicker: true,
     timepicker: false,
-    format: 'd-m-Y',
+    format: 'D d-M-Y',
     minDate: 0,
     beforeShow: function() {
         $(this).datepicker('option', 'maxDate', $('#tanggalPengembalian').val());
@@ -11,7 +11,7 @@ $('#tanggalPenjemputan').datetimepicker({
 $('#tanggalPengembalian').datetimepicker({
     datepicker: true,
     timepicker: false,
-    format: 'd-m-Y',
+    format: 'D d-M-Y',
     minDate: 0,
     beforeShow: function() {
         $(this).datepicker('option', 'minDate', $('#tanggalPenjemputan').val());
