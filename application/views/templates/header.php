@@ -42,7 +42,7 @@
                   <a class="nav-link " href="#">Cara Pesan</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " text-white href="#">Tips & Artikel</a>
+                  <a class="nav-link " text-white href="<?php echo site_url('auth/artikel')?>">Tips & Artikel</a>
                 </li>
                 <li class="nav-item ">
                   <a class="btn btn-warning font-weight-bolder tombol "  type="button" data-toggle="modal" data-target="#modalMasuk" href="#">Masuk</a>
