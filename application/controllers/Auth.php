@@ -48,4 +48,10 @@ class Auth extends CI_Controller {
 		$this->load->view('auth/konfirmasi.php');
 		$this->load->view('templates/footer');
 	}
+	public function artikel()
+	{
+		$this->load->view('templates/header');
+		$this->load->view('auth/artikel');
+		$this->load->view('templates/footer');
+	}
 }
