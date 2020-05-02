@@ -12,23 +12,23 @@
               </button>
             </div>
             <div class="modal-body">
-              <form>
+              <form action="<?php echo site_url('login/auth');?>" method='post'>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                   
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <input type="password" class="form-control" name="password" id="exampleInputPassword1">
                 </div>
                 <div class="form-group form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
                   <label class="form-check-label" for="exampleCheck1">Lupa Password</label>
                 </div>
                 <button type="submit" class="btn btn-warning btn-block mb-3 tombol font-weight-bolder">Masuk</button>
-                <a href="#lost" type="button" data-toggle="modal" data-target="#modalDaftar" >Belum Punya Akun?
-                  <button type="submit" class="badge badge-pill badge-primary">Daftar</button>
+                <a href="#lost" type="button" data-toggle="modal" data-target="#modalDaftar" data-dismiss="modal">Belum Punya Akun?
+                  <button type="submit" class="badge badge-pill badge-primary" >Daftar</button>
                 </a>
                 <hr><small class="form-text text-muted text-center">Masuk Dengan Akun</small>
                 <div class="row">
@@ -86,7 +86,7 @@
                 </div>
                 
                 <button type="submit" class="btn btn-primary btn-block mb-3 tombol font-weight-bolder">Daftar</button>
-                <a href="" data-dismiss="modal" type="button" data-toggle="modal" data-target="#modalMasuk" >Sudah Punya Akun?
+                <a href="" data-dismiss="modal" type="button" data-toggle="modal" data-target="#modalMasuk" data-dismiss="modal">Sudah Punya Akun?
                   <button type="submit" class="badge badge-pill badge-warning" >Masuk</button>
                 </a>
                 <hr><small class="form-text text-muted text-center">Daftar Dengan Akun</small>

@@ -28,7 +28,7 @@
     <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('welcome/index')?>">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('auth/home_admin')?>">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-car"></i>
         </div>
@@ -40,7 +40,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo site_url('welcome/index')?>">
+        <a class="nav-link" href="<?php echo site_url('auth/home_admin')?>">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Dashboard</span></a>
       </li>
@@ -55,7 +55,7 @@
 
       <!-- Nav Item - grocery -->
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('welcome/tabel')?>">
+        <a class="nav-link" href="<?php echo site_url('auth/tabel')?>">
           <i class="fas fa-fw fa-table"></i>
           <span>Konten</span></a>
       </li>
@@ -82,7 +82,7 @@
       </div>
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('welcome/keuangan')?>">
+        <a class="nav-link" href="<?php echo site_url('auth/keuangan')?>">
           <i class="fas fa-fw fa-table"></i>
           <span>Tables</span></a>
       </li>
@@ -446,7 +446,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="<?php echo site_url('login/Logout')?>">Logout</a>
         </div>
       </div>
     </div>

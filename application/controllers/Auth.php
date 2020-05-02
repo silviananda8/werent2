@@ -2,7 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Auth extends CI_Controller {
-
+function __construct(){
+        parent::__construct();
+        $this->load->database();
+    }
 	public function index()
 	{
 		$this->load->view('templates/header');
@@ -53,5 +56,23 @@ class Auth extends CI_Controller {
 		$this->load->view('templates/header');
 		$this->load->view('auth/artikel');
 		$this->load->view('templates/footer');
+	}
+
+	//halaman admin
+	public function home_admin()
+	{
+		$this->load->model('grafik_m');
+		$data['labelnya'] = $this->grafik_m->load_data();
+		$this->load->view('SbAdmin/index',$data);
+	}
+	public function tabel()
+	{
+		$this->load->view('SbAdmin/grocery');
+	}
+
+	public function keuangan()
+	{
+
+		$this->load->view('SbAdmin/keuangan');
 	}
 }
