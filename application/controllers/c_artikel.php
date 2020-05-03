@@ -27,7 +27,7 @@ class c_artikel extends CI_Controller {
 			$crud = new grocery_CRUD();
 			$crud->set_theme('flexigrid');
 			$crud->set_table('artikel');
-			$crud->columns('judul','thumbnail','artikel');
+			$crud->columns('judul','thumbnail','artikel','tanggal');
 			$crud->set_field_upload('thumbnail','assets/uploads/thumbnail');
 
 			$crud->set_subject('artikel');

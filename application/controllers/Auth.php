@@ -5,6 +5,7 @@ class Auth extends CI_Controller {
 function __construct(){
         parent::__construct();
         $this->load->database();
+        $this->load->model('grafik_m');
     }
 	public function index()
 	{
@@ -53,15 +54,22 @@ function __construct(){
 	}
 	public function artikel()
 	{
+		$data['data']=$this->grafik_m->show_card_artikel()->result();
+		$data['coba']=$this->grafik_m->show_card_artikel_trending()->result();
 		$this->load->view('templates/header');
-		$this->load->view('auth/artikel');
+		$this->load->view('auth/artikel',$data);
 		$this->load->view('templates/footer');
 	}
+	function read_artikel($id){
+       	$data['data']=$this->grafik_m->detail_artikel($id)->result();
+       	$this->load->view('templates/header');
+		$this->load->view('auth/read_artikel',$data);
+		$this->load->view('templates/footer');
+    }
 
 	//halaman admin
 	public function home_admin()
 	{
-		$this->load->model('grafik_m');
 		$data['labelnya'] = $this->grafik_m->load_data();
 		$this->load->view('SbAdmin/index',$data);
 	}
