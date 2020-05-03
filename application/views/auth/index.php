@@ -1,58 +1,5 @@
 
 
-    <!-- jumbotron -->
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h4 class="display-4">Cari, Bandingkan & Simpan</h4>
-        </div>
-      </div>
-
-    <!-- akhir jumbotron -->
-
-
-    <div class="container">
-      
-      <!-- form pencarian -->
-      <div class="row justify-content-center">
-        <div class="col-lg-12 form-pencarian">
-          <div class="row">
-            <div class="col-lg">
-               <label for="exampleInputPassword1">Lokasi Penjemputan</label>
-                <input type="text" class="form-control" id="tempatPenjemputan">
-               <label for="exampleInputPassword1">Waktu Penjemputan</label>
-               <div class="row">
-                <div class="col-lg">
-                  <input type="text" class="form-control" id="tanggalPenjemputan">
-                </div>
-                <div class="col-lg">
-                  <input type="text" class="form-control" id="waktuPenjemputan">
-                </div>
-              </div>
-            </div>
-            <div class="col-lg">
-               <label for="exampleInputPassword1">Lokasi Pengembalian</label>
-                <input type="text" class="form-control" id="tempatPengembalian">
-               <label for="exampleInputPassword1">Waktu Pengembalian</label>
-               <div class="row">
-                <div class="col-lg">
-                  <input type="text" class="form-control" id="tanggalPengembalian">
-                </div>
-                <div class="col-lg">
-                  <input type="text" class="form-control" id="waktuPengembalian">
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-2">
-              <a class="btn btn-warning font-weight-bolder tombol-pencarian " href="<?php echo site_url('auth/listkendaraan');?>">CARI</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- akhir form pencarian -->
-
-
-
-
       <!-- artikel -->
       <!-- Section Title Start -->
         <div class="col-lg-12">

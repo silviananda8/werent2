@@ -10,6 +10,15 @@ function __construct(){
 	public function index()
 	{
 		$this->load->view('templates/header');
+		$this->load->view('tambahan/form-pencarian-dashboard1');
+		$this->load->view('auth/index');
+		$this->load->view('templates/footer');
+	}
+
+	public function index2()
+	{
+		$this->load->view('templates/header');
+		$this->load->view('tambahan/form-pencarian-dashboard2');
 		$this->load->view('auth/index');
 		$this->load->view('templates/footer');
 	}
