@@ -16,7 +16,15 @@ class grafik_m  extends CI_Model  {
         return $sql;
     }
      function show_card_artikel_trending(){
-        $sql=$this->db->query("SELECT * FROM artikel ORDER BY tanggal DESC LIMIT 3");
+        $sql=$this->db->query("SELECT *,DATE_FORMAT(tanggal, '%m/%d/%Y') as last_update FROM artikel ORDER BY tanggal DESC LIMIT 3");
+        return $sql;
+    }
+    function show_mobil(){
+        $sql=$this->db->query("SELECT * FROM rental JOIN mobil");
+        return $sql;
+    }
+    function detail_mobil($id){
+        $sql=$this->db->query("SELECT *,TIME_FORMAT(JAM_BUKA,'%h %i') as buka,TIME_FORMAT(JAM_TUTUP,'%h %i') as tutup FROM rental JOIN mobil WHERE ID_MOBIL='$id'");
         return $sql;
     }
 }

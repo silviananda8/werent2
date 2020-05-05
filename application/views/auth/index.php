@@ -63,31 +63,20 @@
             </div>
         </div>
         <!-- Section Title End -->
+        
         <div class="card-deck artikel">
+        <?php foreach($coba as $dta):?>
         <div class="card">
-          <img src="<?= base_url('assets/img/') ?>b1.jpg" class="card-img-top" alt="...">
+          <img src="<?= base_url('assets/uploads/thumbnail/') ?><?php echo $dta->thumbnail?>" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <a href="<?php echo site_url('auth/read_artikel/'.$dta->id);?>">
+              <h5 class="card-title"><?php echo $dta->judul?></h5>
+            </a>
+            <p class="card-text"><?php echo substr($dta->artikel,0,251)?></p>
+            <p class="card-text"><small class="text-muted"><?php echo $dta->last_update?></small></p>
           </div>
         </div>
-        <div class="card">
-          <img src="<?= base_url('assets/img/') ?>b2.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="<?= base_url('assets/img/') ?>b3.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
+        <?php endforeach; ?>
       </div>
 
       <!-- akhir artikel -->
