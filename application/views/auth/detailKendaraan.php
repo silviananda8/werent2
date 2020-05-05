@@ -1,4 +1,4 @@
-
+<?php foreach($data as $dta):?>
     
     <!-- == start detail kendaraan == -->
         <div class="col-7 mt-5 ml-5 ">
@@ -6,9 +6,9 @@
                 <div class="row">
                     <div class="col-4">
                         <label for="namaKendaraan">
-                            <h4 class="col font-weight-bold">Ford Fusion</h4>
+                            <h4 class="col font-weight-bold"><?php echo $dta->MERK_KENDARAAN;?> <?php echo $dta->NAMA_KENDARAAN;?></h4>
                         </label>
-                        <img src="<?= base_url(''); ?>assets/img/ford.jpg" alt="ford" class="ml-3 mt-3" id="gambarKendaraan">
+                        <img src="<?= base_url('assets/uploads/kendaraan/') ?><?php echo $dta->FOTO?>" alt="ford" class="ml-3 mt-3" id="gambarKendaraan">
                     </div>
 
                     <div class="col-5 mt-5">
@@ -17,19 +17,19 @@
                             <div class="row row-cols-2">
                                 <div class="col">
                                 <i class="fas fa-couch"></i>
-                                4 orang
+                                <?php echo $dta->KAPASITAS;?> orang
                                 </div>
                                 <div class="col">
                                 <i class="fas fa-door-closed"></i>
-                                4 Pintu
+                                <?php echo $dta->PINTU;?> Pintu
                                 </div>
                                 <div class="col">
                                 <i class="fas fa-snowflake"></i>
-                                AC
+                                <?php echo $dta->PENDINGIN_UDARA;?>
                                 </div>
                                 <div class="col">
                                 <i class="fas fa-cog"></i>
-                                Otomatis
+                                <?php echo $dta->TRANSISI;?>
                                 </div>
                             </div>
                             </small>
@@ -56,7 +56,7 @@
                 
                     <div class="col-3 align-self-center mt-5">
                         <p class="font-weight-bold">
-                            Rp. 1.782.000,00
+                             Rp. <?php echo $dta->HARGA_SEWA_KENDARAAN;?>,00
                         <p>
 
                         <a href="#" class="btn btn-warning font-weight-bolder tombol ml-2">Chatting</a>
@@ -70,29 +70,29 @@
                     <div class="col list-group ml-4">
                         <!-- Nama Rental -->
                         <h5 class="mb-1">Nama Rental</h5>
-                        <p class="mb-1"><small>Adam Rental</small></p>
+                        <p class="mb-1"><small><?php echo $dta->NAMA_RENTAL;?></small></p>
 
                         <!-- Rating -->
                         <h5 class="mb-1 mt-3">Rating <small>3</small><i class="fas fa-star ml-1 rating"></i></h5>
 
                         <!-- Lokasi Rental -->
                         <h5 class="mb-1 mt-3">Lokasi Rental</h5>
-                        <p class=""><i class="fas fa-map-marker icon-map ml-1"></i><small> Jl. Semangka no.27-29, Surabaya</small></p>
+                        <p class=""><i class="fas fa-map-marker icon-map ml-1"></i><small> <?php echo $dta->ALAMAT_RENTAL;?></small></p>
                     
                         <!-- Jam Buka -->
                         <h5 class="mb-1 mt-3">Jam Buka</h5>
                         <div class="row">
                             <div class="col">
-                                <p class=""><small>Senin - Jumat</small></p>
+                                <p class=""><small><?php echo $dta->HARI_1;?>-<?php echo $dta->HARI_2;?></small></p>
                             </div>
                             <div class="col mr-5">
-                                <p class=""><small>08:00 - 20:00</small></p>
+                                <p class=""><small><?php echo $dta->buka;?> - <?php echo $dta->tutup;?></small></p>
                             </div>
                         </div>
                         
                         <!-- Cara Pengambilan -->
                         <h5 class="mb-1">Cara Pengambilan</h5>
-                        <p class="mb-1"><small>Berisi proses-proses pengambilan kendaraan yang harus dilalui</small></p>
+                        <p class="mb-1"><small>Penjemputan dan pengembalian kendaraan sesuai dengan tempat dan waktu yang telah ditentukan sesuai kesepakatan di awal.</small></p>
                     </div>
 
                     <!-- Map -->
@@ -104,9 +104,11 @@
                 </div>
 
                 <div class="row">
+                    <?php foreach($data as $dta):?>
                     <div class="col d-flex justify-content-end pl-3 pr-3">
-                        <a type="button" href="<?php echo site_url('auth/persyaratanPenyewa');?>" class="btn btn-warning font-weight-bolder tombol mr-3 mt-2">Selengkapnya</a>
+                        <a type="button" href="<?php echo site_url('auth/persyaratanPenyewa/'.$dta->ID_MOBIL);?>" class="btn btn-warning font-weight-bolder tombol mr-3 mt-2">Selengkapnya</a>
                     </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
@@ -118,4 +120,4 @@
     </div>
 </div>
 
-    
+<?php endforeach; ?>

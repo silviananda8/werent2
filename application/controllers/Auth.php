@@ -9,6 +9,7 @@ function __construct(){
     }
 	public function index()
 	{
+<<<<<<< HEAD
 		$this->load->view('templates/header');
 		$this->load->view('tambahan/form-pencarian-dashboard1');
 		$this->load->view('auth/index');
@@ -21,43 +22,68 @@ function __construct(){
 		$this->load->view('tambahan/form-pencarian-dashboard2');
 		$this->load->view('auth/index');
 		$this->load->view('templates/footer');
+=======
+		$data['coba']=$this->grafik_m->show_card_artikel_trending()->result();
+		if($this->session->userdata('logged_in') != TRUE){
+			$this->load->view('templates/header');
+			$this->load->view('auth/index',$data);
+			$this->load->view('templates/footer');
+		}else{
+			$this->load->view('templates/header_after_login');
+			$this->load->view('auth/index',$data);
+			$this->load->view('templates/footer');
+		}
+		
+>>>>>>> cc6b7b57e235a24b06385fbf9ac5bb12bd098386
 	}
 
 	public function listKendaraan()
 	{
-		$this->load->view('templates/header');
-		$this->load->view('auth/listKendaraan');
-		$this->load->view('templates/footer');
+		$data['data']=$this->grafik_m->show_mobil()->result();
+		if($this->session->userdata('logged_in') != TRUE){
+			$this->load->view('templates/header');
+			$this->load->view('auth/listKendaraan',$data);
+			$this->load->view('templates/footer');
+		}else{
+			$this->load->view('templates/header_after_login');
+			$this->load->view('auth/listKendaraan',$data);
+			$this->load->view('templates/footer');
+		}	
 	}
-
-	public function detailKendaraan()
+	public function detailKendaraan($id)
 	{
-		$this->load->view('templates/header');
-		$this->load->view('tambahan/bar-panduan');
+		if($this->session->userdata('logged_in') != TRUE){
+			redirect(base_url("auth"));
+		}
+		$data['data']=$this->grafik_m->detail_mobil($id)->result();
+		$this->load->view('templates/header_after_login');
+		$this->load->view('tambahan/bar-panduan',$data);
 		$this->load->view('tambahan/filter-pencarian');
-		$this->load->view('auth/detailKendaraan');
+		$this->load->view('auth/detailKendaraan',$data);
 		$this->load->view('templates/footer');
 	}
 
-	public function persyaratanPenyewa()
+	public function persyaratanPenyewa($id)
 	{
-		$this->load->view('templates/header');
-		$this->load->view('tambahan/bar-panduan');
+		$data['data']=$this->grafik_m->detail_mobil($id)->result();
+		$this->load->view('templates/header_after_login');
+		$this->load->view('tambahan/bar-panduan',$data);
 		$this->load->view('tambahan/filter-pencarian');
 		$this->load->view('auth/persyaratan-penyewa');
 		$this->load->view('templates/footer');
 	}
 
-	function pembayaran(){
-		$this->load->view('templates/header');
-		$this->load->view('tambahan/bar-panduan');
+	function pembayaran($id){
+		$data['data']=$this->grafik_m->detail_mobil($id)->result();
+		$this->load->view('templates/header_after_login');
+		$this->load->view('tambahan/bar-panduan',$data);
 		$this->load->view('tambahan/filter-pencarian');
 		$this->load->view('auth/pembayaran.php');
 		$this->load->view('templates/footer');
 	}
 
 	function konfirmasi(){
-		$this->load->view('templates/header');
+		$this->load->view('templates/header_after_login');
 		$this->load->view('auth/konfirmasi.php');
 		$this->load->view('templates/footer');
 	}
@@ -65,17 +91,30 @@ function __construct(){
 	{
 		$data['data']=$this->grafik_m->show_card_artikel()->result();
 		$data['coba']=$this->grafik_m->show_card_artikel_trending()->result();
-		$this->load->view('templates/header');
-		$this->load->view('auth/artikel',$data);
-		$this->load->view('templates/footer');
+		if($this->session->userdata('logged_in') != TRUE){
+			$this->load->view('templates/header');
+			$this->load->view('auth/artikel',$data);
+			$this->load->view('templates/footer');
+		}else{
+			$this->load->view('templates/header_after_login');
+			$this->load->view('auth/artikel',$data);
+			$this->load->view('templates/footer');
+		}
+		
 	}
 	function read_artikel($id){
        	$data['data']=$this->grafik_m->detail_artikel($id)->result();
-       	$this->load->view('templates/header');
-		$this->load->view('auth/read_artikel',$data);
-		$this->load->view('templates/footer');
+       	if($this->session->userdata('logged_in') != TRUE){
+			$this->load->view('templates/header');
+			$this->load->view('auth/read_artikel',$data);
+			$this->load->view('templates/footer');
+		}else{
+			$this->load->view('templates/header_after_login');
+			$this->load->view('auth/read_artikel',$data);
+			$this->load->view('templates/footer');
+		}
+       	
     }
-
 	//halaman admin
 	public function home_admin()
 	{

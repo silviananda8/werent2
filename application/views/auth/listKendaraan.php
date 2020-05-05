@@ -173,15 +173,16 @@
           <!-- End Form Filter Kendaraan -->
 
           <!-- Start List Kendaraan -->
+          
             <div class="col-7 mt-3 ml-5 bg-white list-kendaraan rounded p-2 box-shadow">
-
+              <?php foreach($data as $dta):?>
               <div class="card">
                 <div class="row">
                   <div class="col-4">
                     <label for="namaKendaraan">
-                      <h4 class="col font-weight-bold">Ford Fusion</h4>
+                      <h4 class="col font-weight-bold"><?php echo $dta->MERK_KENDARAAN;?> <?php echo $dta->NAMA_KENDARAAN;?></h4>
                     </label>
-                    <img src="<?= base_url(''); ?>assets/img/ford.jpg" alt="ford" class="ml-3 mt-3" id="gambarKendaraan" >
+                    <img src="<?= base_url('assets/uploads/kendaraan/') ?><?php echo $dta->FOTO?>" alt="Load" class="ml-3 mt-3" id="gambarKendaraan" >
                     
                   </div>
   
@@ -192,19 +193,19 @@
                         <div class="row row-cols-2">
                           <div class="col">
                             <i class="fas fa-couch"></i>
-                            4 orang
+                            <?php echo $dta->KAPASITAS;?> orang
                           </div>
                           <div class="col">
                             <i class="fas fa-door-closed"></i>
-                            4 Pintu
+                            <?php echo $dta->PINTU;?> Pintu
                           </div>
                           <div class="col">
                             <i class="fas fa-snowflake"></i>
-                            AC
+                            <?php echo $dta->PENDINGIN_UDARA;?>
                           </div>
                           <div class="col">
                             <i class="fas fa-cog"></i>
-                            Otomatis
+                            <?php echo $dta->TRANSISI;?>
                           </div>
                         </div>
                       </small>
@@ -231,26 +232,26 @@
                 
                   <div class="col-3 mt-5 align-self-center">
                     <p class="font-weight-bold">
-                     Rp. 1.782.000,00
+                     Rp. <?php echo $dta->HARGA_SEWA_KENDARAAN;?>,00
                     <p>
-  
-                    <a href="<?php echo site_url('auth/detailKendaraan');?>" class="btn btn-warning font-weight-bolder tombol  ml-4">Pesan</a>
+                      <a href="<?php echo site_url('auth/detailKendaraan/'.$dta->ID_MOBIL);?>" class="btn btn-warning font-weight-bolder tombol  ml-4" <?php if ($this->session->userdata('logged_in') != TRUE) {echo "data-toggle='modal' data-target='#modalMasuk'";}?>>Pesan</a>
                   </div>
                 </div>
 
                 <div class="card-footer mt-2">
                   <div class="row ml-1">
                     <div class="col-4">
-                        <p class=""><small>Adam Rental 3</small><i class="fas fa-star ml-1 rating"></i></p>
+                        <p class=""><small><?php echo $dta->NAMA_RENTAL;?></small><i class="fas fa-star ml-1 rating"></i></p>
                     </div>
                     <div class="col-8 ">
-                      <p class=""><small>Jl. Semangka no.27-29, Surabaya</small><i class="fas fa-map-marker icon-map ml-1"></i></p>
+                      <p class=""><small><?php echo $dta->ALAMAT_RENTAL;?></small><i class="fas fa-map-marker icon-map ml-1"></i></p>
                     </div>
                   </div>
                 </div>
               </div>
-
+               <?php endforeach; ?>
             </div>
+           
           <!-- End List Kendaraan -->
 
         </div>
