@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Bulan Mei 2020 pada 09.32
+-- Waktu pembuatan: 05 Bulan Mei 2020 pada 15.46
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -75,22 +75,6 @@ CREATE TABLE `artikel_pariwisata` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kendaraan`
---
-
-CREATE TABLE `kendaraan` (
-  `ID_KENDARAAN` int(11) NOT NULL,
-  `MERK_KENDARAAN` varchar(20) DEFAULT NULL,
-  `NAMA_KENDARAAN` varchar(50) DEFAULT NULL,
-  `DESKRIPSI_KENDARAAN` text,
-  `JENIS_KENDARAAN` varchar(12) DEFAULT NULL,
-  `TRANSISI` varchar(9) DEFAULT NULL,
-  `HARGA_SEWA_KENDARAAN` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `keuntungan`
 --
 
@@ -118,19 +102,27 @@ INSERT INTO `keuntungan` (`id_keuangan`, `bulan`, `jumlah`) VALUES
 
 CREATE TABLE `mobil` (
   `ID_MOBIL` int(11) NOT NULL,
-  `ID_KENDARAAN` int(11) NOT NULL,
+  `ID_RENTAL` int(11) DEFAULT NULL,
+  `FOTO` varchar(50) DEFAULT NULL,
+  `MERK_KENDARAAN` varchar(20) DEFAULT NULL,
+  `NAMA_KENDARAAN` varchar(50) DEFAULT NULL,
   `KAPASITAS` int(11) DEFAULT NULL,
   `PINTU` int(11) DEFAULT NULL,
-  `AIRBAG` varchar(5) DEFAULT NULL,
   `PENDINGIN_UDARA` varchar(5) DEFAULT NULL,
-  `POWER_WINDOWS` varchar(5) DEFAULT NULL,
-  `POWER_DOOR_LOCK` varchar(5) DEFAULT NULL,
-  `REM_ANTI_LOCK` varchar(5) DEFAULT NULL,
-  `POWER_STEERING` varchar(5) DEFAULT NULL,
-  `RADIO` varchar(20) DEFAULT NULL,
-  `BAGASI` int(11) DEFAULT NULL,
-  `SUPIR` varchar(5) DEFAULT NULL
+  `DESKRIPSI_KENDARAAN` text,
+  `TRANSISI` varchar(9) DEFAULT NULL,
+  `SUPIR` varchar(5) DEFAULT NULL,
+  `HARGA_SEWA_KENDARAAN` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `mobil`
+--
+
+INSERT INTO `mobil` (`ID_MOBIL`, `ID_RENTAL`, `FOTO`, `MERK_KENDARAAN`, `NAMA_KENDARAAN`, `KAPASITAS`, `PINTU`, `PENDINGIN_UDARA`, `DESKRIPSI_KENDARAAN`, `TRANSISI`, `SUPIR`, `HARGA_SEWA_KENDARAAN`) VALUES
+(1, 1, 'renault.PNG', 'Renault', 'Trezor', 2, 2, 'AC', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Otomatis', NULL, '1.500.00'),
+(2, 1, '1-porsche-911-c4s-2019-uk-fd-hero-front_0.jpg', 'Porsche', '911Carrera', 2, 2, 'AC', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Manual', NULL, '2.500.000'),
+(3, 1, 'tesla.jpg', 'Tesla', 'Model X', 8, 4, 'AC', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Otomatis', NULL, '2.000.000');
 
 -- --------------------------------------------------------
 
@@ -140,7 +132,13 @@ CREATE TABLE `mobil` (
 
 CREATE TABLE `motor` (
   `ID_MOTOR` int(11) NOT NULL,
-  `ID_KENDARAAN` int(11) NOT NULL
+  `ID_RENTAL` int(11) DEFAULT NULL,
+  `MERK_KENDARAAN` varchar(20) DEFAULT NULL,
+  `NAMA_KENDARAAN` varchar(50) DEFAULT NULL,
+  `DESKRIPSI_KENDARAAN` text,
+  `JENIS_KENDARAAN` varchar(12) DEFAULT NULL,
+  `TRANSISI` varchar(9) DEFAULT NULL,
+  `HARGA_SEWA_KENDARAAN` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -155,6 +153,13 @@ CREATE TABLE `pemilik` (
   `FOTO_PEMILIK` longblob,
   `REKENING_PEMILIK` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pemilik`
+--
+
+INSERT INTO `pemilik` (`ID_PEMILIK`, `ID_USER`, `FOTO_PEMILIK`, `REKENING_PEMILIK`) VALUES
+(1, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -202,7 +207,6 @@ CREATE TABLE `pesanan` (
 
 CREATE TABLE `rental` (
   `ID_RENTAL` int(11) NOT NULL,
-  `ID_KENDARAAN` int(11) DEFAULT NULL,
   `ID_PEMILIK` int(11) DEFAULT NULL,
   `NAMA_RENTAL` varchar(20) DEFAULT NULL,
   `DESKRIPSI_RENTAL` text,
@@ -212,9 +216,18 @@ CREATE TABLE `rental` (
   `JAM_BUKA` time DEFAULT NULL,
   `JAM_TUTUP` time DEFAULT NULL,
   `PERSYARATAN_JARAK_WAKTU_OEMESANAN` int(11) DEFAULT NULL,
-  `ATURAN_PEMESANAN` text,
-  `KEBIJAKAN_PEMBATALAN` text
+  `KEBIJAKAN_PEMBATALAN` text,
+  `HARI_1` varchar(7) DEFAULT NULL,
+  `HARI_2` varchar(7) DEFAULT NULL,
+  `PERSYARATAN_PENYEWA` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `rental`
+--
+
+INSERT INTO `rental` (`ID_RENTAL`, `ID_PEMILIK`, `NAMA_RENTAL`, `DESKRIPSI_RENTAL`, `ALAMAT_RENTAL`, `FOTO_RENTAL`, `LAMA_PEMESANAN_MINIMM`, `JAM_BUKA`, `JAM_TUTUP`, `PERSYARATAN_JARAK_WAKTU_OEMESANAN`, `KEBIJAKAN_PEMBATALAN`, `HARI_1`, `HARI_2`, `PERSYARATAN_PENYEWA`) VALUES
+(1, 1, 'Jaya Abadi Showroom', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Jl. Kenangan', NULL, NULL, '08:00:13', '22:00:52', 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Selasa', 'Minggu', '1.Harga sewa mobil murah di Bali kami cantumkan di website adalah harga nett dan hanya berlaku untuk warga negara Indonesia (WNI) yang memiliki KTP.\r\n2.Rental mobil tanpa supir atau rent car Bali self drive, penyewa yang akan mengemudikan mobil diwajibkan memiliki SIM A yang masih berlaku. Penyewa diharapkan untuk memberikan data diri secara lengkap, seperti alamat tempat tinggal, nama tempat menginap seperti hotel, villa di Bali beserta nomer kamar dan nama penyewa yang terdaftar di hotel atau villa. Wira rental mobil Bali tidak akan mengunakan data pribadi dari penyewa selain untuk keperluan penyewaan mobil.\r\n3.Kartu identitas penyewa (KTP) akan disimpan atau di pinjam selama masa penyewaan, dan akan kami kembalikan pada saat pengembalian kendaraan yang disewa.\r\n4.Jika penggunaan mobil oleh penyewa melebihi dari waktu kesepakatan penyewaan, maka akan dikenakan biaya over time sebesar 10% dari harga sewa per hari. Jika over time melebihi dari 5 jam, maka akan di hitung biaya sewa selama 1 hari.\r\n5.Pick up dan delivery service dari mobil sewa kami, tidak di kenakan biaya untuk kawasan Denpasar, Kuta, Seminyak, Legian, Jimbaran, Sanur. Diluar wilayah tersebut akan dikenakan biaya bahan bakar. Pelayanan pick up dan delivery service secara gratis hanya berlaku pada jam 07:00 – 21:00 (waktu Bali). Pengantaran kendaraan dan penjemputan mobil di luar dari waktu diatas, akan dikenakan biaya sebesar Rp.20.000 (wilayah Denpasar, Kuta, Seminyak, Legian, Jimbaran, Sanur) diluar wilayah tersebut akan dikenakan biaya tambahan penggunaan bahan bakar.\r\n6.Pemakaian kendaraan hanya diperbolehkan khusus untuk penggunaan diwilayah provinsi Bali. Pengunaan kendaraan diluar provinsi Bali maka akan dikenakan sanksi sesuai dengan aturan dan ketentuan asosiasi penyewaan mobil Bali.\r\n7.Wira Rental Mobil & Tour Bali berhak menolak pesanan pelanggan, jika pelanggan menunjukan prilaku tidak sopan, menghina, mencaci, melakukan tindak kekerasan.');
 
 -- --------------------------------------------------------
 
@@ -282,12 +295,6 @@ ALTER TABLE `artikel_pariwisata`
   ADD KEY `FK_MEMBUAT` (`ID_ADMIN`);
 
 --
--- Indeks untuk tabel `kendaraan`
---
-ALTER TABLE `kendaraan`
-  ADD PRIMARY KEY (`ID_KENDARAAN`);
-
---
 -- Indeks untuk tabel `keuntungan`
 --
 ALTER TABLE `keuntungan`
@@ -298,14 +305,14 @@ ALTER TABLE `keuntungan`
 --
 ALTER TABLE `mobil`
   ADD PRIMARY KEY (`ID_MOBIL`),
-  ADD KEY `FK_TERBAGI4` (`ID_KENDARAAN`);
+  ADD KEY `ID_RENTAL` (`ID_RENTAL`);
 
 --
 -- Indeks untuk tabel `motor`
 --
 ALTER TABLE `motor`
   ADD PRIMARY KEY (`ID_MOTOR`),
-  ADD KEY `FK_TERBAGI5` (`ID_KENDARAAN`);
+  ADD KEY `ID_RENTAL` (`ID_RENTAL`);
 
 --
 -- Indeks untuk tabel `pemilik`
@@ -334,8 +341,7 @@ ALTER TABLE `pesanan`
 --
 ALTER TABLE `rental`
   ADD PRIMARY KEY (`ID_RENTAL`),
-  ADD KEY `FK_MEMPUNYAI` (`ID_PEMILIK`),
-  ADD KEY `FK_TERDAPAT` (`ID_KENDARAAN`);
+  ADD KEY `FK_MEMPUNYAI` (`ID_PEMILIK`);
 
 --
 -- Indeks untuk tabel `transaksi`
@@ -380,13 +386,13 @@ ALTER TABLE `artikel_pariwisata`
 -- Ketidakleluasaan untuk tabel `mobil`
 --
 ALTER TABLE `mobil`
-  ADD CONSTRAINT `FK_TERBAGI4` FOREIGN KEY (`ID_KENDARAAN`) REFERENCES `kendaraan` (`ID_KENDARAAN`);
+  ADD CONSTRAINT `mobil_ibfk_1` FOREIGN KEY (`ID_RENTAL`) REFERENCES `rental` (`ID_RENTAL`);
 
 --
 -- Ketidakleluasaan untuk tabel `motor`
 --
 ALTER TABLE `motor`
-  ADD CONSTRAINT `FK_TERBAGI5` FOREIGN KEY (`ID_KENDARAAN`) REFERENCES `kendaraan` (`ID_KENDARAAN`);
+  ADD CONSTRAINT `motor_ibfk_1` FOREIGN KEY (`ID_RENTAL`) REFERENCES `rental` (`ID_RENTAL`);
 
 --
 -- Ketidakleluasaan untuk tabel `pemilik`
@@ -411,8 +417,7 @@ ALTER TABLE `pesanan`
 -- Ketidakleluasaan untuk tabel `rental`
 --
 ALTER TABLE `rental`
-  ADD CONSTRAINT `FK_MEMPUNYAI` FOREIGN KEY (`ID_PEMILIK`) REFERENCES `pemilik` (`ID_PEMILIK`),
-  ADD CONSTRAINT `FK_TERDAPAT` FOREIGN KEY (`ID_KENDARAAN`) REFERENCES `kendaraan` (`ID_KENDARAAN`);
+  ADD CONSTRAINT `FK_MEMPUNYAI` FOREIGN KEY (`ID_PEMILIK`) REFERENCES `pemilik` (`ID_PEMILIK`);
 
 --
 -- Ketidakleluasaan untuk tabel `transaksi`
