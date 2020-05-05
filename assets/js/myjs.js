@@ -34,3 +34,20 @@ $('#waktuPengembalian').datetimepicker({
     hours12: false,
     step: 30,
 })
+
+
+$('#jam_buka').datetimepicker({
+    timepicker: true,
+    datepicker: false,
+    format: 'H:i',
+    hours12: false,
+    step: 30,
+})
+
+$('#jam_tutup').datetimepicker({
+    timepicker: true,
+    datepicker: false,
+    format: 'H:i',
+    hours12: false,
+    step: 30,
+})
