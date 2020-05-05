@@ -9,23 +9,10 @@ function __construct(){
     }
 	public function index()
 	{
-<<<<<<< HEAD
-		$this->load->view('templates/header');
-		$this->load->view('tambahan/form-pencarian-dashboard1');
-		$this->load->view('auth/index');
-		$this->load->view('templates/footer');
-	}
-
-	public function index2()
-	{
-		$this->load->view('templates/header');
-		$this->load->view('tambahan/form-pencarian-dashboard2');
-		$this->load->view('auth/index');
-		$this->load->view('templates/footer');
-=======
 		$data['coba']=$this->grafik_m->show_card_artikel_trending()->result();
 		if($this->session->userdata('logged_in') != TRUE){
 			$this->load->view('templates/header');
+			$this->load->view('tambahan/form-pencarian-dashboard1');
 			$this->load->view('auth/index',$data);
 			$this->load->view('templates/footer');
 		}else{
@@ -33,8 +20,21 @@ function __construct(){
 			$this->load->view('auth/index',$data);
 			$this->load->view('templates/footer');
 		}
-		
->>>>>>> cc6b7b57e235a24b06385fbf9ac5bb12bd098386
+	}
+
+	public function index2()
+	{
+		$data['coba']=$this->grafik_m->show_card_artikel_trending()->result();
+		if($this->session->userdata('logged_in') != TRUE){
+			$this->load->view('templates/header');
+			$this->load->view('tambahan/form-pencarian-dashboard2');
+			$this->load->view('auth/index',$data);
+			$this->load->view('templates/footer');
+		}else{
+			$this->load->view('templates/header_after_login');
+			$this->load->view('auth/index',$data);
+			$this->load->view('templates/footer');
+		}
 	}
 
 	public function listKendaraan()
