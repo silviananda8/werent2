@@ -17,6 +17,7 @@ function __construct(){
 			$this->load->view('templates/footer');
 		}else{
 			$this->load->view('templates/header_after_login');
+			$this->load->view('tambahan/form-pencarian-dashboard1');
 			$this->load->view('auth/index',$data);
 			$this->load->view('templates/footer');
 		}
@@ -32,6 +33,7 @@ function __construct(){
 			$this->load->view('templates/footer');
 		}else{
 			$this->load->view('templates/header_after_login');
+			$this->load->view('tambahan/form-pencarian-dashboard2');
 			$this->load->view('auth/index',$data);
 			$this->load->view('templates/footer');
 		}

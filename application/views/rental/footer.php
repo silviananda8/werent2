@@ -19,7 +19,7 @@
         </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
-          <a class="btn btn-primary" href="<?php echo site_url('auth/index');?>">Ya</a>
+          <a class="btn btn-primary" href="<?php echo site_url('login/logout');?>">Ya</a>
         </div>
       </div>
     </div>

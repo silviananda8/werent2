@@ -13,16 +13,18 @@ class login extends CI_Controller {
     $password = $this->input->post('password',TRUE);
     $validate = $this->login_model->validate($email,$password);
     if($validate->num_rows() > 0){
-        $data  = $validate->row_array();
-        $nama   =$data['NAMA'];
-        $email  = $data['email'];
-        $password = $data['password'];
-        $level = $data['KETERANGAN_USER'];
-        $sesdata = array(
-            'NAMA'  => $nama,
-            'EMAIL'  => $email,
-            'PASSWORD'   => $password,
-            'KETERANGAN_USER'     => $level,
+        $data       = $validate->row_array();
+        $nama       = $data['NAMA'];
+        $email      = $data['email'];
+        $password   = $data['password'];
+        $id_user    = $data['ID_USER'];
+        $level      = $data['KETERANGAN_USER'];
+        $sesdata    = array(
+            'NAMA'                  => $nama,
+            'EMAIL'                 => $email,
+            'PASSWORD'              => $password,
+            'ID_USER'               => $id_user,
+            'KETERANGAN_USER'       => $level,
             'logged_in' => TRUE
         );
         $this->session->set_userdata($sesdata);
