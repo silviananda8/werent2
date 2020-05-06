@@ -26,19 +26,17 @@ class login extends CI_Controller {
             'logged_in' => TRUE
         );
         $this->session->set_userdata($sesdata);
+
         if($level === 'admin'){
         	redirect('Auth/home_admin');
         }
         else{
-            if($tmp === 'index'){
                 redirect('Auth/index');
-            }else{
-                redirect('Auth/listKendaraan');
-            }
         }
     }else{
         echo $this->session->set_flashdata('msg','Username or Password is Wrong');
         // kosong
+        echo "password salah";
     }
   }
 

@@ -105,14 +105,15 @@
 
                 <div class="row">
                     <?php foreach($data as $dta):?>
-                    <div class="col d-flex justify-content-end pl-3 pr-3">
-                        <a type="button" href="<?php echo site_url('auth/persyaratanPenyewa/'.$dta->ID_MOBIL);?>" class="btn btn-warning font-weight-bolder tombol mr-3 mt-2">Selengkapnya</a>
+                    <div class="col d-flex justify-content-end pl-3 pr-3" disable >
+                        <a type="button" href="<?php if($this->uri->segment('2')==='detailmotor'){echo site_url('auth/persyaratanPenyewa_motor/'.$dta->ID_MOTOR);} else if ($this->uri->segment('2')==='detailKendaraan') { echo site_url('auth/persyaratanPenyewa/'.$dta->ID_MOBIL);}?>" class="btn btn-warning font-weight-bolder tombol mr-3 mt-2">Selengkapnya</a>
                     </div>
                     <?php endforeach; ?>
                 </div>
             </div>
         </div>
     <!-- == end detail kendaraan == -->
+
 
         </div>
 

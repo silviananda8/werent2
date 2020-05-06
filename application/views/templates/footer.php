@@ -64,15 +64,15 @@
               </button>
             </div>
             <div class="modal-body">
-              <form>
+              <form action="<?php echo site_url('auth/register');?>" method='post'>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nama Lengkap</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <input type="name" name='Nama' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                   
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Alamat Email</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <input type="email" name='Email' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                   
                 </div>
                 <div class="form-group">
@@ -82,7 +82,7 @@
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">Konfirmasi Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                  <input type="password" name='password' class="form-control" id="exampleInputPassword1">
                 </div>
                 
                 <button type="submit" class="btn btn-primary btn-block mb-3 tombol font-weight-bolder">Daftar</button>

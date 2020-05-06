@@ -70,7 +70,7 @@
               </div>
             </div>
             <div class="col-lg-2">
-              <a class="btn btn-warning font-weight-bolder tombol-pencarian " href="<?php echo site_url('auth/listkendaraan');?>">CARI</a>
+              <a class="btn btn-warning font-weight-bolder tombol-pencarian " href="<?php echo site_url('auth/listmotor');?>">CARI</a>
             </div>
           </div>
         </div>
