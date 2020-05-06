@@ -57,7 +57,9 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-white">Nama Rental</span>
+                <?php foreach ($rental as $rental): ?>
+                <span class="mr-2 d-none d-lg-inline text-white"><?php echo $rental->NAMA_RENTAL; ?></span>
+                <?php endforeach?>
                 <img class="img-profile rounded-circle" src="../assets/img/car.jpg">
               </a>
               <!-- Dropdown - User Information -->
