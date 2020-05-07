@@ -234,7 +234,7 @@
                     <p class="font-weight-bold">
                      Rp. <?php echo $dta->HARGA_SEWA_KENDARAAN;?>,00
                     <p>
-                      <a href="<?php echo site_url('auth/detailKendaraan/'.$dta->ID_MOBIL);?>" class="btn btn-warning font-weight-bolder tombol  ml-4" <?php if ($this->session->userdata('logged_in') != TRUE) {echo "data-toggle='modal' data-target='#modalMasuk'";}?>>Pesan</a>
+                      <a href="<?php if ($this->uri->segment('2')==='listkendaraan') { echo site_url('auth/detailKendaraan/'.$dta->ID_MOBIL);} else{echo site_url('auth/detailmotor/'.$dta->ID_MOTOR);}?>" class="btn btn-warning font-weight-bolder tombol  ml-4" <?php if ($this->session->userdata('logged_in') != TRUE) {echo "data-toggle='modal' data-target='#modalMasuk'";}?>>Pesan</a>
                   </div>
                 </div>
 
