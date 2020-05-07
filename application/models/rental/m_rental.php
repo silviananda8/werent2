@@ -18,4 +18,5 @@ class m_rental extends CI_Model  {
         $this->db->where('ID_RENTAL', $id);
 		$this->db->update('rental', $data);
     }
+
 }

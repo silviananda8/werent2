@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Bulan Mei 2020 pada 15.46
--- Versi server: 10.1.38-MariaDB
--- Versi PHP: 7.3.2
+-- Generation Time: May 07, 2020 at 02:45 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.1.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -36,7 +36,7 @@ CREATE TABLE `admin` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `artikel`
+-- Table structure for table `artikel`
 --
 
 CREATE TABLE `artikel` (
@@ -48,7 +48,7 @@ CREATE TABLE `artikel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `artikel`
+-- Dumping data for table `artikel`
 --
 
 INSERT INTO `artikel` (`id`, `judul`, `thumbnail`, `artikel`, `tanggal`) VALUES
@@ -61,7 +61,7 @@ INSERT INTO `artikel` (`id`, `judul`, `thumbnail`, `artikel`, `tanggal`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `artikel_pariwisata`
+-- Table structure for table `artikel_pariwisata`
 --
 
 CREATE TABLE `artikel_pariwisata` (
@@ -75,7 +75,7 @@ CREATE TABLE `artikel_pariwisata` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `keuntungan`
+-- Table structure for table `keuntungan`
 --
 
 CREATE TABLE `keuntungan` (
@@ -85,11 +85,11 @@ CREATE TABLE `keuntungan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `keuntungan`
+-- Dumping data for table `keuntungan`
 --
 
 INSERT INTO `keuntungan` (`id_keuangan`, `bulan`, `jumlah`) VALUES
-(0, 'January', 1000000),
+(1, 'January', 1000000),
 (2, 'february', 1500000),
 (3, 'maret', 1300000),
 (4, 'april', 1200000);
@@ -97,7 +97,7 @@ INSERT INTO `keuntungan` (`id_keuangan`, `bulan`, `jumlah`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mobil`
+-- Table structure for table `mobil`
 --
 
 CREATE TABLE `mobil` (
@@ -116,35 +116,48 @@ CREATE TABLE `mobil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `mobil`
+-- Dumping data for table `mobil`
 --
 
 INSERT INTO `mobil` (`ID_MOBIL`, `ID_RENTAL`, `FOTO`, `MERK_KENDARAAN`, `NAMA_KENDARAAN`, `KAPASITAS`, `PINTU`, `PENDINGIN_UDARA`, `DESKRIPSI_KENDARAAN`, `TRANSISI`, `SUPIR`, `HARGA_SEWA_KENDARAAN`) VALUES
 (1, 1, 'renault.PNG', 'Renault', 'Trezor', 2, 2, 'AC', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Otomatis', NULL, '1.500.00'),
 (2, 1, '1-porsche-911-c4s-2019-uk-fd-hero-front_0.jpg', 'Porsche', '911Carrera', 2, 2, 'AC', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Manual', NULL, '2.500.000'),
-(3, 1, 'tesla.jpg', 'Tesla', 'Model X', 8, 4, 'AC', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Otomatis', NULL, '2.000.000');
+(3, 1, 'tesla.jpg', 'Tesla', 'Model X', 8, 4, 'AC', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Otomatis', NULL, '2.000.000'),
+(4, 2, 'b1.jpg', 'a', 'b', 2, 2, NULL, 'aaaaaaaaaa', 'manual', NULL, '2000000');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `motor`
+-- Table structure for table `motor`
 --
 
 CREATE TABLE `motor` (
   `ID_MOTOR` int(11) NOT NULL,
   `ID_RENTAL` int(11) DEFAULT NULL,
+  `FOTO` varchar(50) DEFAULT NULL,
   `MERK_KENDARAAN` varchar(20) DEFAULT NULL,
   `NAMA_KENDARAAN` varchar(50) DEFAULT NULL,
   `DESKRIPSI_KENDARAAN` text,
   `JENIS_KENDARAAN` varchar(12) DEFAULT NULL,
   `TRANSISI` varchar(9) DEFAULT NULL,
-  `HARGA_SEWA_KENDARAAN` varchar(11) DEFAULT NULL
+  `HARGA_SEWA_KENDARAAN` varchar(11) DEFAULT NULL,
+  `KAPASITAS` int(11) DEFAULT NULL,
+  `PINTU` int(11) DEFAULT NULL,
+  `PENDINGIN_UDARA` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `motor`
+--
+
+INSERT INTO `motor` (`ID_MOTOR`, `ID_RENTAL`, `FOTO`, `MERK_KENDARAAN`, `NAMA_KENDARAAN`, `DESKRIPSI_KENDARAAN`, `JENIS_KENDARAAN`, `TRANSISI`, `HARGA_SEWA_KENDARAAN`, `KAPASITAS`, `PINTU`, `PENDINGIN_UDARA`) VALUES
+(1, 2, '2000000005.jpg', 'DUCATI', 'Panigale V4', NULL, 'motor', 'Manual', '1.300.000', 1, 0, 'Tidak'),
+(4, 1, NULL, 'Kaw', 'Nin', 'motor woww', NULL, NULL, '600', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pemilik`
+-- Table structure for table `pemilik`
 --
 
 CREATE TABLE `pemilik` (
@@ -155,29 +168,30 @@ CREATE TABLE `pemilik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pemilik`
+-- Dumping data for table `pemilik`
 --
 
 INSERT INTO `pemilik` (`ID_PEMILIK`, `ID_USER`, `FOTO_PEMILIK`, `REKENING_PEMILIK`) VALUES
-(1, 2, NULL, NULL);
+(1, 2, NULL, NULL),
+(2, 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penyewa`
+-- Table structure for table `penyewa`
 --
 
 CREATE TABLE `penyewa` (
   `ID_PENYEWA` int(11) NOT NULL,
   `ID_USER` int(11) NOT NULL,
-  `FOTO_PENYEWA` int(11) DEFAULT NULL,
-  `REKENING_PENYEWA` int(11) DEFAULT NULL
+  `FOTO_PENYEWA` varchar(50) NOT NULL,
+  `REKENING_PENYEWA` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pesanan`
+-- Table structure for table `pesanan`
 --
 
 CREATE TABLE `pesanan` (
@@ -202,7 +216,7 @@ CREATE TABLE `pesanan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rental`
+-- Table structure for table `rental`
 --
 
 CREATE TABLE `rental` (
@@ -212,10 +226,10 @@ CREATE TABLE `rental` (
   `DESKRIPSI_RENTAL` text,
   `ALAMAT_RENTAL` varchar(50) DEFAULT NULL,
   `FOTO_RENTAL` longblob,
-  `LAMA_PEMESANAN_MINIMM` int(11) DEFAULT NULL,
+  `LAMA_PEMESANAN_MINIMUM` int(11) DEFAULT NULL,
   `JAM_BUKA` time DEFAULT NULL,
   `JAM_TUTUP` time DEFAULT NULL,
-  `PERSYARATAN_JARAK_WAKTU_OEMESANAN` int(11) DEFAULT NULL,
+  `PERSYARATAN_JARAK_WAKTU_PEMESANAN` int(11) DEFAULT NULL,
   `KEBIJAKAN_PEMBATALAN` text,
   `HARI_1` varchar(7) DEFAULT NULL,
   `HARI_2` varchar(7) DEFAULT NULL,
@@ -223,16 +237,17 @@ CREATE TABLE `rental` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `rental`
+-- Dumping data for table `rental`
 --
 
-INSERT INTO `rental` (`ID_RENTAL`, `ID_PEMILIK`, `NAMA_RENTAL`, `DESKRIPSI_RENTAL`, `ALAMAT_RENTAL`, `FOTO_RENTAL`, `LAMA_PEMESANAN_MINIMM`, `JAM_BUKA`, `JAM_TUTUP`, `PERSYARATAN_JARAK_WAKTU_OEMESANAN`, `KEBIJAKAN_PEMBATALAN`, `HARI_1`, `HARI_2`, `PERSYARATAN_PENYEWA`) VALUES
-(1, 1, 'Jaya Abadi Showroom', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Jl. Kenangan', NULL, NULL, '08:00:13', '22:00:52', 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Selasa', 'Minggu', '1.Harga sewa mobil murah di Bali kami cantumkan di website adalah harga nett dan hanya berlaku untuk warga negara Indonesia (WNI) yang memiliki KTP.\r\n2.Rental mobil tanpa supir atau rent car Bali self drive, penyewa yang akan mengemudikan mobil diwajibkan memiliki SIM A yang masih berlaku. Penyewa diharapkan untuk memberikan data diri secara lengkap, seperti alamat tempat tinggal, nama tempat menginap seperti hotel, villa di Bali beserta nomer kamar dan nama penyewa yang terdaftar di hotel atau villa. Wira rental mobil Bali tidak akan mengunakan data pribadi dari penyewa selain untuk keperluan penyewaan mobil.\r\n3.Kartu identitas penyewa (KTP) akan disimpan atau di pinjam selama masa penyewaan, dan akan kami kembalikan pada saat pengembalian kendaraan yang disewa.\r\n4.Jika penggunaan mobil oleh penyewa melebihi dari waktu kesepakatan penyewaan, maka akan dikenakan biaya over time sebesar 10% dari harga sewa per hari. Jika over time melebihi dari 5 jam, maka akan di hitung biaya sewa selama 1 hari.\r\n5.Pick up dan delivery service dari mobil sewa kami, tidak di kenakan biaya untuk kawasan Denpasar, Kuta, Seminyak, Legian, Jimbaran, Sanur. Diluar wilayah tersebut akan dikenakan biaya bahan bakar. Pelayanan pick up dan delivery service secara gratis hanya berlaku pada jam 07:00 – 21:00 (waktu Bali). Pengantaran kendaraan dan penjemputan mobil di luar dari waktu diatas, akan dikenakan biaya sebesar Rp.20.000 (wilayah Denpasar, Kuta, Seminyak, Legian, Jimbaran, Sanur) diluar wilayah tersebut akan dikenakan biaya tambahan penggunaan bahan bakar.\r\n6.Pemakaian kendaraan hanya diperbolehkan khusus untuk penggunaan diwilayah provinsi Bali. Pengunaan kendaraan diluar provinsi Bali maka akan dikenakan sanksi sesuai dengan aturan dan ketentuan asosiasi penyewaan mobil Bali.\r\n7.Wira Rental Mobil & Tour Bali berhak menolak pesanan pelanggan, jika pelanggan menunjukan prilaku tidak sopan, menghina, mencaci, melakukan tindak kekerasan.');
+INSERT INTO `rental` (`ID_RENTAL`, `ID_PEMILIK`, `NAMA_RENTAL`, `DESKRIPSI_RENTAL`, `ALAMAT_RENTAL`, `FOTO_RENTAL`, `LAMA_PEMESANAN_MINIMUM`, `JAM_BUKA`, `JAM_TUTUP`, `PERSYARATAN_JARAK_WAKTU_PEMESANAN`, `KEBIJAKAN_PEMBATALAN`, `HARI_1`, `HARI_2`, `PERSYARATAN_PENYEWA`) VALUES
+(1, 1, 'Jaya Abadi Showroom', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Jl. Kenangan', NULL, 1, '08:00:13', '22:00:52', 3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Selasa', 'Minggu', '1.Harga sewa mobil murah di Bali kami cantumkan di website adalah harga nett dan hanya berlaku untuk warga negara Indonesia (WNI) yang memiliki KTP.\r\n2.Rental mobil tanpa supir atau rent car Bali self drive, penyewa yang akan mengemudikan mobil diwajibkan memiliki SIM A yang masih berlaku. Penyewa diharapkan untuk memberikan data diri secara lengkap, seperti alamat tempat tinggal, nama tempat menginap seperti hotel, villa di Bali beserta nomer kamar dan nama penyewa yang terdaftar di hotel atau villa. Wira rental mobil Bali tidak akan mengunakan data pribadi dari penyewa selain untuk keperluan penyewaan mobil.\r\n3.Kartu identitas penyewa (KTP) akan disimpan atau di pinjam selama masa penyewaan, dan akan kami kembalikan pada saat pengembalian kendaraan yang disewa.\r\n4.Jika penggunaan mobil oleh penyewa melebihi dari waktu kesepakatan penyewaan, maka akan dikenakan biaya over time sebesar 10% dari harga sewa per hari. Jika over time melebihi dari 5 jam, maka akan di hitung biaya sewa selama 1 hari.\r\n5.Pick up dan delivery service dari mobil sewa kami, tidak di kenakan biaya untuk kawasan Denpasar, Kuta, Seminyak, Legian, Jimbaran, Sanur. Diluar wilayah tersebut akan dikenakan biaya bahan bakar. Pelayanan pick up dan delivery service secara gratis hanya berlaku pada jam 07:00 – 21:00 (waktu Bali). Pengantaran kendaraan dan penjemputan mobil di luar dari waktu diatas, akan dikenakan biaya sebesar Rp.20.000 (wilayah Denpasar, Kuta, Seminyak, Legian, Jimbaran, Sanur) diluar wilayah tersebut akan dikenakan biaya tambahan penggunaan bahan bakar.\r\n6.Pemakaian kendaraan hanya diperbolehkan khusus untuk penggunaan diwilayah provinsi Bali. Pengunaan kendaraan diluar provinsi Bali maka akan dikenakan sanksi sesuai dengan aturan dan ketentuan asosiasi penyewaan mobil Bali.\r\n7.Wira Rental Mobil & Tour Bali berhak menolak pesanan pelanggan, jika pelanggan menunjukan prilaku tidak sopan, menghina, mencaci, melakukan tindak kekerasan.'),
+(2, 2, 'Sumber Makmur', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Jl. Jatinegara', NULL, NULL, '08:00:00', '22:00:59', NULL, NULL, 'Senin', 'Minggu', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi`
+-- Table structure for table `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -246,7 +261,7 @@ CREATE TABLE `transaksi` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -263,167 +278,229 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`ID_USER`, `EMAIL`, `PASSWORD`, `NAMA`, `JENIS_KELAMIN`, `DAERAH`, `TANGGAL_LAHIR`, `NEGARA_TETMPAT_TINGGAL`, `TELEPON_SELULER`, `KETERANGAN_USER`) VALUES
 (1, 'admin@gmail.com', 'admin', 'admin', 'L', 'SDA', '2020-05-01', 'indonesia', 81876855, 'admin'),
-(2, 'user@gmail.com', 'user', 'user', 'P', 'SBY', '2020-05-01', 'Indonesia', 986756334, 'user');
+(2, 'user@gmail.com', 'user', 'user', 'P', 'SBY', '2020-05-01', 'Indonesia', 986756334, 'user'),
+(3, 'rahadianhanif98@gmail.com', 'alvern', 'Alvern', NULL, NULL, NULL, NULL, NULL, 'user'),
+(4, 'coba@gmail.com', '123', 'coba', NULL, NULL, NULL, NULL, NULL, 'user');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`ID_ADMIN`),
-  ADD KEY `FK_TERBAGI` (`ID_USER`);
+  ADD KEY `ID_USER` (`ID_USER`);
 
 --
--- Indeks untuk tabel `artikel`
+-- Indexes for table `artikel`
 --
 ALTER TABLE `artikel`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `artikel_pariwisata`
+-- Indexes for table `artikel_pariwisata`
 --
 ALTER TABLE `artikel_pariwisata`
   ADD PRIMARY KEY (`ID_ARTIKEL`),
-  ADD KEY `FK_MEMBUAT` (`ID_ADMIN`);
+  ADD KEY `ID_ADMIN` (`ID_ADMIN`);
 
 --
--- Indeks untuk tabel `keuntungan`
+-- Indexes for table `keuntungan`
 --
 ALTER TABLE `keuntungan`
   ADD PRIMARY KEY (`id_keuangan`);
 
 --
--- Indeks untuk tabel `mobil`
+-- Indexes for table `mobil`
 --
 ALTER TABLE `mobil`
   ADD PRIMARY KEY (`ID_MOBIL`),
   ADD KEY `ID_RENTAL` (`ID_RENTAL`);
 
 --
--- Indeks untuk tabel `motor`
+-- Indexes for table `motor`
 --
 ALTER TABLE `motor`
   ADD PRIMARY KEY (`ID_MOTOR`),
   ADD KEY `ID_RENTAL` (`ID_RENTAL`);
 
 --
--- Indeks untuk tabel `pemilik`
+-- Indexes for table `pemilik`
 --
 ALTER TABLE `pemilik`
   ADD PRIMARY KEY (`ID_PEMILIK`),
-  ADD KEY `FK_TERBAGI2` (`ID_USER`);
+  ADD KEY `ID_USER` (`ID_USER`);
 
 --
--- Indeks untuk tabel `penyewa`
+-- Indexes for table `penyewa`
 --
 ALTER TABLE `penyewa`
   ADD PRIMARY KEY (`ID_PENYEWA`),
-  ADD KEY `FK_TERBAGI3` (`ID_USER`);
+  ADD KEY `ID_USER` (`ID_USER`);
 
 --
--- Indeks untuk tabel `pesanan`
+-- Indexes for table `pesanan`
 --
 ALTER TABLE `pesanan`
   ADD PRIMARY KEY (`ID_PESAN`),
-  ADD KEY `FK_MEMESAN` (`ID_PENYEWA`),
-  ADD KEY `FK_MENYEWAKAN` (`ID_RENTAL`);
+  ADD KEY `ID_PENYEWA` (`ID_PENYEWA`),
+  ADD KEY `ID_RENTAL` (`ID_RENTAL`);
 
 --
--- Indeks untuk tabel `rental`
+-- Indexes for table `rental`
 --
 ALTER TABLE `rental`
   ADD PRIMARY KEY (`ID_RENTAL`),
-  ADD KEY `FK_MEMPUNYAI` (`ID_PEMILIK`);
+  ADD KEY `ID_PEMILIK` (`ID_PEMILIK`);
 
 --
--- Indeks untuk tabel `transaksi`
+-- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`ID_TRANSAKSI`),
-  ADD KEY `FK_MEMILIKI` (`ID_PESAN`);
+  ADD KEY `ID_PESAN` (`ID_PESAN`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`ID_USER`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `artikel`
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `ID_ADMIN` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `artikel`
 --
 ALTER TABLE `artikel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- AUTO_INCREMENT for table `keuntungan`
+--
+ALTER TABLE `keuntungan`
+  MODIFY `id_keuangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `mobil`
+--
+ALTER TABLE `mobil`
+  MODIFY `ID_MOBIL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `motor`
+--
+ALTER TABLE `motor`
+  MODIFY `ID_MOTOR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `pemilik`
+--
+ALTER TABLE `pemilik`
+  MODIFY `ID_PEMILIK` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `penyewa`
+--
+ALTER TABLE `penyewa`
+  MODIFY `ID_PENYEWA` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pesanan`
+--
+ALTER TABLE `pesanan`
+  MODIFY `ID_PESAN` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `rental`
+--
+ALTER TABLE `rental`
+  MODIFY `ID_RENTAL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `ID_TRANSAKSI` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `admin`
+-- Constraints for table `admin`
 --
 ALTER TABLE `admin`
-  ADD CONSTRAINT `FK_TERBAGI` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`);
+  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`);
 
 --
--- Ketidakleluasaan untuk tabel `artikel_pariwisata`
+-- Constraints for table `artikel_pariwisata`
 --
 ALTER TABLE `artikel_pariwisata`
-  ADD CONSTRAINT `FK_MEMBUAT` FOREIGN KEY (`ID_ADMIN`) REFERENCES `admin` (`ID_ADMIN`);
+  ADD CONSTRAINT `artikel_pariwisata_ibfk_1` FOREIGN KEY (`ID_ADMIN`) REFERENCES `admin` (`ID_ADMIN`);
 
 --
--- Ketidakleluasaan untuk tabel `mobil`
+-- Constraints for table `mobil`
 --
 ALTER TABLE `mobil`
   ADD CONSTRAINT `mobil_ibfk_1` FOREIGN KEY (`ID_RENTAL`) REFERENCES `rental` (`ID_RENTAL`);
 
 --
--- Ketidakleluasaan untuk tabel `motor`
+-- Constraints for table `motor`
 --
 ALTER TABLE `motor`
   ADD CONSTRAINT `motor_ibfk_1` FOREIGN KEY (`ID_RENTAL`) REFERENCES `rental` (`ID_RENTAL`);
 
 --
--- Ketidakleluasaan untuk tabel `pemilik`
+-- Constraints for table `pemilik`
 --
 ALTER TABLE `pemilik`
-  ADD CONSTRAINT `FK_TERBAGI2` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`);
+  ADD CONSTRAINT `pemilik_ibfk_1` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`);
 
 --
--- Ketidakleluasaan untuk tabel `penyewa`
+-- Constraints for table `penyewa`
 --
 ALTER TABLE `penyewa`
-  ADD CONSTRAINT `FK_TERBAGI3` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`);
+  ADD CONSTRAINT `penyewa_ibfk_1` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`);
 
 --
--- Ketidakleluasaan untuk tabel `pesanan`
+-- Constraints for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  ADD CONSTRAINT `FK_MEMESAN` FOREIGN KEY (`ID_PENYEWA`) REFERENCES `penyewa` (`ID_PENYEWA`),
-  ADD CONSTRAINT `FK_MENYEWAKAN` FOREIGN KEY (`ID_RENTAL`) REFERENCES `rental` (`ID_RENTAL`);
+  ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`ID_PENYEWA`) REFERENCES `penyewa` (`ID_PENYEWA`),
+  ADD CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`ID_RENTAL`) REFERENCES `rental` (`ID_RENTAL`);
 
 --
--- Ketidakleluasaan untuk tabel `rental`
+-- Constraints for table `rental`
 --
 ALTER TABLE `rental`
-  ADD CONSTRAINT `FK_MEMPUNYAI` FOREIGN KEY (`ID_PEMILIK`) REFERENCES `pemilik` (`ID_PEMILIK`);
+  ADD CONSTRAINT `rental_ibfk_1` FOREIGN KEY (`ID_PEMILIK`) REFERENCES `pemilik` (`ID_PEMILIK`);
 
 --
--- Ketidakleluasaan untuk tabel `transaksi`
+-- Constraints for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD CONSTRAINT `FK_MEMILIKI` FOREIGN KEY (`ID_PESAN`) REFERENCES `pesanan` (`ID_PESAN`);
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`ID_PESAN`) REFERENCES `pesanan` (`ID_PESAN`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

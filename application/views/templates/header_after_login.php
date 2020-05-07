@@ -49,10 +49,21 @@
                   <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hallo <?php echo $this->session->userdata('NAMA');?>
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Profile</a>
-                      <a class="dropdown-item" href="<?php echo site_url('c_rental/index')?>">rental</a>
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Profile
+                    </a>
+
+                    <a class="dropdown-item" href="<?php echo site_url('rental/c_session/auth')?>">
+                      <i class="fas fa-business-time fa-sm fa-fw mr-2 text-gray-400"></i>
+                      rental
+                    </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="<?php echo site_url('login/Logout')?>">Logout</a>
+                    
+                    <a class="dropdown-item" href="<?php echo site_url('login/Logout')?>">
+                      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Logout
+                    </a>
                   </div>
                 </li>
                 

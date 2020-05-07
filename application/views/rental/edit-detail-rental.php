@@ -31,7 +31,7 @@
                 <div class="col-7 ml-5 bg-white border border-dark">
                     <h4 class="text-uppercase"><strong>Informasi Pribadi</strong></h4>
 
-                    <form action="<?php echo base_url().'c_rental/prosesEditDetail'?>" method="post" class="form-group mb-3">
+                    <form action="<?php echo base_url().'rental/c_rental/prosesEditDetail'?>" method="post" class="form-group mb-3">
                         <dl class="row mt-3">
                             <dt class="col-sm-5">Nama Rental</dt>
                             <dd class="col-sm-7">

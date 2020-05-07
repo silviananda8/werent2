@@ -41,7 +41,7 @@
    <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-dark topbar static-top shadow" style="background-color: #343a40">
         <i class="fa fa-car fa-2x icon-orange mr-2" style="color: #ffd000" ></i>
-        <a class="navbar-brand mt-2" href="<?php echo site_url('c_rental/index');?>"><h4><strong>Werent</strong></h4></a>
+        <a class="navbar-brand mt-2" href="<?php echo site_url('rental/c_rental/index');?>"><h4><strong>Werent</strong></h4></a>
 
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -57,18 +57,18 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <?php foreach ($rental as $rental): ?>
-                <span class="mr-2 d-none d-lg-inline text-white"><?php echo $rental->NAMA_RENTAL; ?></span>
-                <?php endforeach?>
-                <img class="img-profile rounded-circle" src="../assets/img/car.jpg">
+                
+                <span class="mr-2 d-none d-lg-inline text-white"><?php echo $this->session->userdata('NAMA_RENTAL'); ?></span>
+                <img class="img-profile rounded-circle" src="<?= base_url('assets/img/') ?><?php echo $this->session->userdata('FOTO_RENTAL');?>">
+                
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="<?php echo site_url('c_rental/index');?>">
+                <a class="dropdown-item" href="<?php echo site_url('rental/c_rental/index');?>">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile Rental
                 </a>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="<?php echo site_url('rental/c_mobil/daftarKendaraan');?>">
                   <i class="fas fa-car fa-sm fa-fw mr-2 text-gray-400"></i>
                   Daftar Kendaraan
                 </a>
@@ -98,7 +98,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo site_url('c_rental/index');?>">
+        <a class="nav-link" href="<?php echo site_url('rental/c_rental/index');?>">
           <i class="fas fa-user fa-sm fa-fw"></i>
           <span>Profil Rental</span></a>
       </li>
@@ -106,7 +106,7 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTransaksi" aria-expanded="true" aria-controls="collapseTransaksi">
-          <i class="fas fa-fw fa-list-ul"></i>
+          <i class="fas fa-money-check-alt"></i>
           <span>Transaksi</span>
         </a>
         <div id="collapseTransaksi" class="collapse" aria-labelledby="headingTransaksi" data-parent="#accordionSidebar">
@@ -119,10 +119,22 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-          <a class="nav-link" href="<?php echo site_url('c_rental/tambahKendaraan');?>">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTambahKendaraan" aria-expanded="true" aria-controls="collapseTambahKendaraan">
+          <i class="fas fa-plus-circle"></i>
+          <span>Tambah Kendaraan</span>
+        </a>
+        <div id="collapseTambahKendaraan" class="collapse" aria-labelledby="headingKendaraan" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?php echo site_url('rental/c_mobil/tambahKendaraan');?>">Mobil</a>
+            <a class="collapse-item" href="<?php echo site_url('rental/c_motor/tambahKendaraan');?>">Motor</a>
+          </div>
+        </div>
+      </li>
+      <!-- <li class="nav-item">
+          <a class="nav-link" href="<?php echo site_url('rental/c_mobil/tambahKendaraan');?>">
           <i class="fas fa-user fa-sm fa-fw"></i>
           <span>Tambah Kendaraan</span></a>
-      </li>
+      </li> -->
 
             <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
@@ -132,7 +144,8 @@
         </a>
         <div id="collapseKendaraan" class="collapse" aria-labelledby="headingKendaraan" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="login.html">Semua Kendaraan</a>
+            <a class="collapse-item" href="<?php echo site_url('rental/c_mobil/daftarKendaraan');?>">Mobil</a>
+            <a class="collapse-item" href="<?php echo site_url('rental/c_motor/daftarKendaraan');?>">Motor</a>
             <a class="collapse-item" href="register.html">Sedang Disewa</a>
             <a class="collapse-item" href="register.html">Sementara tidak disewa</a>
           </div>

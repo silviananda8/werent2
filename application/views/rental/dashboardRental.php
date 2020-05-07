@@ -16,7 +16,7 @@
               <div class="card">
                     <img src="<?= base_url('assets/img/') ?><?php echo $rental->FOTO_RENTAL?>" alt="..." class="image-rental" style="width: 341px;">
                     <div class="card-body">
-                        <a href="<?php echo site_url('c_rental/editDetail');?>" class="btn btn-warning" type="button">
+                        <a href="<?php echo site_url('rental/c_rental/editDetail');?>" class="btn btn-warning" type="button">
                             <strong>Edit Detail</strong>
                         </a>
                     </div>

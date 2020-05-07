@@ -20,7 +20,7 @@ class grafik_m  extends CI_Model  {
         return $sql;
     }
     function show_mobil(){
-        $sql=$this->db->query("SELECT * FROM rental JOIN mobil");
+        $sql=$this->db->query("SELECT mobil.* FROM rental, mobil where rental.ID_RENTAL = mobil.ID_RENTAL");
         return $sql;
     }
     function detail_mobil($id){

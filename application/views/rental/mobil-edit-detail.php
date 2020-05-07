@@ -13,6 +13,7 @@
                 <!-- Page Heading -->
                 <div class="row row-cols-2 mt-5 mb-5">
                 
+                <?php foreach ($data as $dta): ?>
                     
                     <div class="col-4 mr-4">
 
@@ -21,7 +22,7 @@
                             <div class="row row-cols-1">
                                 <div class="col">
                                     <div class="">
-                                        <img src="<?= base_url('assets/img/') ?>plus.png" alt="..." class="image-rental" style="width: 296px;">
+                                        <img src="<?= base_url('assets/uploads/kendaraan/') ?><?php echo $dta->FOTO;?>" alt="..." class="image-rental" style="width: 296px;">
                                             <div class="form-group mt-3">
                                                 <input type="file" class="form-control" id="foto_kendaraan" name="foto_kendaraan" accept="image/png, image/jpeg">
                                                 
@@ -33,7 +34,7 @@
 
 
                             <!-- input fitur kendaraan -->
-                            <div class="col border border-dark" id="input-fitur-kendaraan">
+                            <!-- <div class="col border border-dark" id="input-fitur-kendaraan">
                                 <h4 class="text-uppercase">
                                     <strong>Fitur Kendaraan</strong>
                                 </h4>
@@ -108,7 +109,7 @@
                                         
                                         
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- akhir input fitur kendaraan -->
 
                         </div>
@@ -121,34 +122,33 @@
                             <strong>Detail Kendaraan</strong>
                         </h4>
 
-                            <form action="" class="" method="post">
+                            <form action="<?php echo base_url().'rental/c_mobil/prosesEditDetail'?>" class="" method="post">
                                 <div class="row row-cols-2">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="nama_kendaraan">Nama Kendaraan</label>
-                                            <input type="text" class="form-control" id="nama_kendaraan" name="nama_kendaraan" aria-describedby="emailHelp">
+                                            <label for="nama_kendaraan">Merk Mobil</label>
+                                            <input type="text" class="form-control" id="merk_kendaraan" name="merk_kendaraan" value="<?php echo $dta->MERK_KENDARAAN;?>" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="deskripsi_kendaraan">Deskripsi Kendaraan</label>
-                                            <textarea class="form-control" id="deskripsi_kendaraan" name="deskripsi_kendaraan" rows="4"></textarea>
+                                            <label for="deskripsi_kendaraan">Deskripsi Mobil</label>
+                                            <textarea class="form-control" id="deskripsi_kendaraan" name="deskripsi_kendaraan" rows="4"><?php echo $dta->DESKRIPSI_KENDARAAN;?></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="harga_kendaraan">Harga Kendaraan</label>
-                                            <input type="number" class="form-control" id="harga_kendaraan" name="harga_kendaraan" min="1" aria-describedby="numberHelp">
+                                            <label for="harga_kendaraan">Harga Sewa Mobil</label>
+                                            <input type="number" class="form-control" id="harga_kendaraan" name="harga_kendaraan" min="1" value="<?php echo $dta->HARGA_SEWA_KENDARAAN;?>" required>
                                         </div>
                                     </div>
 
                                     <div class="col">
+                                        
                                         <div class="form-group">
-                                            <label for="jenis_kendaraan">Jenis Kendaraan</label>
-                                            <select class="form-control" id="jenis_kendaraan" name="jenis_kendaraan">
-                                                <option value="mobil">Mobil</option>
-                                                <option value="sepeda motor">Sepeda Motor</option>
-                                            </select>
+                                            <label for="nama_kendaraan">Nama Mobil</label>
+                                            <input type="text" class="form-control" id="nama_kendaraan" name="nama_kendaraan" value="<?php echo $dta->NAMA_KENDARAAN;?>" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="transmisi">Transmisi Kendaraan</label>
-                                            <select class="form-control" id="transmisi" name="transmisi">
+                                            <label for="transmisi">Transmisi Mobil</label>
+                                            <select class="form-control" id="transmisi" name="transmisi" required>
+                                                <option></option>
                                                 <option value="otomatis">Otomatis</option>
                                                 <option value="manual">Manual</option>
                                                 <option value="continous variable">Continous Variable</option>
@@ -157,15 +157,16 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="kapasitas">Kapasitas Penumpang</label>
-                                            <input type="number" class="form-control" id="kapasitas" name="kapasitas" min="1" max="8" aria-describedby="numberHelp">
+                                            <input type="number" class="form-control" id="kapasitas" name="kapasitas" min="2" max="8" value="<?php echo $dta->KAPASITAS;?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="pintu">Pintu Kendaraan</label>
-                                            <input type="number" class="form-control" id="pintu" name="pintu" min="1" aria-describedby="numberHelp">
-                                            <small id="numberHelp" class="form-text text-muted">Pengisian hanya berlaku pada jenis kendaraan mobil</small>
+                                            <input type="number" class="form-control" id="pintu" name="pintu" min="2" max="4" value="<?php echo $dta->PINTU;?>" required>
                                         </div>
                                     </div>
                                 </div>
+                                
+                                <input type="text" class="form-control" value="<?php echo $dta->ID_MOBIL?>" id="id_mobil" name="id_mobil" hidden>
                                 
                                 <button type="submit" class="btn btn-warning mb-3">
                                     Submit
@@ -174,8 +175,7 @@
                     </div>
                     <!-- akhir input detail kendaraan -->
 
-
-
+                    <?php endforeach; ?>
                 </div>
                 </div>
                 <!-- /.container-fluid -->

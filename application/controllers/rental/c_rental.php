@@ -5,7 +5,7 @@ class c_rental extends CI_Controller {
     function __construct(){
         parent::__construct();
         $this->load->database();
-        $this->load->model('m_rental');
+        $this->load->model('rental/m_rental');
     }
 
     function index(){
@@ -15,7 +15,7 @@ class c_rental extends CI_Controller {
         
 
         $this->load->view('rental/header', $data);
-        $this->load->view('rental/dashboardRental', $data);
+        $this->load->view('rental/dashboardRental');
         $this->load->view('rental/footer');
     }
 
@@ -24,7 +24,7 @@ class c_rental extends CI_Controller {
         $data['rental'] = $this->m_rental->rental($id_user)->result();
 
         $this->load->view('rental/header', $data);
-        $this->load->view('rental/edit-detail-Rental', $data);
+        $this->load->view('rental/edit-detail-Rental');
         $this->load->view('rental/footer');
     }
 
@@ -43,13 +43,7 @@ class c_rental extends CI_Controller {
 		);
 
         $this->m_rental->updateRental($data, $id);
-        redirect('c_rental/index');
-    }
-
-    function tambahKendaraan(){
-        $this->load->view('rental/header', $data);
-        $this->load->view('rental/tambah-kendaraan');
-        $this->load->view('rental/footer');
+        redirect('rental/c_rental/index');
     }
 
 }
