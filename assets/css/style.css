@@ -412,6 +412,41 @@
 	margin-top: 50px;
 }
 
+/* konfirmasi booking */
+.tambahan p{
+	font-weight: 200px;
+	color: #fd7e14;
+	font-size: 16px;
+}
+
+.card-shadow{
+	box-shadow: 0 3px 7px rgba(0,0,0,0.7);
+	border-radius: 6px;
+	background-color: white;
+}
+
+.yellow-divider{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	height: 8px;
+	width: 100%;
+	border-top: 1px solid #fd7e14;
+}
+
+.h-divider{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	height: 1px;
+	width: 100%;
+	border-top: 1px solid #d7e1ea;
+}
+
+.v-divider{
+	width: 1px;
+	height: 200px;
+	border-left: 1px solid #d7e1ea;
+}
+
 /* -- == panduan detail rental == -- */
 .panduan-detail-rental{
 	position: relative;

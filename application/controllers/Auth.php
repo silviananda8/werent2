@@ -126,6 +126,17 @@ function __construct(){
 		$this->load->view('auth/konfirmasi.php');
 		$this->load->view('templates/footer');
 	}
+
+	function konfirmasiBooking(){
+		// $data['data']=$this->grafik_m->detail_mobil($id)->result();
+		$this->load->view('templates/header_after_login');
+		// $this->load->view('tambahan/bar-panduan');
+		// $this->load->view('tambahan/filter-pencarian');
+		$this->load->view('auth/konfirmasiBooking');
+		$this->load->view('templates/footer');
+	}
+
+
 	public function artikel()
 	{
 		$data['data']=$this->grafik_m->show_card_artikel()->result();
