@@ -38,6 +38,22 @@ class c_mobil extends CI_Controller {
     }
     
     function tambahMobil(){
+        $foto   = $_FILES['foto'];
+        if($foto=''){}else{
+            $config['upload_path']      = './assets/uploads/kendaraan/';
+            $config['allowed_types']    = 'jpg|jpeg|gif|png';
+            $config['max_size']             = 2048;
+
+            $this->load->library('upload');
+            $this->upload->initialize($config);
+
+            if(!$this->upload->do_upload('foto')){
+                echo $this->upload->display_errors();die();
+            }else{
+                $foto = $this->upload->data('file_name');
+            }
+        }
+
         $data = array(
 			'MERK_KENDARAAN'	    => $this->input->post('merk_kendaraan'),
 			'ID_RENTAL'	            => $this->input->post('id_rental'),
@@ -46,7 +62,8 @@ class c_mobil extends CI_Controller {
 			'NAMA_KENDARAAN'	    => $this->input->post('nama_kendaraan'),
 			'TRANSISI'	            => $this->input->post('transmisi'),
 			'KAPASITAS'	            => $this->input->post('kapasitas'),
-			'PINTU'	                => $this->input->post('pintu')
+            'PINTU'	                => $this->input->post('pintu'),
+            'FOTO'                  => $foto
 		);
 
         $this->m_mobil->tambahMobil($data);
@@ -55,6 +72,23 @@ class c_mobil extends CI_Controller {
 
     function prosesEditDetail(){
         $id = $this->input->post('id_mobil');
+
+        $foto   = $_FILES['foto'];
+        if($foto=''){}else{
+            $config['upload_path']      = './assets/uploads/kendaraan/';
+            $config['allowed_types']    = 'jpg|jpeg|gif|png';
+            $config['max_size']             = 2048;
+
+            $this->load->library('upload');
+            $this->upload->initialize($config);
+
+            if(!$this->upload->do_upload('foto')){
+                echo $this->upload->display_errors();die();
+            }else{
+                $foto = $this->upload->data('file_name');
+            }
+        }
+
 		$data = array(
 			'MERK_KENDARAAN'	    => $this->input->post('merk_kendaraan'),
 			'DESKRIPSI_KENDARAAN'	=> $this->input->post('deskripsi_kendaraan'),
@@ -62,7 +96,8 @@ class c_mobil extends CI_Controller {
 			'NAMA_KENDARAAN'	    => $this->input->post('nama_kendaraan'),
 			'TRANSISI'	            => $this->input->post('transmisi'),
 			'KAPASITAS'	            => $this->input->post('kapasitas'),
-			'PINTU'	                => $this->input->post('pintu')
+            'PINTU'	                => $this->input->post('pintu'),
+            'FOTO'                  => $foto,
 		);
 
         $this->m_mobil->updateMobil($data, $id);

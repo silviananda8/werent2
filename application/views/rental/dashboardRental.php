@@ -14,7 +14,7 @@
           <div class="row mt-5">
             <div class="col-4 mr-4">
               <div class="card">
-                    <img src="<?= base_url('assets/img/') ?><?php echo $rental->FOTO_RENTAL?>" alt="..." class="image-rental" style="width: 341px;">
+                    <img src="<?= base_url('assets/uploads/rental/image-profil/') ?><?php echo $rental->FOTO_RENTAL?>" alt="..." class="image-rental" style="width: 341px;">
                     <div class="card-body">
                         <a href="<?php echo site_url('rental/c_rental/editDetail');?>" class="btn btn-warning" type="button">
                             <strong>Edit Detail</strong>

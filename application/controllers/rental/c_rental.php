@@ -29,7 +29,23 @@ class c_rental extends CI_Controller {
     }
 
     function prosesEditDetail(){
-        $id = $this->input->post('id_rental');
+        $id     = $this->input->post('id_rental');
+        $foto   = $_FILES['foto_rental'];
+        if($foto=''){}else{
+            $config['upload_path']      = './assets/uploads/rental/image-profil/';
+            $config['allowed_types']    = 'jpg|jpeg|gif|png';
+            $config['max_size']             = 2048;
+
+            $this->load->library('upload');
+            $this->upload->initialize($config);
+
+            if(!$this->upload->do_upload('foto_rental')){
+                echo $this->upload->display_errors();die();
+            }else{
+                $foto = $this->upload->data('file_name');
+            }
+        }
+
 		$data = array(
 			'NAMA_RENTAL'	            => $this->input->post('nama_rental'),
             'ALAMAT_RENTAL'	            => $this->input->post('alamat_rental'),
@@ -39,7 +55,8 @@ class c_rental extends CI_Controller {
             'PERSYARATAN_JARAK_WAKTU_PEMESANAN'	=> $this->input->post('lama_pemesanan_maksimum'),
             'PERSYARATAN_PENYEWA'	        => $this->input->post('aturan_pemesanan'),
             'KEBIJAKAN_PEMBATALAN'	    => $this->input->post('kebijakan_pembatalan'),
-            'DESKRIPSI_RENTAL'	        => $this->input->post('deskripsi_rental') 
+            'DESKRIPSI_RENTAL'	        => $this->input->post('deskripsi_rental'),
+            'FOTO_RENTAL'               => $foto
 		);
 
         $this->m_rental->updateRental($data, $id);

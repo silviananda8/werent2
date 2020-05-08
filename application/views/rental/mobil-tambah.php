@@ -11,9 +11,8 @@
             <div class="container-fluid">
   
                 <!-- Page Heading -->
+                <?php echo form_open_multipart('rental/c_mobil/tambahMobil');?>
                 <div class="row row-cols-2 mt-5 mb-5">
-                
-                    
                     <div class="col-4 mr-4">
 
                         <div class="container">
@@ -23,7 +22,7 @@
                                     <div class="">
                                         <img src="<?= base_url('assets/img/') ?>plus.png" alt="..." class="image-rental" style="width: 296px;">
                                             <div class="form-group mt-3">
-                                                <input type="file" class="form-control" id="foto_kendaraan" name="foto_kendaraan" accept="image/png, image/jpeg">
+                                                <input type="file" class="form-control" id="foto" name="foto">
                                                 
                                             </div>
                                     </div>
@@ -120,70 +119,58 @@
                         <h4 class="text-uppercase">
                             <strong>Detail Kendaraan</strong>
                         </h4>
-
-                            <form action="<?php echo base_url().'rental/c_mobil/tambahMobil'?>" class="" method="post">
-                                <div class="row row-cols-2">
-                                    <div class="col">
-                                        
-                                        <div class="form-group">
-                                            <label for="merk_kendaraan">Merk Mobil</label>
-                                            <input type="text" class="form-control" id="merk_kendaraan" name="merk_kendaraan" aria-describedby="emailHelp" required>
-                                        </div>
-                                        <input type="text" class="form-control" id="id_rental" name="id_rental" value="<?php echo $this->session->userdata('ID_RENTAL'); ?>" required hidden>
-                                        <div class="form-group">
-                                            <label for="deskripsi_kendaraan">Deskripsi Mobil</label>
-                                            <textarea class="form-control" id="deskripsi_kendaraan" name="deskripsi_kendaraan" rows="4"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="harga_kendaraan">Harga Sewa Mobil</label>
-                                            <input type="number" class="form-control" id="harga_kendaraan" name="harga_kendaraan" min="1" aria-describedby="numberHelp" required>
-                                        </div>
+                            <div class="row row-cols-2">
+                                <div class="col">
+                                    
+                                    <div class="form-group">
+                                        <label for="merk_kendaraan">Merk Mobil</label>
+                                        <input type="text" class="form-control" id="merk_kendaraan" name="merk_kendaraan" aria-describedby="emailHelp" required>
                                     </div>
-
-                                    <div class="col">
-                                        <!-- <div class="form-group">
-                                            <label for="jenis_kendaraan">Jenis Kendaraan</label>
-                                            <select class="form-control" id="jenis_kendaraan" name="jenis_kendaraan" required>
-                                                <option></option>
-                                                <option value="mobil">Mobil</option>
-                                                <option value="sepeda motor">Sepeda Motor</option>
-                                            </select>
-                                        </div> -->
-                                        <div class="form-group">
-                                            <label for="nama_kendaraan">Nama Mobil</label>
-                                            <input type="text" class="form-control" id="nama_kendaraan" name="nama_kendaraan" aria-describedby="emailHelp" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="transmisi">Transmisi Mobil</label>
-                                            <select class="form-control" id="transmisi" name="transmisi" required>
-                                                <option></option>
-                                                <option value="otomatis">Otomatis</option>
-                                                <option value="manual">Manual</option>
-                                                <option value="continous variable">Continous Variable</option>
-                                                <option value="dual clutch">Dual Clutch</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="kapasitas">Kapasitas Penumpang</label>
-                                            <input type="number" class="form-control" id="kapasitas" name="kapasitas" min="1" max="8" aria-describedby="numberHelp" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="pintu">Pintu Kendaraan</label>
-                                            <input type="number" class="form-control" id="pintu" name="pintu" min="2" max="4" aria-describedby="numberHelp" required>
-                                        </div>
+                                    <input type="text" class="form-control" id="id_rental" name="id_rental" value="<?php echo $this->session->userdata('ID_RENTAL'); ?>" required hidden>
+                                    <div class="form-group">
+                                        <label for="deskripsi_kendaraan">Deskripsi Mobil</label>
+                                        <textarea class="form-control" id="deskripsi_kendaraan" name="deskripsi_kendaraan" rows="4"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="harga_kendaraan">Harga Sewa Mobil</label>
+                                        <input type="number" class="form-control" id="harga_kendaraan" name="harga_kendaraan" min="1" aria-describedby="numberHelp" required>
                                     </div>
                                 </div>
-                                
-                                <button type="submit" class="btn btn-warning mb-3">
-                                    Submit
-                                </button>
-                            </form>
+
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="nama_kendaraan">Nama Mobil</label>
+                                        <input type="text" class="form-control" id="nama_kendaraan" name="nama_kendaraan" aria-describedby="emailHelp" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="transmisi">Transmisi Mobil</label>
+                                        <select class="form-control" id="transmisi" name="transmisi" required>
+                                            <option></option>
+                                            <option value="otomatis">Otomatis</option>
+                                            <option value="manual">Manual</option>
+                                            <option value="continous variable">Continous Variable</option>
+                                            <option value="dual clutch">Dual Clutch</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kapasitas">Kapasitas Penumpang</label>
+                                        <input type="number" class="form-control" id="kapasitas" name="kapasitas" min="1" max="8" aria-describedby="numberHelp" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pintu">Pintu Kendaraan</label>
+                                        <input type="number" class="form-control" id="pintu" name="pintu" min="2" max="4" aria-describedby="numberHelp" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-warning mb-3">
+                                Submit
+                            </button>
                     </div>
+                    
                     <!-- akhir input detail kendaraan -->
-
-
-
                 </div>
+                <?php echo form_close();?>
                 </div>
                 <!-- /.container-fluid -->
   

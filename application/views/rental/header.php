@@ -59,7 +59,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 
                 <span class="mr-2 d-none d-lg-inline text-white"><?php echo $this->session->userdata('NAMA_RENTAL'); ?></span>
-                <img class="img-profile rounded-circle" src="<?= base_url('assets/img/') ?><?php echo $this->session->userdata('FOTO_RENTAL');?>">
+                <img class="img-profile rounded-circle" src="<?= base_url('assets/uploads/rental/image-profil/') ?>">
                 
               </a>
               <!-- Dropdown - User Information -->

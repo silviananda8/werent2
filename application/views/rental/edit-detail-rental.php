@@ -11,27 +11,20 @@
         <div class="container-fluid">
         <?php foreach ($rental as $rental): ?>
             <!-- Page Heading -->
+            <?php echo form_open_multipart('rental/c_rental/prosesEditDetail');?>
             <div class="row mt-5">
                 <div class="col-4 mr-4">
-                    <div class="">
-                        <img src="<?= base_url('assets/img/') ?><?php echo $rental->FOTO_RENTAL?>" alt="..." class="image-rental" style="width: 341px;">
-                        <form action="" method="post" class="form-group mt-3">
-                            <div class="form-group mt-3">
-                                <input type="file" class="form-control" id="foto_rental" name="foto_rental" accept="image/png, image/jpeg">
-                            </div>
-
-                            <button type="submit" class="btn btn-warning tombol mt-3">
-                                <strong>Simpan Foto</strong>
-                            </button>
-                        </form>
+                    <img src="<?= base_url('assets/uploads/rental/image-profil/') ?><?php echo $rental->FOTO_RENTAL?>" alt="..." class="image-rental" style="width: 341px;">
+                    
+                    <div class="form-group mt-3">
+                        <label for="foto_rental">Upload Foto</label>
+                        <input type="file" class="form-control" id="foto_rental" name="foto_rental">
                     </div>
                 </div>
 
                     
                 <div class="col-7 ml-5 bg-white border border-dark">
                     <h4 class="text-uppercase"><strong>Informasi Pribadi</strong></h4>
-
-                    <form action="<?php echo base_url().'rental/c_rental/prosesEditDetail'?>" method="post" class="form-group mb-3">
                         <dl class="row mt-3">
                             <dt class="col-sm-5">Nama Rental</dt>
                             <dd class="col-sm-7">
@@ -80,11 +73,12 @@
                         </dl>
 
                         <input type="text" class="form-control" value="<?php echo $rental->ID_RENTAL?>" id="id_rental" name="id_rental" hidden>
-                        <button type="submit" class="btn btn-warning tombol">
-                            <strong>Simpan Perubahan</strong>
-                        </button>
-                    </form>
+                    <button type="submit" class="btn btn-warning tombol">
+                        <strong>Simpan Perubahan</strong>
+                    </button>
                 </div>
+                <!-- </form> -->
+            <?php echo form_close();?>
             </div>
         <?php endforeach;?>
 

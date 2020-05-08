@@ -38,6 +38,22 @@ class c_motor extends CI_Controller {
     }
     
     function tambahMotor(){
+        $foto   = $_FILES['foto'];
+        if($foto=''){}else{
+            $config['upload_path']      = './assets/uploads/kendaraan/';
+            $config['allowed_types']    = 'jpg|jpeg|gif|png';
+            $config['max_size']             = 2048;
+
+            $this->load->library('upload');
+            $this->upload->initialize($config);
+
+            if(!$this->upload->do_upload('foto')){
+                echo $this->upload->display_errors();die();
+            }else{
+                $foto = $this->upload->data('file_name');
+            }
+        }
+
         $data = array(
 			'MERK_KENDARAAN'	    => $this->input->post('merk_kendaraan'),
 			'ID_RENTAL'	            => $this->input->post('id_rental'),
@@ -48,7 +64,8 @@ class c_motor extends CI_Controller {
 			'KAPASITAS'	            => $this->input->post('kapasitas'),
             'PINTU'	                => $this->input->post('pintu'),
             'JENIS_KENDARAAN'	    => $this->input->post('jenis_kendaraan'),
-            'PENDINGIN_UDARA'	    => $this->input->post('pendingin_udara')
+            'PENDINGIN_UDARA'	    => $this->input->post('pendingin_udara'),
+            'FOTO'                  => $foto
 		);
 
         $this->m_motor->tambahMotor($data);
@@ -57,6 +74,23 @@ class c_motor extends CI_Controller {
 
     function prosesEditDetail(){
         $id = $this->input->post('id_motor');
+
+        $foto   = $_FILES['foto'];
+        if($foto=''){}else{
+            $config['upload_path']      = './assets/uploads/kendaraan/';
+            $config['allowed_types']    = 'jpg|jpeg|gif|png';
+            $config['max_size']             = 2048;
+
+            $this->load->library('upload');
+            $this->upload->initialize($config);
+
+            if(!$this->upload->do_upload('foto')){
+                echo $this->upload->display_errors();die();
+            }else{
+                $foto = $this->upload->data('file_name');
+            }
+        }
+
 		$data = array(
 			'MERK_KENDARAAN'	    => $this->input->post('merk_kendaraan'),
 			'DESKRIPSI_KENDARAAN'	=> $this->input->post('deskripsi_kendaraan'),
@@ -66,7 +100,8 @@ class c_motor extends CI_Controller {
 			'KAPASITAS'	            => $this->input->post('kapasitas'),
             'PINTU'	                => $this->input->post('pintu'),
             'JENIS_KENDARAAN'	    => $this->input->post('jenis_kendaraan'),
-            'PENDINGIN_UDARA'	    => $this->input->post('pendingin_udara')
+            'PENDINGIN_UDARA'	    => $this->input->post('pendingin_udara'),
+            'FOTO'                  => $foto
 		);
 
         $this->m_motor->updateMotor($data, $id);
