@@ -60,7 +60,8 @@ class c_rental extends CI_Controller {
 		);
 
         $this->m_rental->updateRental($data, $id);
-        redirect('rental/c_rental/index');
+        redirect('rental/c_session/auth');
+        // redirect('rental/c_rental/index');
     }
 
 }

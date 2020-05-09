@@ -25,7 +25,7 @@
                                     <div class="">
                                         <img src="<?= base_url('assets/uploads/kendaraan/') ?><?php echo $dta->FOTO;?>" alt="..." class="image-rental" style="width: 296px;">
                                             <div class="form-group mt-3">
-                                                <input type="file" class="form-control" id="foto" name="foto" accept="image/png, image/jpeg">
+                                                <input type="file" class="form-control" id="foto" name="foto" accept="image/png, image/jpeg" required>
                                                 
                                             </div>
                                     </div>
