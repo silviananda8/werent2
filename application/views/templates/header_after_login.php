@@ -19,7 +19,7 @@
 
     <!-- Date Time Picker -->
     <link href="<?= base_url(''); ?>/assets/css/jquery.datetimepicker.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="<?= base_url('')?>/assets/css/jquery-ui.css">
 
 
     <title>Home Werent</title>
@@ -54,7 +54,7 @@
                       Profile
                     </a>
 
-                    <a class="dropdown-item" href="<?php echo site_url('rental/c_session/auth')?>">
+                    <a class="dropdown-item" href="<?php echo site_url('rental/c_rental/index')?>">
                       <i class="fas fa-business-time fa-sm fa-fw mr-2 text-gray-400"></i>
                       rental
                     </a>

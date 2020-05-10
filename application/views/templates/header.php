@@ -19,7 +19,7 @@
 
     <!-- Date Time Picker -->
     <link href="<?= base_url(''); ?>/assets/css/jquery.datetimepicker.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="<?= base_url('')?>/assets/css/jquery-ui.css">
 
 
     <title>Home Werent</title>

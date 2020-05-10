@@ -5,7 +5,7 @@
         <div class="container panduan-detail-kendaraan mt-3">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo site_url('auth/listkendaraan');?>">Kembali ke Pencarian</a>
+                    <a class="nav-link" href="<?php echo site_url('auth/listKendaraan');?>">Kembali ke Pencarian</a>
                 </li>
                 <?php foreach($data as $dta):?>
                 <li class="nav-item panduan-a">

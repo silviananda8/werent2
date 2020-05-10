@@ -1,7 +1,7 @@
 $('#tanggalPenjemputan').datetimepicker({
     datepicker: true,
-    timepicker: false,
-    format: 'D d-M-Y',
+    timepicker: true,
+    format: 'y-m-d H:i',
     minDate: 0,
     beforeShow: function() {
         $(this).datepicker('option', 'maxDate', $('#tanggalPengembalian').val());
@@ -10,8 +10,8 @@ $('#tanggalPenjemputan').datetimepicker({
 
 $('#tanggalPengembalian').datetimepicker({
     datepicker: true,
-    timepicker: false,
-    format: 'D d-M-Y',
+    timepicker: true,
+    format: 'y-m-d H:i',
     minDate: 0,
     beforeShow: function() {
         $(this).datepicker('option', 'minDate', $('#tanggalPenjemputan').val());

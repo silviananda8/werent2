@@ -5,22 +5,22 @@
 
           <!-- Start Form Cari Pada Header -->
             <div class="col-11 mt-3 mb-5 bg-white  rounded p-2 box-shadow">
-              <form action="" method="post" class="">
+              <form action="<?php if ($this->uri->segment('2')==='listKendaraan') { echo site_url('c_search/SearchMobil');} else{echo site_url('c_search/SearchMotor');}?>" method="post">
                 <h2 class="font-weight-bold">
-                  Cari Mobil Yang Tersedia
+                  Cari Kendaraan Yang Tersedia
                 </h2>
 
                   <div class="form-row mt-2">
                     <!-- Tempat Penjemputan -->
                     <div class="form-group col">
                       <label for="tempatPenjemputan">Tempat Penjemputan</label>
-                      <input type="text" class="form-control" id="tempatPenjemputan" aria-describedby="textHelp" placeholder="Berdasarkan Kota, Bandara, Stasiun, Daerah, ...">
+                      <input type="text" class="form-control" name="kota" id="tempatPenjemputan" aria-describedby="textHelp" placeholder="Berdasarkan Kota, Bandara, Stasiun, Daerah, ..." value="<?php echo $this->session->userdata('kota');?>">
                       </div>
 
-                    <!-- Tempat Pengambilan -->
+                    <!-- Tempat Pengambilan -->        
                     <div class="form-group col">
                       <label for="tempatPengembalian">Tempat Pengembalian</label>
-                      <input type="text" class="form-control" id="tempatPengembalian" aria-describedby="textHelp" placeholder="Berdasarkan Kota, Bandara, Stasiun, Daerah, ...">
+                      <input type="text"  class="form-control" id="tempatPengembalian" aria-describedby="textHelp" placeholder="Berdasarkan Kota, Bandara, Stasiun, Daerah, ...">
                     </div>
                   </div>
 
@@ -28,7 +28,7 @@
                     <div class="form-group col-md-4">
                       <label for="tanggalPenjemputan">Waktu Penjemputan</label>
                       <div class="input-group">
-                          <input type="text" class="form-control" id="tanggalPenjemputan">
+                          <input type="text" name="TANGGAL_PENGAMBILAN" class="form-control" value="<?php echo $this->session->userdata('TANGGAL_PENGAMBILAN');?>" id="tanggalPenjemputan">
                           <div class="input-group-prepend">
                             <div class="input-group-text">
                               <i class="fas fa-calendar"></i>
@@ -46,7 +46,7 @@
                     <div class="form-group col-md-4">
                       <label for="tanggalPengembalian">Waktu Pengembalian</label>
                       <div class="input-group">
-                          <input type="text" class="form-control" id="tanggalPengembalian">
+                          <input type="text" name="TANGGAL_PENGEMBALIAN" class="form-control" value="<?php echo $this->session->userdata('TANGGAL_PENGEMBALIAN');?>"id="tanggalPengembalian">
                           <div class="input-group-prepend">
                             <div class="input-group-text">
                               <i class="fas fa-calendar"></i>
@@ -74,8 +74,7 @@
 
             </div>
           <!-- End Form Cari Pada Header -->
-
-          <!-- Start Form Filter Kendaraan -->
+           <!-- Start Form Filter Kendaraan -->
             <div class="col-3 mt-3 mr-5 bg-white  filter-kendaraan rounded p-3 box-shadow" >
               <form action="" class="" method="post">
 
@@ -234,7 +233,7 @@
                     <p class="font-weight-bold">
                      Rp. <?php echo $dta->HARGA_SEWA_KENDARAAN;?>,00
                     <p>
-                      <a href="<?php if ($this->uri->segment('2')==='listkendaraan') { echo site_url('auth/detailKendaraan/'.$dta->ID_MOBIL);} else{echo site_url('auth/detailmotor/'.$dta->ID_MOTOR);}?>" class="btn btn-warning font-weight-bolder tombol  ml-4" <?php if ($this->session->userdata('logged_in') != TRUE) {echo "data-toggle='modal' data-target='#modalMasuk'";}?>>Pesan</a>
+                      <a href="<?php if ($this->uri->segment('2')==='listKendaraan') { echo site_url('auth/detailKendaraan/'.$dta->ID_MOBIL);} else{echo site_url('auth/detailmotor/'.$dta->ID_MOTOR);}?>" class="btn btn-warning font-weight-bolder tombol  ml-4" <?php if ($this->session->userdata('logged_in') != TRUE) {echo "data-toggle='modal' data-target='#modalMasuk'";}?>>Pesan</a>
                   </div>
                 </div>
 

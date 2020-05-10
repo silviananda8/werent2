@@ -41,7 +41,10 @@ function __construct(){
 
 	public function listKendaraan()
 	{
-		$data['data']=$this->grafik_m->show_mobil()->result();
+		$kota=$this->session->userdata('kota');
+		$TANGGAL_PENGAMBILAN=$this->session->userdata('TANGGAL_PENGAMBILAN');
+		$TANGGAL_PENGEMBALIAN=$this->session->userdata('TANGGAL_PENGEMBALIAN');
+		$data['data']=$this->grafik_m->show_mobil($kota,$TANGGAL_PENGAMBILAN,$TANGGAL_PENGEMBALIAN)->result();
 		if($this->session->userdata('logged_in') != TRUE){
 			$this->load->view('templates/header');
 			$this->load->view('auth/listKendaraan',$data);
@@ -50,11 +53,15 @@ function __construct(){
 			$this->load->view('templates/header_after_login');
 			$this->load->view('auth/listKendaraan',$data);
 			$this->load->view('templates/footer');
-		}	
+		}
+				
 	}
 	public function listmotor()
 	{
-		$data['data']=$this->grafik_m->show_motor()->result();
+		$kota=$this->session->userdata('kota');
+		$TANGGAL_PENGAMBILAN=$this->session->userdata('TANGGAL_PENGAMBILAN');
+		$TANGGAL_PENGEMBALIAN=$this->session->userdata('TANGGAL_PENGEMBALIAN');
+		$data['data']=$this->grafik_m->show_motor($kota,$TANGGAL_PENGAMBILAN,$TANGGAL_PENGEMBALIAN)->result();
 		if($this->session->userdata('logged_in') != TRUE){
 			$this->load->view('templates/header');
 			$this->load->view('auth/listKendaraan',$data);
@@ -164,6 +171,17 @@ function __construct(){
 			$this->load->view('templates/footer');
 		}
        	
+    }
+
+    function get_autocomplete(){
+        if (isset($_GET['term'])) {
+            $result = $this->grafik_m->autocomplete($_GET['term']);
+            if (count($result) > 0) {
+            foreach ($result as $row)
+                $arr_result[] = $row->kota;
+                echo json_encode($arr_result);
+            }
+        }
     }
 	//halaman admin
 	public function home_admin()
