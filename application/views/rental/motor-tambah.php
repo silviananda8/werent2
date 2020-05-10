@@ -23,7 +23,7 @@
                                     <div class="">
                                         <img src="<?= base_url('assets/img/') ?>plus.png" alt="..." class="image-rental" style="width: 296px;">
                                             <div class="form-group mt-3">
-                                                <input type="file" class="form-control" id="foto" name="foto">
+                                                <input type="file" class="form-control" id="foto" name="foto"  required>
                                                 
                                             </div>
                                     </div>

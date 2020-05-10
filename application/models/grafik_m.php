@@ -43,6 +43,7 @@ class grafik_m  extends CI_Model  {
         return $sql;
     }
 
+    // Start Register 
     function register($email,$password,$nama){
         $sql=$this->db->query("INSERT INTO `user`(`EMAIL`, `PASSWORD`, `NAMA`,`KETERANGAN_USER`) VALUES ('$email','$password','$nama','user')");
         return $sql;

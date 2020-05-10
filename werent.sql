@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2020 at 09:13 PM
+-- Generation Time: May 10, 2020 at 06:17 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.28
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `ID_ADMIN` int(11) NOT NULL,
   `ID_USER` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -45,7 +45,7 @@ CREATE TABLE `artikel` (
   `thumbnail` varchar(255) NOT NULL,
   `artikel` text NOT NULL,
   `tanggal` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `artikel`
@@ -70,7 +70,7 @@ CREATE TABLE `artikel_pariwisata` (
   `KONTEN_ARTIKEL` varchar(20) DEFAULT NULL,
   `JUDUL_ARTIKEL` varchar(50) DEFAULT NULL,
   `TEXT_ARTIKEL` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -79,530 +79,530 @@ CREATE TABLE `artikel_pariwisata` (
 --
 
 CREATE TABLE `kab_kota` (
-  `id_kab` int(3) NOT NULL,
-  `kab_kota` varchar(30) DEFAULT NULL,
-  `id_prov` int(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_kab` int(4) NOT NULL,
+  `kota` varchar(80) DEFAULT NULL,
+  `id_prov` int(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `kab_kota`
 --
 
-INSERT INTO `kab_kota` (`id_kab`, `kab_kota`, `id_prov`) VALUES
-(1, 'Kabupaten Aceh Barat', 1),
-(2, 'Kabupaten Aceh Barat Daya', 1),
-(3, 'Kabupaten Aceh Besar', 1),
-(4, 'Kabupaten Aceh Jaya', 1),
-(5, 'Kabupaten Aceh Selatan', 1),
-(6, 'Kabupaten Aceh Singkil', 1),
-(7, 'Kabupaten Aceh Tamiang', 1),
-(8, 'Kabupaten Aceh Tengah', 1),
-(9, 'Kabupaten Aceh Tenggara', 1),
-(10, 'Kabupaten Aceh Timur', 1),
-(11, 'Kabupaten Aceh Utara', 1),
-(12, 'Kabupaten Bener Meriah', 1),
-(13, 'Kabupaten Bireuen', 1),
-(14, 'Kabupaten Gayo Lues', 1),
-(15, 'Kabupaten Nagan Raya', 1),
-(16, 'Kabupaten Pidie', 1),
-(17, 'Kabupaten Pidie Jaya', 1),
-(18, 'Kabupaten Simeulue', 1),
-(19, 'Kota Banda Aceh', 1),
-(20, 'Kota Langsa', 1),
-(21, 'Kota Lhokseumawe', 1),
-(22, 'Kota Sabang', 1),
-(23, 'Kota Subulussalam', 1),
-(24, 'Kabupaten Asahan', 2),
-(25, 'Kabupaten Batu Bara', 2),
-(26, 'Kabupaten Dairi', 2),
-(27, 'Kabupaten Deli Serdang', 2),
-(28, 'Kabupaten Humbang Hasundutan', 2),
-(29, 'Kabupaten Karo', 2),
-(30, 'Kabupaten Labuhanbatu', 2),
-(31, 'Kabupaten Labuhanbatu Selatan', 2),
-(32, 'Kabupaten Labuhanbatu Utara', 2),
-(33, 'Kabupaten Langkat', 2),
-(34, 'Kabupaten Mandailing Natal', 2),
-(35, 'Kabupaten Nias', 2),
-(36, 'Kabupaten Nias Barat', 2),
-(37, 'Kabupaten Nias Selatan', 2),
-(38, 'Kabupaten Nias Utara', 2),
-(39, 'Kabupaten Padang Lawas', 2),
-(40, 'Kabupaten Padang Lawas Utara', 2),
-(41, 'Kabupaten Pakpak Bharat', 2),
-(42, 'Kabupaten Samosir', 2),
-(43, 'Kabupaten Serdang Bedagai', 2),
-(44, 'Kabupaten Simalungun', 2),
-(45, 'Kabupaten Tapanuli Selatan', 2),
-(46, 'Kabupaten Tapanuli Tengah', 2),
-(47, 'Kabupaten Tapanuli Utara', 2),
-(48, 'Kabupaten Toba Samosir', 2),
-(49, 'Kota Binjai', 2),
-(50, 'Kota Gunungsitoli', 2),
-(51, 'Kota Medan', 2),
-(52, 'Kota Padangsidempuan', 2),
-(53, 'Kota Pematangsiantar', 2),
-(54, 'Kota Sibolga', 2),
-(55, 'Kota Tanjungbalai', 2),
-(56, 'Kota Tebing Tinggi', 2),
-(57, 'Kabupaten Agam', 3),
-(58, 'Kabupaten Dharmasraya', 3),
-(59, 'Kabupaten Kepulauan Mentawai', 3),
-(60, 'Kabupaten Lima Puluh Kota', 3),
-(61, 'Kabupaten Padang Pariaman', 3),
-(62, 'Kabupaten Pasaman', 3),
-(63, 'Kabupaten Pasaman Barat', 3),
-(64, 'Kabupaten Pesisir Selatan', 3),
-(65, 'Kabupaten Sijunjung', 3),
-(66, 'Kabupaten Solok', 3),
-(67, 'Kabupaten Solok Selatan', 3),
-(68, 'Kabupaten Tanah Datar', 3),
-(69, 'Kota Bukittinggi', 3),
-(70, 'Kota Padang', 3),
-(71, 'Kota Padangpanjang', 3),
-(72, 'Kota Pariaman', 3),
-(73, 'Kota Payakumbuh', 3),
-(74, 'Kota Sawahlunto', 3),
-(75, 'Kota Solok', 3),
-(76, 'Kabupaten Bengkalis', 4),
-(77, 'Kabupaten Indragiri Hilir', 4),
-(78, 'Kabupaten Indragiri Hulu', 4),
-(79, 'Kabupaten Kampar', 4),
-(80, 'Kabupaten Kepulauan Meranti', 4),
-(81, 'Kabupaten Kuantan Singingi', 4),
-(82, 'Kabupaten Pelalawan', 4),
-(83, 'Kabupaten Rokan Hilir', 4),
-(84, 'Kabupaten Rokan Hulu', 4),
-(85, 'Kabupaten Siak', 4),
-(86, 'Kota Dumai', 4),
-(87, 'Kota Pekanbaru', 4),
-(88, 'Kabupaten Bintan', 5),
-(89, 'Kabupaten Karimun', 5),
-(90, 'Kabupaten Kepulauan Anambas', 5),
-(91, 'Kabupaten Lingga', 5),
-(92, 'Kabupaten Natuna', 5),
-(93, 'Kota Batam', 5),
-(94, 'Kota Tanjung Pinang', 5),
-(95, 'Kabupaten Batanghari', 6),
-(96, 'Kabupaten Bungo', 6),
-(97, 'Kabupaten Kerinci', 6),
-(98, 'Kabupaten Merangin', 6),
-(99, 'Kabupaten Muaro Jambi', 6),
-(100, 'Kabupaten Sarolangun', 6),
-(101, 'Kabupaten Tanjung Jabung Barat', 6),
-(102, 'Kabupaten Tanjung Jabung Timur', 6),
-(103, 'Kabupaten Tebo', 6),
-(104, 'Kota Jambi', 6),
-(105, 'Kota Sungaipenuh', 6),
-(106, 'Kabupaten Bengkulu Selatan', 7),
-(107, 'Kabupaten Bengkulu Tengah', 7),
-(108, 'Kabupaten Bengkulu Utara', 7),
-(109, 'Kabupaten Kaur', 7),
-(110, 'Kabupaten Kepahiang', 7),
-(111, 'Kabupaten Lebong', 7),
-(112, 'Kabupaten Mukomuko', 7),
-(113, 'Kabupaten Rejang Lebong', 7),
-(114, 'Kabupaten Seluma', 7),
-(115, 'Kota Bengkulu', 7),
-(116, 'Kabupaten Banyuasin', 8),
-(117, 'Kabupaten Empat Lawang', 8),
-(118, 'Kabupaten Lahat', 8),
-(119, 'Kabupaten Muara Enim', 8),
-(120, 'Kabupaten Musi Banyuasin', 8),
-(121, 'Kabupaten Musi Rawas', 8),
-(122, 'Kabupaten Musi Rawas Utara', 8),
-(123, 'Kabupaten Ogan Ilir', 8),
-(124, 'Kabupaten Ogan Komering Ilir', 8),
-(125, 'Kabupaten Ogan Komering Ulu', 8),
-(126, 'Kabupaten Ogan Komering Ulu Se', 8),
-(127, 'Kabupaten Ogan Komering Ulu Ti', 8),
-(128, 'Kabupaten Penukal Abab Lematan', 8),
-(129, 'Kota Lubuklinggau', 8),
-(130, 'Kota Pagar Alam', 8),
-(131, 'Kota Palembang', 8),
-(132, 'Kota Prabumulih', 8),
-(133, 'Kabupaten Bangka', 9),
-(134, 'Kabupaten Bangka Barat', 9),
-(135, 'Kabupaten Bangka Selatan', 9),
-(136, 'Kabupaten Bangka Tengah', 9),
-(137, 'Kabupaten Belitung', 9),
-(138, 'Kabupaten Belitung Timur', 9),
-(139, 'Kota Pangkal Pinang', 9),
-(140, 'Kabupaten Lampung Barat', 10),
-(141, 'Kabupaten Lampung Selatan', 10),
-(142, 'Kabupaten Lampung Tengah', 10),
-(143, 'Kabupaten Lampung Timur', 10),
-(144, 'Kabupaten Lampung Utara', 10),
-(145, 'Kabupaten Mesuji', 10),
-(146, 'Kabupaten Pesawaran', 10),
-(147, 'Kabupaten Pesisir Barat', 10),
-(148, 'Kabupaten Pringsewu', 10),
-(149, 'Kabupaten Tanggamus', 10),
-(150, 'Kabupaten Tulang Bawang', 10),
-(151, 'Kabupaten Tulang Bawang Barat', 10),
-(152, 'Kabupaten Way Kanan', 10),
-(153, 'Kota Bandar Lampung', 10),
-(154, 'Kota Metro', 10),
-(155, 'Kabupaten Lebak', 11),
-(156, 'Kabupaten Pandeglang', 11),
-(157, 'Kabupaten Serang', 11),
-(158, 'Kabupaten Tangerang', 11),
-(159, 'Kota Cilegon', 11),
-(160, 'Kota Serang', 11),
-(161, 'Kota Tangerang', 11),
-(162, 'Kota Tangerang Selatan', 11),
-(163, 'Kabupaten Bandung', 12),
-(164, 'Kabupaten Bandung Barat', 12),
-(165, 'Kabupaten Bekasi', 12),
-(166, 'Kabupaten Bogor', 12),
-(167, 'Kabupaten Ciamis', 12),
-(168, 'Kabupaten Cianjur', 12),
-(169, 'Kabupaten Cirebon', 12),
-(170, 'Kabupaten Garut', 12),
-(171, 'Kabupaten Indramayu', 12),
-(172, 'Kabupaten Karawang', 12),
-(173, 'Kabupaten Kuningan', 12),
-(174, 'Kabupaten Majalengka', 12),
-(175, 'Kabupaten Pangandaran', 12),
-(176, 'Kabupaten Purwakarta', 12),
-(177, 'Kabupaten Subang', 12),
-(178, 'Kabupaten Sukabumi', 12),
-(179, 'Kabupaten Sumedang', 12),
-(180, 'Kabupaten Tasikmalaya', 12),
-(181, 'Kota Bandung', 12),
-(182, 'Kota Banjar', 12),
-(183, 'Kota Bekasi', 12),
-(184, 'Kota Bogor', 12),
-(185, 'Kota Cimahi', 12),
-(186, 'Kota Cirebon', 12),
-(187, 'Kota Depok', 12),
-(188, 'Kota Sukabumi', 12),
-(189, 'Kota Tasikmalaya', 12),
-(190, 'Kabupaten Administrasi Kepulau', 13),
-(191, 'Kota Administrasi Jakarta Bara', 13),
-(192, 'Kota Administrasi Jakarta Pusa', 13),
-(193, 'Kota Administrasi Jakarta Sela', 13),
-(194, 'Kota Administrasi Jakarta Timu', 13),
-(195, 'Kota Administrasi Jakarta Utar', 13),
-(196, 'Kabupaten Banjarnegara', 14),
-(197, 'Kabupaten Banyumas', 14),
-(198, 'Kabupaten Batang', 14),
-(199, 'Kabupaten Blora', 14),
-(200, 'Kabupaten Boyolali', 14),
-(201, 'Kabupaten Brebes', 14),
-(202, 'Kabupaten Cilacap', 14),
-(203, 'Kabupaten Demak', 14),
-(204, 'Kabupaten Grobogan', 14),
-(205, 'Kabupaten Jepara', 14),
-(206, 'Kabupaten Karanganyar', 14),
-(207, 'Kabupaten Kebumen', 14),
-(208, 'Kabupaten Kendal', 14),
-(209, 'Kabupaten Klaten', 14),
-(210, 'Kabupaten Kudus', 14),
-(211, 'Kabupaten Magelang', 14),
-(212, 'Kabupaten Pati', 14),
-(213, 'Kabupaten Pekalongan', 14),
-(214, 'Kabupaten Pemalang', 14),
-(215, 'Kabupaten Purbalingga', 14),
-(216, 'Kabupaten Purworejo', 14),
-(217, 'Kabupaten Rembang', 14),
-(218, 'Kabupaten Semarang', 14),
-(219, 'Kabupaten Sragen', 14),
-(220, 'Kabupaten Sukoharjo', 14),
-(221, 'Kabupaten Tegal', 14),
-(222, 'Kabupaten Temanggung', 14),
-(223, 'Kabupaten Wonogiri', 14),
-(224, 'Kabupaten Wonosobo', 14),
-(225, 'Kota Magelang', 14),
-(226, 'Kota Pekalongan', 14),
-(227, 'Kota Salatiga', 14),
-(228, 'Kota Semarang', 14),
-(229, 'Kota Surakarta', 14),
-(230, 'Kota Tegal', 14),
-(231, 'Kabupaten Bantul', 15),
-(232, 'Kabupaten Gunungkidul', 15),
-(233, 'Kabupaten Kulon Progo', 15),
-(234, 'Kabupaten Sleman', 15),
-(235, 'Kota Yogyakarta', 15),
-(236, 'Kabupaten Bangkalan', 16),
-(237, 'Kabupaten Banyuwangi', 16),
-(238, 'Kabupaten Blitar', 16),
-(239, 'Kabupaten Bojonegoro', 16),
-(240, 'Kabupaten Bondowoso', 16),
-(241, 'Kabupaten Gresik', 16),
-(242, 'Kabupaten Jember', 16),
-(243, 'Kabupaten Jombang', 16),
-(244, 'Kabupaten Kediri', 16),
-(245, 'Kabupaten Lamongan', 16),
-(246, 'Kabupaten Lumajang', 16),
-(247, 'Kabupaten Madiun', 16),
-(248, 'Kabupaten Magetan', 16),
-(249, 'Kabupaten Malang', 16),
-(250, 'Kabupaten Mojokerto', 16),
-(251, 'Kabupaten Nganjuk', 16),
-(252, 'Kabupaten Ngawi', 16),
-(253, 'Kabupaten Pacitan', 16),
-(254, 'Kabupaten Pamekasan', 16),
-(255, 'Kabupaten Pasuruan', 16),
-(256, 'Kabupaten Ponorogo', 16),
-(257, 'Kabupaten Probolinggo', 16),
-(258, 'Kabupaten Sampang', 16),
-(259, 'Kabupaten Sidoarjo', 16),
-(260, 'Kabupaten Situbondo', 16),
-(261, 'Kabupaten Sumenep', 16),
-(262, 'Kabupaten Trenggalek', 16),
-(263, 'Kabupaten Tuban', 16),
-(264, 'Kabupaten Tulungagung', 16),
-(265, 'Kota Batu', 16),
-(266, 'Kota Blitar', 16),
-(267, 'Kota Kediri', 16),
-(268, 'Kota Madiun', 16),
-(269, 'Kota Malang', 16),
-(270, 'Kota Mojokerto', 16),
-(271, 'Kota Pasuruan', 16),
-(272, 'Kota Probolinggo', 16),
-(273, 'Kota Surabaya', 16),
-(274, 'Kabupaten Badung', 17),
-(275, 'Kabupaten Bangli', 17),
-(276, 'Kabupaten Buleleng', 17),
-(277, 'Kabupaten Gianyar', 17),
-(278, 'Kabupaten Jembrana', 17),
-(279, 'Kabupaten Karangasem', 17),
-(280, 'Kabupaten Klungkung', 17),
-(281, 'Kabupaten Tabanan', 17),
-(282, 'Kota Denpasar', 17),
-(283, 'Kabupaten Bima', 18),
-(284, 'Kabupaten Dompu', 18),
-(285, 'Kabupaten Lombok Barat', 18),
-(286, 'Kabupaten Lombok Tengah', 18),
-(287, 'Kabupaten Lombok Timur', 18),
-(288, 'Kabupaten Lombok Utara', 18),
-(289, 'Kabupaten Sumbawa', 18),
-(290, 'Kabupaten Sumbawa Barat', 18),
-(291, 'Kota Bima', 18),
-(292, 'Kota Mataram', 18),
-(293, 'Kabupaten Alor', 19),
-(294, 'Kabupaten Belu', 19),
-(295, 'Kabupaten Ende', 19),
-(296, 'Kabupaten Flores Timur', 19),
-(297, 'Kabupaten Kupang', 19),
-(298, 'Kabupaten Lembata', 19),
-(299, 'Kabupaten Malaka', 19),
-(300, 'Kabupaten Manggarai', 19),
-(301, 'Kabupaten Manggarai Barat', 19),
-(302, 'Kabupaten Manggarai Timur', 19),
-(303, 'Kabupaten Nagekeo', 19),
-(304, 'Kabupaten Ngada', 19),
-(305, 'Kabupaten Rote Ndao', 19),
-(306, 'Kabupaten Sabu Raijua', 19),
-(307, 'Kabupaten Sikka', 19),
-(308, 'Kabupaten Sumba Barat', 19),
-(309, 'Kabupaten Sumba Barat Daya', 19),
-(310, 'Kabupaten Sumba Tengah', 19),
-(311, 'Kabupaten Sumba Timur', 19),
-(312, 'Kabupaten Timor Tengah Selatan', 19),
-(313, 'Kabupaten Timor Tengah Utara', 19),
-(314, 'Kota Kupang', 19),
-(315, 'Kabupaten Bengkayang', 20),
-(316, 'Kabupaten Kapuas Hulu', 20),
-(317, 'Kabupaten Kayong Utara', 20),
-(318, 'Kabupaten Ketapang', 20),
-(319, 'Kabupaten Kubu Raya', 20),
-(320, 'Kabupaten Landak', 20),
-(321, 'Kabupaten Melawi', 20),
-(322, 'Kabupaten Mempawah', 20),
-(323, 'Kabupaten Sambas', 20),
-(324, 'Kabupaten Sanggau', 20),
-(325, 'Kabupaten Sekadau', 20),
-(326, 'Kabupaten Sintang', 20),
-(327, 'Kota Pontianak', 20),
-(328, 'Kota Singkawang', 20),
-(329, 'Kabupaten Balangan', 21),
-(330, 'Kabupaten Banjar', 21),
-(331, 'Kabupaten Barito Kuala', 21),
-(332, 'Kabupaten Hulu Sungai Selatan', 21),
-(333, 'Kabupaten Hulu Sungai Tengah', 21),
-(334, 'Kabupaten Hulu Sungai Utara', 21),
-(335, 'Kabupaten Kotabaru', 21),
-(336, 'Kabupaten Tabalong', 21),
-(337, 'Kabupaten Tanah Bumbu', 21),
-(338, 'Kabupaten Tanah Laut', 21),
-(339, 'Kabupaten Tapin', 21),
-(340, 'Kota Banjarbaru', 21),
-(341, 'Kota Banjarmasin', 21),
-(342, 'Kabupaten Barito Selatan', 22),
-(343, 'Kabupaten Barito Timur', 22),
-(344, 'Kabupaten Barito Utara', 22),
-(345, 'Kabupaten Gunung Mas', 22),
-(346, 'Kabupaten Kapuas', 22),
-(347, 'Kabupaten Katingan', 22),
-(348, 'Kabupaten Kotawaringin Barat', 22),
-(349, 'Kabupaten Kotawaringin Timur', 22),
-(350, 'Kabupaten Lamandau', 22),
-(351, 'Kabupaten Murung Raya', 22),
-(352, 'Kabupaten Pulang Pisau', 22),
-(353, 'Kabupaten Sukamara', 22),
-(354, 'Kabupaten Seruyan', 22),
-(355, 'Kota Palangka Raya', 22),
-(356, 'Kabupaten Berau', 23),
-(357, 'Kabupaten Kutai Barat', 23),
-(358, 'Kabupaten Kutai Kartanegara', 23),
-(359, 'Kabupaten Kutai Timur', 23),
-(360, 'Kabupaten Mahakam Ulu', 23),
-(361, 'Kabupaten Paser', 23),
-(362, 'Kabupaten Penajam Paser Utara', 23),
-(363, 'Kota Balikpapan', 23),
-(364, 'Kota Bontang', 23),
-(365, 'Kota Samarinda', 23),
-(366, 'Kabupaten Bulungan', 24),
-(367, 'Kabupaten Malinau', 24),
-(368, 'Kabupaten Nunukan', 24),
-(369, 'Kabupaten Tana Tidung', 24),
-(370, 'Kota Tarakan', 24),
-(371, 'Kabupaten Boalemo', 25),
-(372, 'Kabupaten Bone Bolango', 25),
-(373, 'Kabupaten Gorontalo', 25),
-(374, 'Kabupaten Gorontalo Utara', 25),
-(375, 'Kabupaten Pohuwato', 25),
-(376, 'Kota Gorontalo', 25),
-(377, 'Kabupaten Majene', 26),
-(378, 'Kabupaten Mamasa', 26),
-(379, 'Kabupaten Mamuju', 26),
-(380, 'Kabupaten Mamuju Tengah', 26),
-(381, 'Kabupaten Pasangkayu', 26),
-(382, 'Kabupaten Polewali Mandar', 26),
-(383, 'Kabupaten Bantaeng', 27),
-(384, 'Kabupaten Barru', 27),
-(385, 'Kabupaten Bone', 27),
-(386, 'Kabupaten Bulukumba', 27),
-(387, 'Kabupaten Enrekang', 27),
-(388, 'Kabupaten Gowa', 27),
-(389, 'Kabupaten Jeneponto', 27),
-(390, 'Kabupaten Kepulauan Selayar', 27),
-(391, 'Kabupaten Luwu', 27),
-(392, 'Kabupaten Luwu Timur', 27),
-(393, 'Kabupaten Luwu Utara', 27),
-(394, 'Kabupaten Maros', 27),
-(395, 'Kabupaten Pangkajene dan Kepul', 27),
-(396, 'Kabupaten Pinrang', 27),
-(397, 'Kabupaten Sidenreng Rappang', 27),
-(398, 'Kabupaten Sinjai', 27),
-(399, 'Kabupaten Soppeng', 27),
-(400, 'Kabupaten Takalar', 27),
-(401, 'Kabupaten Tana Toraja', 27),
-(402, 'Kabupaten Toraja Utara', 27),
-(403, 'Kabupaten Wajo', 27),
-(404, 'Kota Makassar', 27),
-(405, 'Kota Palopo', 27),
-(406, 'Kota Parepare', 27),
-(407, 'Kabupaten Bombana', 28),
-(408, 'Kabupaten Buton', 28),
-(409, 'Kabupaten Buton Selatan', 28),
-(410, 'Kabupaten Buton Tengah', 28),
-(411, 'Kabupaten Buton Utara', 28),
-(412, 'Kabupaten Kolaka', 28),
-(413, 'Kabupaten Kolaka Timur', 28),
-(414, 'Kabupaten Kolaka Utara', 28),
-(415, 'Kabupaten Konawe', 28),
-(416, 'Kabupaten Konawe Kepulauan', 28),
-(417, 'Kabupaten Konawe Selatan', 28),
-(418, 'Kabupaten Konawe Utara', 28),
-(419, 'Kabupaten Muna', 28),
-(420, 'Kabupaten Muna Barat', 28),
-(421, 'Kabupaten Wakatobi', 28),
-(422, 'Kota Bau-Bau', 28),
-(423, 'Kota Kendari', 28),
-(424, 'Kabupaten Banggai', 29),
-(425, 'Kabupaten Banggai Kepulauan', 29),
-(426, 'Kabupaten Banggai Laut', 29),
-(427, 'Kabupaten Buol', 29),
-(428, 'Kabupaten Donggala', 29),
-(429, 'Kabupaten Morowali', 29),
-(430, 'Kabupaten Morowali Utara', 29),
-(431, 'Kabupaten Parigi Moutong', 29),
-(432, 'Kabupaten Poso', 29),
-(433, 'Kabupaten Sigi', 29),
-(434, 'Kabupaten Tojo Una-Una', 29),
-(435, 'Kabupaten Tolitoli', 29),
-(436, 'Kota Palu', 29),
-(437, 'Kabupaten Bolaang Mongondow', 30),
-(438, 'Kabupaten Bolaang Mongondow Se', 30),
-(439, 'Kabupaten Bolaang Mongondow Ti', 30),
-(440, 'Kabupaten Bolaang Mongondow Ut', 30),
-(441, 'Kabupaten Kepulauan Sangihe', 30),
-(442, 'Kabupaten Kepulauan Siau Tagul', 30),
-(443, 'Kabupaten Kepulauan Talaud', 30),
-(444, 'Kabupaten Minahasa', 30),
-(445, 'Kabupaten Minahasa Selatan', 30),
-(446, 'Kabupaten Minahasa Tenggara', 30),
-(447, 'Kabupaten Minahasa Utara', 30),
-(448, 'Kota Bitung', 30),
-(449, 'Kota Kotamobagu', 30),
-(450, 'Kota Manado', 30),
-(451, 'Kota Tomohon', 30),
-(452, 'Kabupaten Buru', 31),
-(453, 'Kabupaten Buru Selatan', 31),
-(454, 'Kabupaten Kepulauan Aru', 31),
-(455, 'Kabupaten Maluku Barat Daya', 31),
-(456, 'Kabupaten Maluku Tengah', 31),
-(457, 'Kabupaten Maluku Tenggara', 31),
-(458, 'Kabupaten Kepulauan Tanimbar', 31),
-(459, 'Kabupaten Seram Bagian Barat', 31),
-(460, 'Kabupaten Seram Bagian Timur', 31),
-(461, 'Kota Ambon', 31),
-(462, 'Kota Tual', 31),
-(463, 'Kabupaten Halmahera Barat', 32),
-(464, 'Kabupaten Halmahera Tengah', 32),
-(465, 'Kabupaten Halmahera Timur', 32),
-(466, 'Kabupaten Halmahera Selatan', 32),
-(467, 'Kabupaten Halmahera Utara', 32),
-(468, 'Kabupaten Kepulauan Sula', 32),
-(469, 'Kabupaten Pulau Morotai', 32),
-(470, 'Kabupaten Pulau Taliabu', 32),
-(471, 'Kota Ternate', 32),
-(472, 'Kota Tidore Kepulauan', 32),
-(473, 'Kabupaten Asmat', 33),
-(474, 'Kabupaten Biak Numfor', 33),
-(475, 'Kabupaten Boven Digoel', 33),
-(476, 'Kabupaten Deiyai', 33),
-(477, 'Kabupaten Dogiyai', 33),
-(478, 'Kabupaten Intan Jaya', 33),
-(479, 'Kabupaten Jayapura', 33),
-(480, 'Kabupaten Jayawijaya', 33),
-(481, 'Kabupaten Keerom', 33),
-(482, 'Kabupaten Kepulauan Yapen', 33),
-(483, 'Kabupaten Lanny Jaya', 33),
-(484, 'Kabupaten Mamberamo Raya', 33),
-(485, 'Kabupaten Mamberamo Tengah', 33),
-(486, 'Kabupaten Mappi', 33),
-(487, 'Kabupaten Merauke', 33),
-(488, 'Kabupaten Mimika', 33),
-(489, 'Kabupaten Nabire', 33),
-(490, 'Kabupaten Nduga', 33),
-(491, 'Kabupaten Paniai', 33),
-(492, 'Kabupaten Pegunungan Bintang', 33),
-(493, 'Kabupaten Puncak', 33),
-(494, 'Kabupaten Puncak Jaya', 33),
-(495, 'Kabupaten Sarmi', 33),
-(496, 'Kabupaten Supiori', 33),
-(497, 'Kabupaten Tolikara', 33),
-(498, 'Kabupaten Waropen', 33),
-(499, 'Kabupaten Yahukimo', 33),
-(500, 'Kabupaten Yalimo', 33),
-(501, 'Kota Jayapura', 33),
-(502, 'Kabupaten Fakfak', 34),
-(503, 'Kabupaten Kaimana', 34),
-(504, 'Kabupaten Manokwari', 34),
-(505, 'Kabupaten Manokwari Selatan', 34),
-(506, 'Kabupaten Maybrat', 34),
-(507, 'Kabupaten Pegunungan Arfak', 34),
-(508, 'Kabupaten Raja Ampat', 34),
-(509, 'Kabupaten Sorong', 34),
-(510, 'Kabupaten Sorong Selatan', 34),
-(511, 'Kabupaten Tambrauw', 34),
-(512, 'Kabupaten Teluk Bintuni', 34),
-(513, 'Kabupaten Teluk Wondama', 34),
-(514, 'Kota Sorong', 34);
+INSERT INTO `kab_kota` (`id_kab`, `kota`, `id_prov`) VALUES
+(1, 'Aceh Barat', 1),
+(2, 'Aceh Barat Daya', 1),
+(3, 'Aceh Besar', 1),
+(4, 'Aceh Jaya', 1),
+(5, 'Aceh Selatan', 1),
+(6, 'Aceh Singkil', 1),
+(7, 'Aceh Tamiang', 1),
+(8, 'Aceh Tengah', 1),
+(9, 'Aceh Tenggara', 1),
+(10, 'Aceh Timur', 1),
+(11, 'Aceh Utara', 1),
+(12, 'Bener Meriah', 1),
+(13, 'Bireuen', 1),
+(14, 'Gayo Lues', 1),
+(15, 'Nagan Raya', 1),
+(16, 'Pidie', 1),
+(17, 'Pidie Jaya', 1),
+(18, 'Simeulue', 1),
+(19, 'Banda Aceh', 1),
+(20, 'Langsa', 1),
+(21, 'Lhokseumawe', 1),
+(22, 'Sabang', 1),
+(23, 'Subulussalam', 1),
+(24, 'Asahan', 2),
+(25, 'Batu Bara', 2),
+(26, 'Dairi', 2),
+(27, 'Deli Serdang', 2),
+(28, 'Humbang Hasundutan', 2),
+(29, 'Karo', 2),
+(30, 'Labuhanbatu', 2),
+(31, 'Labuhanbatu Selatan', 2),
+(32, 'Labuhanbatu Utara', 2),
+(33, 'Langkat', 2),
+(34, 'Mandailing Natal', 2),
+(35, 'Nias', 2),
+(36, 'Nias Barat', 2),
+(37, 'Nias Selatan', 2),
+(38, 'Nias Utara', 2),
+(39, 'Padang Lawas', 2),
+(40, 'Padang Lawas Utara', 2),
+(41, 'Pakpak Bharat', 2),
+(42, 'Samosir', 2),
+(43, 'Serdang Bedagai', 2),
+(44, 'Simalungun', 2),
+(45, 'Tapanuli Selatan', 2),
+(46, 'Tapanuli Tengah', 2),
+(47, 'Tapanuli Utara', 2),
+(48, 'Toba Samosir', 2),
+(49, 'Binjai', 2),
+(50, 'Gunungsitoli', 2),
+(51, 'Medan', 2),
+(52, 'Padangsidempuan', 2),
+(53, 'Pematangsiantar', 2),
+(54, 'Sibolga', 2),
+(55, 'Tanjungbalai', 2),
+(56, 'Tebing Tinggi', 2),
+(57, 'Agam', 3),
+(58, 'Dharmasraya', 3),
+(59, 'Kepulauan Mentawai', 3),
+(60, 'Lima Puluh ', 3),
+(61, 'Padang Pariaman', 3),
+(62, 'Pasaman', 3),
+(63, 'Pasaman Barat', 3),
+(64, 'Pesisir Selatan', 3),
+(65, 'Sijunjung', 3),
+(66, 'Solok', 3),
+(67, 'Solok Selatan', 3),
+(68, 'Tanah Datar', 3),
+(69, 'Bukittinggi', 3),
+(70, 'Padang', 3),
+(71, 'Padangpanjang', 3),
+(72, 'Pariaman', 3),
+(73, 'Payakumbuh', 3),
+(74, 'Sawahlunto', 3),
+(75, 'Solok', 3),
+(76, 'Bengkalis', 4),
+(77, 'Indragiri Hilir', 4),
+(78, 'Indragiri Hulu', 4),
+(79, 'Kampar', 4),
+(80, 'Kepulauan Meranti', 4),
+(81, 'Kuantan Singingi', 4),
+(82, 'Pelalawan', 4),
+(83, 'Rokan Hilir', 4),
+(84, 'Rokan Hulu', 4),
+(85, 'Siak', 4),
+(86, 'Dumai', 4),
+(87, 'Pekanbaru', 4),
+(88, 'Bintan', 5),
+(89, 'Karimun', 5),
+(90, 'Kepulauan Anambas', 5),
+(91, 'Lingga', 5),
+(92, 'Natuna', 5),
+(93, 'Batam', 5),
+(94, 'Tanjung Pinang', 5),
+(95, 'Batanghari', 6),
+(96, 'Bungo', 6),
+(97, 'Kerinci', 6),
+(98, 'Merangin', 6),
+(99, 'Muaro Jambi', 6),
+(100, 'Sarolangun', 6),
+(101, 'Tanjung Jabung Barat', 6),
+(102, 'Tanjung Jabung Timur', 6),
+(103, 'Tebo', 6),
+(104, 'Jambi', 6),
+(105, 'Sungaipenuh', 6),
+(106, 'Bengkulu Selatan', 7),
+(107, 'Bengkulu Tengah', 7),
+(108, 'Bengkulu Utara', 7),
+(109, 'Kaur', 7),
+(110, 'Kepahiang', 7),
+(111, 'Lebong', 7),
+(112, 'Mukomuko', 7),
+(113, 'Rejang Lebong', 7),
+(114, 'Seluma', 7),
+(115, 'Bengkulu', 7),
+(116, 'Banyuasin', 8),
+(117, 'Empat Lawang', 8),
+(118, 'Lahat', 8),
+(119, 'Muara Enim', 8),
+(120, 'Musi Banyuasin', 8),
+(121, 'Musi Rawas', 8),
+(122, 'Musi Rawas Utara', 8),
+(123, 'Ogan Ilir', 8),
+(124, 'Ogan Komering Ilir', 8),
+(125, 'Ogan Komering Ulu', 8),
+(126, 'Ogan Komering Ulu Selatan', 8),
+(127, 'Ogan Komering Ulu Timur', 8),
+(128, 'Penukal Abab Lematang Ilir', 8),
+(129, 'Lubuklinggau', 8),
+(130, 'Pagar Alam', 8),
+(131, 'Palembang', 8),
+(132, 'Prabumulih', 8),
+(133, 'Bangka', 9),
+(134, 'Bangka Barat', 9),
+(135, 'Bangka Selatan', 9),
+(136, 'Bangka Tengah', 9),
+(137, 'Belitung', 9),
+(138, 'Belitung Timur', 9),
+(139, 'Pangkal Pinang', 9),
+(140, 'Lampung Barat', 10),
+(141, 'Lampung Selatan', 10),
+(142, 'Lampung Tengah', 10),
+(143, 'Lampung Timur', 10),
+(144, 'Lampung Utara', 10),
+(145, 'Mesuji', 10),
+(146, 'Pesawaran', 10),
+(147, 'Pesisir Barat', 10),
+(148, 'Pringsewu', 10),
+(149, 'Tanggamus', 10),
+(150, 'Tulang Bawang', 10),
+(151, 'Tulang Bawang Barat', 10),
+(152, 'Way Kanan', 10),
+(153, 'Bandar Lampung', 10),
+(154, 'Metro', 10),
+(155, 'Lebak', 11),
+(156, 'Pandeglang', 11),
+(157, 'Serang', 11),
+(158, 'Tangerang', 11),
+(159, 'Cilegon', 11),
+(160, 'Serang', 11),
+(161, 'Tangerang', 11),
+(162, 'Tangerang Selatan', 11),
+(163, 'Bandung', 12),
+(164, 'Bandung Barat', 12),
+(165, 'Bekasi', 12),
+(166, 'Bogor', 12),
+(167, 'Ciamis', 12),
+(168, 'Cianjur', 12),
+(169, 'Cirebon', 12),
+(170, 'Garut', 12),
+(171, 'Indramayu', 12),
+(172, 'Karawang', 12),
+(173, 'Kuningan', 12),
+(174, 'Majalengka', 12),
+(175, 'Pangandaran', 12),
+(176, 'Purwakarta', 12),
+(177, 'Subang', 12),
+(178, 'Sukabumi', 12),
+(179, 'Sumedang', 12),
+(180, 'Tasikmalaya', 12),
+(181, 'Bandung', 12),
+(182, 'Banjar', 12),
+(183, 'Bekasi', 12),
+(184, 'Bogor', 12),
+(185, 'Cimahi', 12),
+(186, 'Cirebon', 12),
+(187, 'Depok', 12),
+(188, 'Sukabumi', 12),
+(189, 'Tasikmalaya', 12),
+(190, 'Kepulauan Seribu', 13),
+(191, 'Jakarta Barat', 13),
+(192, 'Jakarta Pusat', 13),
+(193, 'Jakarta Selatan', 13),
+(194, 'Jakarta Timur', 13),
+(195, 'Jakarta Utara', 13),
+(196, 'Banjarnegara', 14),
+(197, 'Banyumas', 14),
+(198, 'Batang', 14),
+(199, 'Blora', 14),
+(200, 'Boyolali', 14),
+(201, 'Brebes', 14),
+(202, 'Cilacap', 14),
+(203, 'Demak', 14),
+(204, 'Grobogan', 14),
+(205, 'Jepara', 14),
+(206, 'Karanganyar', 14),
+(207, 'Kebumen', 14),
+(208, 'Kendal', 14),
+(209, 'Klaten', 14),
+(210, 'Kudus', 14),
+(211, 'Magelang', 14),
+(212, 'Pati', 14),
+(213, 'Pekalongan', 14),
+(214, 'Pemalang', 14),
+(215, 'Purbalingga', 14),
+(216, 'Purworejo', 14),
+(217, 'Rembang', 14),
+(218, 'Semarang', 14),
+(219, 'Sragen', 14),
+(220, 'Sukoharjo', 14),
+(221, 'Tegal', 14),
+(222, 'Temanggung', 14),
+(223, 'Wonogiri', 14),
+(224, 'Wonosobo', 14),
+(225, 'Magelang', 14),
+(226, 'Pekalongan', 14),
+(227, 'Salatiga', 14),
+(228, 'Semarang', 14),
+(229, 'Surakarta', 14),
+(230, 'Tegal', 14),
+(231, 'Bantul', 15),
+(232, 'Gunungkidul', 15),
+(233, 'Kulon Progo', 15),
+(234, 'Sleman', 15),
+(235, 'Yogyakarta', 15),
+(236, 'Bangkalan', 16),
+(237, 'Banyuwangi', 16),
+(238, 'Blitar', 16),
+(239, 'Bojonegoro', 16),
+(240, 'Bondowoso', 16),
+(241, 'Gresik', 16),
+(242, 'Jember', 16),
+(243, 'Jombang', 16),
+(244, 'Kediri', 16),
+(245, 'Lamongan', 16),
+(246, 'Lumajang', 16),
+(247, 'Madiun', 16),
+(248, 'Magetan', 16),
+(249, 'Malang', 16),
+(250, 'Mojokerto', 16),
+(251, 'Nganjuk', 16),
+(252, 'Ngawi', 16),
+(253, 'Pacitan', 16),
+(254, 'Pamekasan', 16),
+(255, 'Pasuruan', 16),
+(256, 'Ponorogo', 16),
+(257, 'Probolinggo', 16),
+(258, 'Sampang', 16),
+(259, 'Sidoarjo', 16),
+(260, 'Situbondo', 16),
+(261, 'Sumenep', 16),
+(262, 'Trenggalek', 16),
+(263, 'Tuban', 16),
+(264, 'Tulungagung', 16),
+(265, 'Batu', 16),
+(266, 'Blitar', 16),
+(267, 'Kediri', 16),
+(268, 'Madiun', 16),
+(269, 'Malang', 16),
+(270, 'Mojokerto', 16),
+(271, 'Pasuruan', 16),
+(272, 'Probolinggo', 16),
+(273, 'Surabaya', 16),
+(274, 'Badung', 17),
+(275, 'Bangli', 17),
+(276, 'Buleleng', 17),
+(277, 'Gianyar', 17),
+(278, 'Jembrana', 17),
+(279, 'Karangasem', 17),
+(280, 'Klungkung', 17),
+(281, 'Tabanan', 17),
+(282, 'Denpasar', 17),
+(283, 'Bima', 18),
+(284, 'Dompu', 18),
+(285, 'Lombok Barat', 18),
+(286, 'Lombok Tengah', 18),
+(287, 'Lombok Timur', 18),
+(288, 'Lombok Utara', 18),
+(289, 'Sumbawa', 18),
+(290, 'Sumbawa Barat', 18),
+(291, 'Bima', 18),
+(292, 'Mataram', 18),
+(293, 'Alor', 19),
+(294, 'Belu', 19),
+(295, 'Ende', 19),
+(296, 'Flores Timur', 19),
+(297, 'Kupang', 19),
+(298, 'Lembata', 19),
+(299, 'Malaka', 19),
+(300, 'Manggarai', 19),
+(301, 'Manggarai Barat', 19),
+(302, 'Manggarai Timur', 19),
+(303, 'Nagekeo', 19),
+(304, 'Ngada', 19),
+(305, 'Rote Ndao', 19),
+(306, 'Sabu Raijua', 19),
+(307, 'Sikka', 19),
+(308, 'Sumba Barat', 19),
+(309, 'Sumba Barat Daya', 19),
+(310, 'Sumba Tengah', 19),
+(311, 'Sumba Timur', 19),
+(312, 'Timor Tengah Selatan', 19),
+(313, 'Timor Tengah Utara', 19),
+(314, 'Kupang', 19),
+(315, 'Bengkayang', 20),
+(316, 'Kapuas Hulu', 20),
+(317, 'Kayong Utara', 20),
+(318, 'Ketapang', 20),
+(319, 'Kubu Raya', 20),
+(320, 'Landak', 20),
+(321, 'Melawi', 20),
+(322, 'Mempawah', 20),
+(323, 'Sambas', 20),
+(324, 'Sanggau', 20),
+(325, 'Sekadau', 20),
+(326, 'Sintang', 20),
+(327, 'Pontianak', 20),
+(328, 'Singkawang', 20),
+(329, 'Balangan', 21),
+(330, 'Banjar', 21),
+(331, 'Barito Kuala', 21),
+(332, 'Hulu Sungai Selatan', 21),
+(333, 'Hulu Sungai Tengah', 21),
+(334, 'Hulu Sungai Utara', 21),
+(335, 'baru', 21),
+(336, 'Tabalong', 21),
+(337, 'Tanah Bumbu', 21),
+(338, 'Tanah Laut', 21),
+(339, 'Tapin', 21),
+(340, 'Banjarbaru', 21),
+(341, 'Banjarmasin', 21),
+(342, 'Barito Selatan', 22),
+(343, 'Barito Timur', 22),
+(344, 'Barito Utara', 22),
+(345, 'Gunung Mas', 22),
+(346, 'Kapuas', 22),
+(347, 'Katingan', 22),
+(348, 'waringin Barat', 22),
+(349, 'waringin Timur', 22),
+(350, 'Lamandau', 22),
+(351, 'Murung Raya', 22),
+(352, 'Pulang Pisau', 22),
+(353, 'Sukamara', 22),
+(354, 'Seruyan', 22),
+(355, 'Palangka Raya', 22),
+(356, 'Berau', 23),
+(357, 'Kutai Barat', 23),
+(358, 'Kutai Kartanegara', 23),
+(359, 'Kutai Timur', 23),
+(360, 'Mahakam Ulu', 23),
+(361, 'Paser', 23),
+(362, 'Penajam Paser Utara', 23),
+(363, 'Balikpapan', 23),
+(364, 'Bontang', 23),
+(365, 'Samarinda', 23),
+(366, 'Bulungan', 24),
+(367, 'Malinau', 24),
+(368, 'Nunukan', 24),
+(369, 'Tana Tidung', 24),
+(370, 'Tarakan', 24),
+(371, 'Boalemo', 25),
+(372, 'Bone Bolango', 25),
+(373, 'Gorontalo', 25),
+(374, 'Gorontalo Utara', 25),
+(375, 'Pohuwato', 25),
+(376, 'Gorontalo', 25),
+(377, 'Majene', 26),
+(378, 'Mamasa', 26),
+(379, 'Mamuju', 26),
+(380, 'Mamuju Tengah', 26),
+(381, 'Pasangkayu', 26),
+(382, 'Polewali Mandar', 26),
+(383, 'Bantaeng', 27),
+(384, 'Barru', 27),
+(385, 'Bone', 27),
+(386, 'Bulukumba', 27),
+(387, 'Enrekang', 27),
+(388, 'Gowa', 27),
+(389, 'Jeneponto', 27),
+(390, 'Kepulauan Selayar', 27),
+(391, 'Luwu', 27),
+(392, 'Luwu Timur', 27),
+(393, 'Luwu Utara', 27),
+(394, 'Maros', 27),
+(395, 'Pangkajene dan Kepulauan', 27),
+(396, 'Pinrang', 27),
+(397, 'Sidenreng Rappang', 27),
+(398, 'Sinjai', 27),
+(399, 'Soppeng', 27),
+(400, 'Takalar', 27),
+(401, 'Tana Toraja', 27),
+(402, 'Toraja Utara', 27),
+(403, 'Wajo', 27),
+(404, 'Makassar', 27),
+(405, 'Palopo', 27),
+(406, 'Parepare', 27),
+(407, 'Bombana', 28),
+(408, 'Buton', 28),
+(409, 'Buton Selatan', 28),
+(410, 'Buton Tengah', 28),
+(411, 'Buton Utara', 28),
+(412, 'Kolaka', 28),
+(413, 'Kolaka Timur', 28),
+(414, 'Kolaka Utara', 28),
+(415, 'Konawe', 28),
+(416, 'Konawe Kepulauan', 28),
+(417, 'Konawe Selatan', 28),
+(418, 'Konawe Utara', 28),
+(419, 'Muna', 28),
+(420, 'Muna Barat', 28),
+(421, 'Wakatobi', 28),
+(422, 'Bau-Bau', 28),
+(423, 'Kendari', 28),
+(424, 'Banggai', 29),
+(425, 'Banggai Kepulauan', 29),
+(426, 'Banggai Laut', 29),
+(427, 'Buol', 29),
+(428, 'Donggala', 29),
+(429, 'Morowali', 29),
+(430, 'Morowali Utara', 29),
+(431, 'Parigi Moutong', 29),
+(432, 'Poso', 29),
+(433, 'Sigi', 29),
+(434, 'Tojo Una-Una', 29),
+(435, 'Tolitoli', 29),
+(436, 'Palu', 29),
+(437, 'Bolaang Mongondow', 30),
+(438, 'Bolaang Mongondow Selatan', 30),
+(439, 'Bolaang Mongondow Timur', 30),
+(440, 'Bolaang Mongondow Utara', 30),
+(441, 'Kepulauan Sangihe', 30),
+(442, 'Kepulauan Siau Tagulandang Biaro', 30),
+(443, 'Kepulauan Talaud', 30),
+(444, 'Minahasa', 30),
+(445, 'Minahasa Selatan', 30),
+(446, 'Minahasa Tenggara', 30),
+(447, 'Minahasa Utara', 30),
+(448, 'Bitung', 30),
+(449, 'mobagu', 30),
+(450, 'Manado', 30),
+(451, 'Tomohon', 30),
+(452, 'Buru', 31),
+(453, 'Buru Selatan', 31),
+(454, 'Kepulauan Aru', 31),
+(455, 'Maluku Barat Daya', 31),
+(456, 'Maluku Tengah', 31),
+(457, 'Maluku Tenggara', 31),
+(458, 'Kepulauan Tanimbar', 31),
+(459, 'Seram Bagian Barat', 31),
+(460, 'Seram Bagian Timur', 31),
+(461, 'Ambon', 31),
+(462, 'Tual', 31),
+(463, 'Halmahera Barat', 32),
+(464, 'Halmahera Tengah', 32),
+(465, 'Halmahera Timur', 32),
+(466, 'Halmahera Selatan', 32),
+(467, 'Halmahera Utara', 32),
+(468, 'Kepulauan Sula', 32),
+(469, 'Pulau Morotai', 32),
+(470, 'Pulau Taliabu', 32),
+(471, 'Ternate', 32),
+(472, 'Tidore Kepulauan', 32),
+(473, 'Asmat', 33),
+(474, 'Biak Numfor', 33),
+(475, 'Boven Digoel', 33),
+(476, 'Deiyai', 33),
+(477, 'Dogiyai', 33),
+(478, 'Intan Jaya', 33),
+(479, 'Jayapura', 33),
+(480, 'Jayawijaya', 33),
+(481, 'Keerom', 33),
+(482, 'Kepulauan Yapen', 33),
+(483, 'Lanny Jaya', 33),
+(484, 'Mamberamo Raya', 33),
+(485, 'Mamberamo Tengah', 33),
+(486, 'Mappi', 33),
+(487, 'Merauke', 33),
+(488, 'Mimika', 33),
+(489, 'Nabire', 33),
+(490, 'Nduga', 33),
+(491, 'Paniai', 33),
+(492, 'Pegunungan Bintang', 33),
+(493, 'Puncak', 33),
+(494, 'Puncak Jaya', 33),
+(495, 'Sarmi', 33),
+(496, 'Supiori', 33),
+(497, 'Tolikara', 33),
+(498, 'Waropen', 33),
+(499, 'Yahukimo', 33),
+(500, 'Yalimo', 33),
+(501, 'Jayapura', 33),
+(502, 'Fakfak', 34),
+(503, 'Kaimana', 34),
+(504, 'Manokwari', 34),
+(505, 'Manokwari Selatan', 34),
+(506, 'Maybrat', 34),
+(507, 'Pegunungan Arfak', 34),
+(508, 'Raja Ampat', 34),
+(509, 'Sorong', 34),
+(510, 'Sorong Selatan', 34),
+(511, 'Tambrauw', 34),
+(512, 'Teluk Bintuni', 34),
+(513, 'Teluk Wondama', 34),
+(514, 'Sorong', 34);
 
 -- --------------------------------------------------------
 
@@ -614,7 +614,7 @@ CREATE TABLE `keuntungan` (
   `id_keuangan` int(11) NOT NULL,
   `bulan` varchar(15) DEFAULT NULL,
   `jumlah` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `keuntungan`
@@ -645,7 +645,7 @@ CREATE TABLE `mobil` (
   `TRANSISI` varchar(9) DEFAULT NULL,
   `SUPIR` varchar(5) DEFAULT NULL,
   `HARGA_SEWA_KENDARAAN` varchar(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `mobil`
@@ -677,7 +677,7 @@ CREATE TABLE `motor` (
   `KAPASITAS` int(11) DEFAULT NULL,
   `PINTU` int(11) DEFAULT NULL,
   `PENDINGIN_UDARA` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `motor`
@@ -699,7 +699,7 @@ CREATE TABLE `pemilik` (
   `ID_USER` int(11) NOT NULL,
   `FOTO_PEMILIK` varchar(100) DEFAULT NULL,
   `REKENING_PEMILIK` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `pemilik`
@@ -707,7 +707,9 @@ CREATE TABLE `pemilik` (
 
 INSERT INTO `pemilik` (`ID_PEMILIK`, `ID_USER`, `FOTO_PEMILIK`, `REKENING_PEMILIK`) VALUES
 (1, 2, NULL, NULL),
-(2, 3, NULL, NULL);
+(2, 3, NULL, NULL),
+(3, 5, NULL, NULL),
+(5, 7, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -720,7 +722,7 @@ CREATE TABLE `penyewa` (
   `ID_USER` int(11) NOT NULL,
   `FOTO_PENYEWA` varchar(50) NOT NULL,
   `REKENING_PENYEWA` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -745,7 +747,7 @@ CREATE TABLE `pesanan` (
   `TARIF_KENDARAAN` int(11) DEFAULT NULL,
   `TARIF_KENDARAAN_TAMBAHAN` int(11) DEFAULT NULL,
   `TARIF_SEWA` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -756,7 +758,7 @@ CREATE TABLE `pesanan` (
 CREATE TABLE `prov` (
   `ID_PROV` int(3) NOT NULL,
   `Provinsi` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `prov`
@@ -807,6 +809,7 @@ INSERT INTO `prov` (`ID_PROV`, `Provinsi`) VALUES
 CREATE TABLE `rental` (
   `ID_RENTAL` int(11) NOT NULL,
   `ID_PEMILIK` int(11) DEFAULT NULL,
+  `ID_KOTA` int(4) DEFAULT NULL,
   `NAMA_RENTAL` varchar(20) DEFAULT NULL,
   `DESKRIPSI_RENTAL` text,
   `ALAMAT_RENTAL` varchar(50) DEFAULT NULL,
@@ -819,15 +822,17 @@ CREATE TABLE `rental` (
   `HARI_1` varchar(7) DEFAULT NULL,
   `HARI_2` varchar(7) DEFAULT NULL,
   `PERSYARATAN_PENYEWA` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `rental`
 --
 
-INSERT INTO `rental` (`ID_RENTAL`, `ID_PEMILIK`, `NAMA_RENTAL`, `DESKRIPSI_RENTAL`, `ALAMAT_RENTAL`, `FOTO_RENTAL`, `LAMA_PEMESANAN_MINIMUM`, `JAM_BUKA`, `JAM_TUTUP`, `PERSYARATAN_JARAK_WAKTU_PEMESANAN`, `KEBIJAKAN_PEMBATALAN`, `HARI_1`, `HARI_2`, `PERSYARATAN_PENYEWA`) VALUES
-(1, 1, 'Jaya Abadi Showroom', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Jl. Kenangan', 'avatar.jpg', 1, '08:00:13', '22:00:52', 3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Selasa', 'Minggu', '1.Harga sewa mobil murah di Bali kami cantumkan di website adalah harga nett dan hanya berlaku untuk warga negara Indonesia (WNI) yang memiliki KTP.\r\n2.Rental mobil tanpa supir atau rent car Bali self drive, penyewa yang akan mengemudikan mobil diwajibkan memiliki SIM A yang masih berlaku. Penyewa diharapkan untuk memberikan data diri secara lengkap, seperti alamat tempat tinggal, nama tempat menginap seperti hotel, villa di Bali beserta nomer kamar dan nama penyewa yang terdaftar di hotel atau villa. Wira rental mobil Bali tidak akan mengunakan data pribadi dari penyewa selain untuk keperluan penyewaan mobil.\r\n3.Kartu identitas penyewa (KTP) akan disimpan atau di pinjam selama masa penyewaan, dan akan kami kembalikan pada saat pengembalian kendaraan yang disewa.\r\n4.Jika penggunaan mobil oleh penyewa melebihi dari waktu kesepakatan penyewaan, maka akan dikenakan biaya over time sebesar 10% dari harga sewa per hari. Jika over time melebihi dari 5 jam, maka akan di hitung biaya sewa selama 1 hari.\r\n5.Pick up dan delivery service dari mobil sewa kami, tidak di kenakan biaya untuk kawasan Denpasar, Kuta, Seminyak, Legian, Jimbaran, Sanur. Diluar wilayah tersebut akan dikenakan biaya bahan bakar. Pelayanan pick up dan delivery service secara gratis hanya berlaku pada jam 07:00 – 21:00 (waktu Bali). Pengantaran kendaraan dan penjemputan mobil di luar dari waktu diatas, akan dikenakan biaya sebesar Rp.20.000 (wilayah Denpasar, Kuta, Seminyak, Legian, Jimbaran, Sanur) diluar wilayah tersebut akan dikenakan biaya tambahan penggunaan bahan bakar.\r\n6.Pemakaian kendaraan hanya diperbolehkan khusus untuk penggunaan diwilayah provinsi Bali. Pengunaan kendaraan diluar provinsi Bali maka akan dikenakan sanksi sesuai dengan aturan dan ketentuan asosiasi penyewaan mobil Bali.\r\n7.Wira Rental Mobil & Tour Bali berhak menolak pesanan pelanggan, jika pelanggan menunjukan prilaku tidak sopan, menghina, mencaci, melakukan tindak kekerasan.'),
-(2, 2, 'Sumber Makmur', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Jl. Jatinegara', NULL, NULL, '08:00:00', '22:00:59', NULL, NULL, 'Senin', 'Minggu', NULL);
+INSERT INTO `rental` (`ID_RENTAL`, `ID_PEMILIK`, `ID_KOTA`, `NAMA_RENTAL`, `DESKRIPSI_RENTAL`, `ALAMAT_RENTAL`, `FOTO_RENTAL`, `LAMA_PEMESANAN_MINIMUM`, `JAM_BUKA`, `JAM_TUTUP`, `PERSYARATAN_JARAK_WAKTU_PEMESANAN`, `KEBIJAKAN_PEMBATALAN`, `HARI_1`, `HARI_2`, `PERSYARATAN_PENYEWA`) VALUES
+(1, 1, 192, 'Jaya Abadi Showroom', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Jl. Kenangan', 'avatar1.jpg', 1, '08:00:13', '22:00:52', 3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Selasa', 'Minggu', '1.Harga sewa mobil murah di Bali kami cantumkan di website adalah harga nett dan hanya berlaku untuk warga negara Indonesia (WNI) yang memiliki KTP.\r\n2.Rental mobil tanpa supir atau rent car Bali self drive, penyewa yang akan mengemudikan mobil diwajibkan memiliki SIM A yang masih berlaku. Penyewa diharapkan untuk memberikan data diri secara lengkap, seperti alamat tempat tinggal, nama tempat menginap seperti hotel, villa di Bali beserta nomer kamar dan nama penyewa yang terdaftar di hotel atau villa. Wira rental mobil Bali tidak akan mengunakan data pribadi dari penyewa selain untuk keperluan penyewaan mobil.\r\n3.Kartu identitas penyewa (KTP) akan disimpan atau di pinjam selama masa penyewaan, dan akan kami kembalikan pada saat pengembalian kendaraan yang disewa.\r\n4.Jika penggunaan mobil oleh penyewa melebihi dari waktu kesepakatan penyewaan, maka akan dikenakan biaya over time sebesar 10% dari harga sewa per hari. Jika over time melebihi dari 5 jam, maka akan di hitung biaya sewa selama 1 hari.\r\n5.Pick up dan delivery service dari mobil sewa kami, tidak di kenakan biaya untuk kawasan Denpasar, Kuta, Seminyak, Legian, Jimbaran, Sanur. Diluar wilayah tersebut akan dikenakan biaya bahan bakar. Pelayanan pick up dan delivery service secara gratis hanya berlaku pada jam 07:00 – 21:00 (waktu Bali). Pengantaran kendaraan dan penjemputan mobil di luar dari waktu diatas, akan dikenakan biaya sebesar Rp.20.000 (wilayah Denpasar, Kuta, Seminyak, Legian, Jimbaran, Sanur) diluar wilayah tersebut akan dikenakan biaya tambahan penggunaan bahan bakar.\r\n6.Pemakaian kendaraan hanya diperbolehkan khusus untuk penggunaan diwilayah provinsi Bali. Pengunaan kendaraan diluar provinsi Bali maka akan dikenakan sanksi sesuai dengan aturan dan ketentuan asosiasi penyewaan mobil Bali.\r\n7.Wira Rental Mobil & Tour Bali berhak menolak pesanan pelanggan, jika pelanggan menunjukan prilaku tidak sopan, menghina, mencaci, melakukan tindak kekerasan.'),
+(2, 2, 273, 'Sumber Makmur', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Jl. Jatinegara', 'about-img1.jpg', 0, '08:00:00', '22:00:59', 0, '', 'Senin', 'Minggu', ''),
+(3, 3, NULL, 'Ikhwan ShRoom', 'rrr', 'surabaya', 'ford.jpg', 1, '09:00:00', '21:00:00', 5, 'eee', NULL, NULL, 'www'),
+(4, 5, 247, 'hmm showroom', 'askdnaskdjnnasd', 'Jl. Kamboja', 'header-bg2.jpg', 1, '08:00:00', '20:00:00', 5, 'asd', NULL, NULL, 'asd');
 
 -- --------------------------------------------------------
 
@@ -841,7 +846,7 @@ CREATE TABLE `transaksi` (
   `KETERANGAN_TRANSAKSI` text,
   `KOMENTAR_TRANSAKSI` text,
   `RATING` smallint(6) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -860,7 +865,7 @@ CREATE TABLE `user` (
   `NEGARA_TETMPAT_TINGGAL` varchar(20) DEFAULT NULL,
   `TELEPON_SELULER` int(11) DEFAULT NULL,
   `KETERANGAN_USER` varchar(7) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `user`
@@ -870,7 +875,10 @@ INSERT INTO `user` (`ID_USER`, `EMAIL`, `PASSWORD`, `NAMA`, `JENIS_KELAMIN`, `DA
 (1, 'admin@gmail.com', 'admin', 'admin', 'L', 'SDA', '2020-05-01', 'indonesia', 81876855, 'admin'),
 (2, 'user@gmail.com', 'user', 'user', 'P', 'SBY', '2020-05-01', 'Indonesia', 986756334, 'user'),
 (3, 'rahadianhanif98@gmail.com', 'alvern', 'Alvern', NULL, NULL, NULL, NULL, NULL, 'user'),
-(4, 'coba@gmail.com', '123', 'coba', NULL, NULL, NULL, NULL, NULL, 'user');
+(4, 'coba@gmail.com', '123', 'coba', NULL, NULL, NULL, NULL, NULL, 'user'),
+(5, 'ikhwan@gmail.com', '123', 'ikhwan', NULL, NULL, NULL, NULL, NULL, 'user'),
+(6, 'a', 'a', 'a', NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'hmm@gmail.com', '123', 'hmm', NULL, NULL, NULL, NULL, NULL, 'user');
 
 --
 -- Indexes for dumped tables
@@ -880,96 +888,97 @@ INSERT INTO `user` (`ID_USER`, `EMAIL`, `PASSWORD`, `NAMA`, `JENIS_KELAMIN`, `DA
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`ID_ADMIN`),
-  ADD KEY `ID_USER` (`ID_USER`);
+  ADD PRIMARY KEY (`ID_ADMIN`) USING BTREE,
+  ADD KEY `ID_USER` (`ID_USER`) USING BTREE;
 
 --
 -- Indexes for table `artikel`
 --
 ALTER TABLE `artikel`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indexes for table `artikel_pariwisata`
 --
 ALTER TABLE `artikel_pariwisata`
-  ADD PRIMARY KEY (`ID_ARTIKEL`),
-  ADD KEY `ID_ADMIN` (`ID_ADMIN`);
+  ADD PRIMARY KEY (`ID_ARTIKEL`) USING BTREE,
+  ADD KEY `ID_ADMIN` (`ID_ADMIN`) USING BTREE;
 
 --
 -- Indexes for table `kab_kota`
 --
 ALTER TABLE `kab_kota`
-  ADD PRIMARY KEY (`id_kab`),
-  ADD KEY `id_prov` (`id_prov`);
+  ADD PRIMARY KEY (`id_kab`) USING BTREE,
+  ADD KEY `id_prov` (`id_prov`) USING BTREE;
 
 --
 -- Indexes for table `keuntungan`
 --
 ALTER TABLE `keuntungan`
-  ADD PRIMARY KEY (`id_keuangan`);
+  ADD PRIMARY KEY (`id_keuangan`) USING BTREE;
 
 --
 -- Indexes for table `mobil`
 --
 ALTER TABLE `mobil`
-  ADD PRIMARY KEY (`ID_MOBIL`),
-  ADD KEY `ID_RENTAL` (`ID_RENTAL`);
+  ADD PRIMARY KEY (`ID_MOBIL`) USING BTREE,
+  ADD KEY `ID_RENTAL` (`ID_RENTAL`) USING BTREE;
 
 --
 -- Indexes for table `motor`
 --
 ALTER TABLE `motor`
-  ADD PRIMARY KEY (`ID_MOTOR`),
-  ADD KEY `ID_RENTAL` (`ID_RENTAL`);
+  ADD PRIMARY KEY (`ID_MOTOR`) USING BTREE,
+  ADD KEY `ID_RENTAL` (`ID_RENTAL`) USING BTREE;
 
 --
 -- Indexes for table `pemilik`
 --
 ALTER TABLE `pemilik`
-  ADD PRIMARY KEY (`ID_PEMILIK`),
-  ADD KEY `ID_USER` (`ID_USER`);
+  ADD PRIMARY KEY (`ID_PEMILIK`) USING BTREE,
+  ADD KEY `ID_USER` (`ID_USER`) USING BTREE;
 
 --
 -- Indexes for table `penyewa`
 --
 ALTER TABLE `penyewa`
-  ADD PRIMARY KEY (`ID_PENYEWA`),
-  ADD KEY `ID_USER` (`ID_USER`);
+  ADD PRIMARY KEY (`ID_PENYEWA`) USING BTREE,
+  ADD KEY `ID_USER` (`ID_USER`) USING BTREE;
 
 --
 -- Indexes for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  ADD PRIMARY KEY (`ID_PESAN`),
-  ADD KEY `ID_PENYEWA` (`ID_PENYEWA`),
-  ADD KEY `ID_RENTAL` (`ID_RENTAL`);
+  ADD PRIMARY KEY (`ID_PESAN`) USING BTREE,
+  ADD KEY `ID_PENYEWA` (`ID_PENYEWA`) USING BTREE,
+  ADD KEY `ID_RENTAL` (`ID_RENTAL`) USING BTREE;
 
 --
 -- Indexes for table `prov`
 --
 ALTER TABLE `prov`
-  ADD PRIMARY KEY (`ID_PROV`);
+  ADD PRIMARY KEY (`ID_PROV`) USING BTREE;
 
 --
 -- Indexes for table `rental`
 --
 ALTER TABLE `rental`
-  ADD PRIMARY KEY (`ID_RENTAL`),
-  ADD KEY `ID_PEMILIK` (`ID_PEMILIK`);
+  ADD PRIMARY KEY (`ID_RENTAL`) USING BTREE,
+  ADD KEY `ID_PEMILIK` (`ID_PEMILIK`) USING BTREE,
+  ADD KEY `ID_KOTA` (`ID_KOTA`) USING BTREE;
 
 --
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`ID_TRANSAKSI`),
-  ADD KEY `ID_PESAN` (`ID_PESAN`);
+  ADD PRIMARY KEY (`ID_TRANSAKSI`) USING BTREE,
+  ADD KEY `ID_PESAN` (`ID_PESAN`) USING BTREE;
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`ID_USER`);
+  ADD PRIMARY KEY (`ID_USER`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1009,7 +1018,7 @@ ALTER TABLE `motor`
 -- AUTO_INCREMENT for table `pemilik`
 --
 ALTER TABLE `pemilik`
-  MODIFY `ID_PEMILIK` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_PEMILIK` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `penyewa`
@@ -1027,7 +1036,7 @@ ALTER TABLE `pesanan`
 -- AUTO_INCREMENT for table `rental`
 --
 ALTER TABLE `rental`
-  MODIFY `ID_RENTAL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_RENTAL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
@@ -1039,7 +1048,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -1061,7 +1070,7 @@ ALTER TABLE `artikel_pariwisata`
 -- Constraints for table `kab_kota`
 --
 ALTER TABLE `kab_kota`
-  ADD CONSTRAINT `kab_kota_ibfk_1` FOREIGN KEY (`id_prov`) REFERENCES `prov` (`ID_PROV`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `kab_kota_ibfk_1` FOREIGN KEY (`id_prov`) REFERENCES `prov` (`ID_PROV`);
 
 --
 -- Constraints for table `mobil`
@@ -1098,7 +1107,8 @@ ALTER TABLE `pesanan`
 -- Constraints for table `rental`
 --
 ALTER TABLE `rental`
-  ADD CONSTRAINT `rental_ibfk_1` FOREIGN KEY (`ID_PEMILIK`) REFERENCES `pemilik` (`ID_PEMILIK`);
+  ADD CONSTRAINT `rental_ibfk_1` FOREIGN KEY (`ID_PEMILIK`) REFERENCES `pemilik` (`ID_PEMILIK`),
+  ADD CONSTRAINT `rental_ibfk_2` FOREIGN KEY (`ID_KOTA`) REFERENCES `kab_kota` (`id_kab`);
 
 --
 -- Constraints for table `transaksi`

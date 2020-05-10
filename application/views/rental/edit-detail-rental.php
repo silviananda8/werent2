@@ -18,7 +18,7 @@
                     
                     <div class="form-group mt-3">
                         <label for="foto_rental">Upload Foto</label>
-                        <input type="file" class="form-control" id="foto_rental" name="foto_rental">
+                        <input type="file" class="form-control" id="foto_rental" name="foto_rental" required>
                     </div>
                 </div>
 
@@ -28,32 +28,37 @@
                         <dl class="row mt-3">
                             <dt class="col-sm-5">Nama Rental</dt>
                             <dd class="col-sm-7">
-                                <input type="text" class="form-control" placeholder="Nama Rental" value="<?php echo $rental->NAMA_RENTAL?>" id="nama_rental" name="nama_rental">
+                                <input type="text" class="form-control" placeholder="Nama Rental" value="<?php echo $rental->NAMA_RENTAL?>" id="nama_rental" name="nama_rental" required>
                             </dd>
 
                             <dt class="col-sm-5 mt-2">Alamat Rental</dt>
                             <dd class="col-sm-7 mt-2">
-                                <input type="text" class="form-control" placeholder="Alamat Rental" value="<?php echo $rental->ALAMAT_RENTAL?>" id="alamat_rental" name="alamat_rental">
+                                <input type="text" class="form-control" placeholder="Alamat Rental" value="<?php echo $rental->ALAMAT_RENTAL?>" id="alamat_rental" name="alamat_rental" required>
+                            </dd>
+
+                            <dt class="col-sm-5 mt-2">Kota Rental</dt>
+                            <dd class="col-sm-7 mt-2">
+                                <input type="text" class="form-control" placeholder="Kota Rental" value="<?php echo $rental->ID_KOTA?>" id="id_kota" name="id_kota" required>
                             </dd>
 
                             <dt class="col-sm-5 mt-2">Jam Buka</dt>
                             <dd class="col-sm-7 mt-2">
-                                <input type="text" class="form-control" placeholder="Jam Buka" value="<?php echo $rental->JAM_BUKA?>" id="jam_buka" name="jam_buka">
+                                <input type="text" class="form-control" placeholder="Jam Buka" value="<?php echo $rental->JAM_BUKA?>" id="jam_buka" name="jam_buka" required>
                             </dd>
 
                             <dt class="col-sm-5 mt-2">Jam Tutup</dt>
                             <dd class="col-sm-7 mt-2">
-                                <input type="text" class="form-control" placeholder="Jam Tutup" value="<?php echo $rental->JAM_TUTUP?>" id="jam_tutup" name="jam_tutup">
+                                <input type="text" class="form-control" placeholder="Jam Tutup" value="<?php echo $rental->JAM_TUTUP?>" id="jam_tutup" name="jam_tutup" required>
                             </dd>
 
                             <dt class="col-sm-5 mt-2">Lama Pemesanan Minimum</dt>
                             <dd class="col-sm-7 mt-2">
-                                <input type="text" class="form-control" placeholder="Minimum" value="<?php echo $rental->LAMA_PEMESANAN_MINIMUM?>" id="lama_pemesanan_minimum" name="lama_pemesanan_minimum">
+                                <input type="text" class="form-control" placeholder="Minimum" value="<?php echo $rental->LAMA_PEMESANAN_MINIMUM?>" id="lama_pemesanan_minimum" name="lama_pemesanan_minimum" required>
                             </dd>
 
                             <dt class="col-sm-5 mt-2">Lama Pemesanan Maksimum</dt>
                             <dd class="col-sm-7 mt-2">
-                            <input type="text" class="form-control" placeholder="Maksimum" value="<?php echo $rental->PERSYARATAN_JARAK_WAKTU_PEMESANAN?>" id="lama_pemesanan_maksimum" name="lama_pemesanan_maksimum">
+                            <input type="text" class="form-control" placeholder="Maksimum" value="<?php echo $rental->PERSYARATAN_JARAK_WAKTU_PEMESANAN?>" id="lama_pemesanan_maksimum" name="lama_pemesanan_maksimum" required>
                             </dd>
 
                             <dt class="col-sm-5 mt-2">Aturan Pemesanan</dt>
