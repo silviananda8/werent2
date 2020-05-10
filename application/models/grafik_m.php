@@ -22,18 +22,19 @@ class grafik_m  extends CI_Model  {
         return $sql;
     }
 
-    function show_mobil(){
-        $sql=$this->db->query("SELECT * FROM rental JOIN mobil WHERE mobil.ID_RENTAL = rental.ID_RENTAL");
+    function show_mobil($kota,$TANGGAL_PENGAMBILAN,$TANGGAL_PENGEMBALIAN){
+        $sql=$this->db->query("SELECT * FROM mobil join rental JOIN kab_kota on mobil.ID_RENTAL=rental.ID_RENTAL AND rental.ID_KOTA=kab_kota.id_kab WHERE kab_kota.kota LIKE '$kota%' and  NOT ID_MOBIL in (SELECT pesanan.ID_MOBIL FROM pesanan JOIN mobil join rental JOIN kab_kota ON pesanan.ID_MOBIL=mobil.ID_MOBIL and mobil.ID_RENTAL=rental.ID_RENTAL AND rental.ID_KOTA=kab_kota.id_kab WHERE TANGGAL_PENGAMBILAN>='$TANGGAL_PENGAMBILAN' AND TANGGAL_PENGEMBALIAN<='$TANGGAL_PENGEMBALIAN' AND kab_kota.kota LIKE '$kota%')");
         return $sql;
     }
+
 
     function detail_mobil($id){
         $sql=$this->db->query("SELECT *,TIME_FORMAT(JAM_BUKA,'%h %i') as buka,TIME_FORMAT(JAM_TUTUP,'%h %i') as tutup FROM rental JOIN mobil WHERE ID_MOBIL='$id' AND mobil.ID_RENTAL = rental.ID_RENTAL");
         return $sql;
     }
 
-    function show_motor(){
-        $sql=$this->db->query("SELECT * FROM rental JOIN motor WHERE motor.ID_RENTAL = rental.ID_RENTAL");
+    function show_motor($kota,$TANGGAL_PENGAMBILAN,$TANGGAL_PENGEMBALIAN){
+        $sql=$this->db->query("SELECT * FROM motor JOIN rental JOIN kab_kota ON motor.ID_RENTAL = rental.ID_RENTAL AND rental.ID_KOTA =kab_kota.id_kab WHERE    kab_kota.kota LIKE '$kota%' AND NOT ID_MOTOR IN (SELECT ID_MOTOR FROM pesanan WHERE TANGGAL_PENGAMBILAN>='$TANGGAL_PENGAMBILAN' AND TANGGAL_PENGEMBALIAN<='$TANGGAL_PENGEMBALIAN')");
         return $sql;
     }
 
@@ -46,6 +47,13 @@ class grafik_m  extends CI_Model  {
     function register($email,$password,$nama){
         $sql=$this->db->query("INSERT INTO `user`(`EMAIL`, `PASSWORD`, `NAMA`,`KETERANGAN_USER`) VALUES ('$email','$password','$nama','user')");
         return $sql;
+    }
+
+    function autocomplete($kota){
+        $this->db->like('kota', $kota , 'both');
+        $this->db->order_by('kota', 'ASC');
+        $this->db->limit(5);
+        return $this->db->get('kab_kota')->result();
     }
 }
 ?>

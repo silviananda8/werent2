@@ -197,5 +197,21 @@
     <script src="<?= base_url('assets/'); ?>js/bootstrap.min.js" ></script>
     <script src="<?= base_url('assets/'); ?>js/jquery.datetimepicker.full.min.js" ></script>
     <script src="<?= base_url('assets/'); ?>js/myjs.js" ></script>
+    <script src="<?php echo base_url().'assets/js/jquery.js'?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/'); ?>js/jquery-ui.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $( "#tempatPenjemputan" ).autocomplete({
+              source: "<?php echo site_url('auth/get_autocomplete/?');?>"
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $( "#tempatPengembalian" ).autocomplete({
+              source: "<?php echo site_url('auth/get_autocomplete/?');?>"
+            });
+        });
+    </script>
   </body>
 </html>
