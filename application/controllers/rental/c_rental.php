@@ -12,6 +12,7 @@ class c_rental extends CI_Controller {
 
         $id_user = $this->session->userdata('ID_USER');
         $data['rental'] = $this->m_rental->rental($id_user)->result();
+        $data['kota'] = $this->m_rental->getKota($id_user)->result();
         
 
         $this->load->view('rental/header', $data);
@@ -57,6 +58,8 @@ class c_rental extends CI_Controller {
             'PERSYARATAN_PENYEWA'	        => $this->input->post('aturan_pemesanan'),
             'KEBIJAKAN_PEMBATALAN'	    => $this->input->post('kebijakan_pembatalan'),
             'DESKRIPSI_RENTAL'	        => $this->input->post('deskripsi_rental'),
+            'PENGANTARAN'	            => $this->input->post('pengantaran'),
+            'PENGEMBALIAN'	            => $this->input->post('pengembalian'),
             'FOTO_RENTAL'               => $foto
 		);
 
@@ -102,11 +105,23 @@ class c_rental extends CI_Controller {
             'NAMA_RENTAL'	            => $this->input->post('nama_rental'),
             'DESKRIPSI_RENTAL'	        => $this->input->post('deskripsi_rental'),
             'ALAMAT_RENTAL'	            => $this->input->post('alamat_rental'),
+            'PERSYARATAN_PENYEWA'	    => $this->input->post('persyaratan_penyewa'),
+            'KEBIJAKAN_PEMBATALAN'	    => $this->input->post('kebijakan_pembatalan'),
+            'PENGANTARAN'	            => $this->input->post('pengantaran'),
+            'PENGEMBALIAN'	            => $this->input->post('pengembalian'),
             'FOTO_RENTAL'               => $foto
 		);
 
         $this->m_rental->tambahRental($data);
         redirect('rental/c_session/auth');
 
+    }
+
+    function search(){
+        $postData = $this->input->post();
+
+		$data = $this->m_rental->searchKota($postData);
+
+		echo json_encode($data);
     }
 }
