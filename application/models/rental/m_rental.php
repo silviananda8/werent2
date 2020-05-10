@@ -19,4 +19,22 @@ class m_rental extends CI_Model  {
 		$this->db->update('rental', $data);
     }
 
+    function tambahPemilik($data){
+        // $this->db->insert('pemilik', $data);
+        $sql=$this->db->query("INSERT INTO `pemilik`(`ID_USER`) VALUES ('$data')");
+        return $sql;
+    }
+
+    function getIdPemilik($ID_USER){
+        $this->db->select('pemilik.ID_PEMILIK');
+        $this->db->from('pemilik');
+        $this->db->where('ID_USER',$ID_USER);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    function tambahRental($data){
+        $this->db->insert('rental',$data);
+    }
+
 }

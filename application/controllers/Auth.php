@@ -188,24 +188,6 @@ function __construct(){
         $email = $this->input->post('Email',TRUE);
         $password = $this->input->post('password',TRUE);
 		$this->grafik_m->register($email,$password,$nama);
-		
-		$ID_USER = $this->grafik_m->getIdUser($email,$password)->result();//mengambil ID_USER dari tabel user 
-		$this->register_pemilik($ID_USER);//lempar ke fungsi register_pemilik
-	}
-
-	function register_pemilik($ID_USER){
-		foreach($ID_USER as $id); //mengubah menjadi string
-		$data=$id->ID_USER; //inisialisasi variabel data berisi ID_USER
-		$this->grafik_m->tambahPemilik($data); //lempar ke model yang berisi inset ke tabel pemilik
-
-		$ID_PEMILIK = $this->grafik_m->getIdPemilik($data)->result();//mengambil ID_PEMILIK dari tabel pemilik 
-		$this->register_rental($ID_PEMILIK);
-	}
-
-	function register_rental($ID_PEMILIK){
-		foreach($ID_PEMILIK as $id); //mengubah menjadi string
-		$data=$id->ID_PEMILIK;
-		$this->grafik_m->tambahRental($data);
 		redirect('Auth/index');
 	}
 }

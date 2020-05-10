@@ -33,6 +33,9 @@
                         <dt class="col-sm-5">Alamat Rental</dt>
                         <dd class="col-sm-7"><?php echo $rental->ALAMAT_RENTAL?></dd>
 
+                        <dt class="col-sm-5">Kota Rental</dt>
+                        <dd class="col-sm-7"><?php echo $rental->ID_KOTA?></dd>
+
                         <dt class="col-sm-5">Jam Buka</dt>
                         <dd class="col-sm-7"><?php echo $rental->JAM_BUKA?></dd>
 

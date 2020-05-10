@@ -36,6 +36,11 @@
                                 <input type="text" class="form-control" placeholder="Alamat Rental" value="<?php echo $rental->ALAMAT_RENTAL?>" id="alamat_rental" name="alamat_rental" required>
                             </dd>
 
+                            <dt class="col-sm-5 mt-2">Kota Rental</dt>
+                            <dd class="col-sm-7 mt-2">
+                                <input type="text" class="form-control" placeholder="Kota Rental" value="<?php echo $rental->ID_KOTA?>" id="id_kota" name="id_kota" required>
+                            </dd>
+
                             <dt class="col-sm-5 mt-2">Jam Buka</dt>
                             <dd class="col-sm-7 mt-2">
                                 <input type="text" class="form-control" placeholder="Jam Buka" value="<?php echo $rental->JAM_BUKA?>" id="jam_buka" name="jam_buka" required>

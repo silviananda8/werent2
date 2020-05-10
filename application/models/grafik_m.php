@@ -47,35 +47,5 @@ class grafik_m  extends CI_Model  {
         $sql=$this->db->query("INSERT INTO `user`(`EMAIL`, `PASSWORD`, `NAMA`,`KETERANGAN_USER`) VALUES ('$email','$password','$nama','user')");
         return $sql;
     }
-
-    function getIdUser($email, $password){
-        $this->db->select('user.ID_USER');
-        $this->db->from('user');
-        $this->db->where('EMAIL', $email);
-        $this->db->where('PASSWORD', $password);
-        $query = $this->db->get();
-        return $query;
-    }
-
-    function tambahPemilik($data){
-        // $this->db->insert('pemilik', $data);
-        $sql=$this->db->query("INSERT INTO `pemilik`(`ID_USER`) VALUES ('$data')");
-        return $sql;
-    }
-
-    function getIdPemilik($ID_USER){
-        $this->db->select('pemilik.ID_PEMILIK');
-        $this->db->from('pemilik');
-        $this->db->where('ID_USER',$ID_USER);
-        $query = $this->db->get();
-        return $query;
-    }
-
-    function tambahRental($data){
-        $sql=$this->db->query("INSERT INTO `rental`(`ID_PEMILIK`) VALUES ('$data')");
-        return $sql;
-    }
-
-    // End Register
 }
 ?>
