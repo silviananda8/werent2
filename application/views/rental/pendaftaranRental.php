@@ -26,8 +26,16 @@
     <label for="inputAddress">Alamat Penyewaan</label>
     <input type="text" class="form-control" id="alamat_rental" name="alamat_rental" placeholder="Dimana lokasi penyewaan anda?">
   </div>
+
+  <div class="form-group">
+      <label for="foto">Foto Rental</label>
+    </div>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="foto" name="foto" required>
+      <label class="custom-file-label" for="customFile">Foto Rental</label>
+    </div>
   
-  <!-- <h4 class="card-title mb-4 mt-4">Persyaratan Menyewa</h4> -->
+  <h4 class="card-title mb-4 mt-4">Persyaratan Menyewa</h4>
   <div class="form-group">
     <!-- <div class="form-check">
       <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -35,11 +43,38 @@
         Check me out                  
       </label><input type="number" class="form-control" style="width: 60px" id="penumpang" name="penumpang" min="1" max="8">
     </div> -->
-
-    <div class="custom-file">
-      <input type="file" class="custom-file-input" id="foto" name="foto" required>
-      <label class="custom-file-label" for="customFile">Foto Rental</label>
+  
+  <div class="mb-3">
+    <label for="inputDeskripsi">Persyaratan Penyewaan</label>
+    <textarea class="form-control" placeholder="Silahkan masukkan persyaratan mengenai usaha penyewaan anda" required id="persyaratan_penyewa" name="persyaratan_penyewa"></textarea>
+    <div class="invalid-feedback">
+      Please enter a message in the textarea.
     </div>
+  </div>
+  
+  <div class="mb-3">
+    <label for="inputDeskripsi">Kebijakan Pembatalan</label>
+    <textarea class="form-control " placeholder="Silahkan masukkan kebijakan pembatalan mengenai usaha penyewaan anda" required id="kebijakan_pembatalan" name="kebijakan_pembatalan"></textarea>
+    <div class="invalid-feedback">
+      Please enter a message in the textarea.
+    </div>
+  </div>
+  <div class="row row-cols-2">
+    <div class="col">
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="pengantaran" value="ya">
+        <label class="form-check-label" for="exampleCheck1">Lokasi penjemputan kendaraan di tempat rental</label>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="pengembalian" value="ya">
+        <label class="form-check-label" for="exampleCheck1">Lokasi pengembalian kendaraan di tempat rental</label>
+      </div>
+    </div>
+  </div>
+    
   </div>
   <button type="submit" class="btn btn-primary">Sign in</button>
 </div>

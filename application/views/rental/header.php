@@ -24,16 +24,19 @@
 
   <!-- my css -->
     <link rel="stylesheet" href="<?= base_url(''); ?>/style.css">
+    <link rel="stylesheet" href="<?= base_url('')?>/assets/css/jquery-ui.css">
     <link rel="icon" class="fa fa-car fa-lg" style="color: #ffd000; margin-right: 7px;">
 
-        <!-- My fonts -->
-        <link href="<?= base_url(''); ?>/assets/css/poppins-font.css" rel="stylesheet">
+    <!-- My fonts -->
+    <link href="<?= base_url(''); ?>/assets/css/poppins-font.css" rel="stylesheet">
 
-        <!-- my CSS -->
-        <link rel="stylesheet" href="<?= base_url('assets/css/') ?>style.css">
+    <!-- my CSS -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/') ?>style.css">
 
-        <!-- Date Time Picker -->
-        <link href="<?= base_url(''); ?>/assets/css/jquery.datetimepicker.min.css" rel="stylesheet">
+    <!-- Date Time Picker -->
+    <link href="<?= base_url(''); ?>/assets/css/jquery.datetimepicker.min.css" rel="stylesheet">
+
+        
 
 </head>
 

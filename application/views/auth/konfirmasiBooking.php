@@ -1,4 +1,4 @@
-
+<?php //foreach($data as $dta):?>
 <section class="bg-light pt-3 ">
   <div class="container">
     <div class="row mt-4">
@@ -10,11 +10,56 @@
             <div class="row justify-content-center">
               <div class="col icon-orange">
                 <p><i class="fa fa-car "></i>  Pengambilan : <small>20/05/2020 jam 10:00 AM</small></p>
-                <p class="border border-light shadow-sm  mb-5 bg-white rounded p-2" role="alert"><i class="fa fa-map-marker"></i>  UIN Sunan Ampel Surabaya jl.ahmad yani no 27-29 surabaya</p>
+                <div class="card mb-3">
+                  <div class="card-body p-2">
+                    <div class="form-check ">
+                   <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                   <label class="form-check-label" for="defaultCheck1">
+                     Default checkbox
+                   </label>
+                 </div>
+                 </div>
+                </div>
+                 <div class="card mb-3">
+                  <div class="card-body p-2">
+                    <div class="form-check ">
+                   <input class="form-check-input"  type="checkbox" value="" id="defaultCheck1">
+                   <label class="form-check-label" for="defaultCheck1">
+                     <p>  Lokasi lain :</p>
+                   </label>
+                 </div>
+                 </div>
+                 <div class="form-group p-2">
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="alamat pengambilan">
+                </div>
+               </div>
+                          
               </div>
               <div class="col icon-orange">
                 <p><i class="fa fa-car "></i>  Pengembalian : <small>20/05/2020 jam 10:00 AM</small></p>
-                <p class="border border-light shadow-sm  mb-5 bg-white rounded p-2" role="alert"><i class="fa fa-map-marker"></i>  UIN Sunan Ampel Surabaya jl.ahmad yani no 27-29 surabaya</p>
+                  <div class="card mb-3">
+                  <div class="card-body p-2">
+                    <div class="form-check ">
+                   <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                   <label class="form-check-label" for="defaultCheck1">
+                     Default checkbox
+                   </label>
+                 </div>
+                 </div>
+                </div>
+                 <div class="card mb-3">
+                  <div class="card-body p-2">
+                    <div class="form-check ">
+                   <input class="form-check-input"  type="checkbox" value="" id="defaultCheck1">
+                   <label class="form-check-label" for="defaultCheck1">
+                     <p>  Lokasi lain :</p>
+                   </label>
+                 </div>
+                 </div>
+                 <div class="form-group p-2">
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="alamat pengembalian">
+                </div>
+               </div>
               </div>
             </div>
           </div>
@@ -92,12 +137,18 @@
             </div>
             <div class="row justify-content-center ">
               <div class="col ">
-                <p class="pl-3">Nama Rental</p>
+                <p class="pl-3">Nama Rental</p>           
+
               </div>
               <div class="col icon-orange">
                 <p><i class="fas fa-star "></i> 7,5 / Bagus</p>
             </div>
-             <div class="h-divider"></div>
+          </div>
+          <div class="row">
+           <div class="col">
+               <p class="pl-3">Alamat Kendaraan </p>
+          </div>            
+           <div class="h-divider"></div>
           </div>
           <p class="font-weight-bolder mb-1 pl-3">Reservasi termasuk dengan </p>
           <div class="col-lg mt-2 ">
@@ -114,7 +165,9 @@
                 <p><span>Rp </span>1.500.000</p>
             </div>
         </div>
-        <button class="btn btn-lg btn-warning btn-block ">Pesan Sekarang</button>
+        
+        <a class="btn btn-lg btn-warning btn-block" href="<?php echo site_url('auth/pembayaranMobil/'/*.$dta->ID_MOBIL*/);?>">Pesan Sekarang</a>
+        <?php //endforeach;?>
       </div>
     </div>
   </div>

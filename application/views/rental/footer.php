@@ -40,7 +40,16 @@
   <script src="<?= base_url('assets/'); ?>js/popper.min.js"></script>
   <script src="<?= base_url('assets/'); ?>js/jquery.datetimepicker.full.min.js" ></script>
   <script src="<?= base_url('assets/'); ?>js/myjs.js" ></script>
+  <script src="<?php echo base_url().'assets/js/jquery.js'?>" type="text/javascript"></script>
+  <script src="<?php echo base_url('assets/'); ?>js/jquery-ui.js" type="text/javascript"></script>
 
+  <script type="text/javascript">
+        $(document).ready(function(){
+            $( "#id_kota" ).autocomplete({
+              source: "<?php echo site_url('rental/c_rental/get_autocomplete/?');?>"
+            });
+        });
+    </script>
 </body>
 
 </html>

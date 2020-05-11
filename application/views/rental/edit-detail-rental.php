@@ -38,7 +38,9 @@
 
                             <dt class="col-sm-5 mt-2">Kota Rental</dt>
                             <dd class="col-sm-7 mt-2">
-                                <input type="text" class="form-control" placeholder="Kota Rental" value="<?php echo $rental->ID_KOTA?>" id="id_kota" name="id_kota" required>
+                                <?php foreach($kota as $kt):?>
+                                <input type="text" class="form-control" placeholder="Kota Rental" value="<?php echo $kt->kota?>" id="id_kota" name="id_kota" required>
+                                <?php endforeach;?>
                             </dd>
 
                             <dt class="col-sm-5 mt-2">Jam Buka</dt>
@@ -75,7 +77,26 @@
                             <dd class="col-sm-7 mt-2">
                                 <textarea class="form-control" name="deskripsi_rental" id="deskripsi_rental" cols="35" rows="3"><?php echo $rental->DESKRIPSI_RENTAL?></textarea>
                             </dd>
+                            <div class="container ml-n3 mt-2">
+                                <div class="form-group form-check">
+                                    <?php if($rental->PENGANTARAN == "ya"):?>
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="pengantaran" value="ya" checked>
+                                    <?php else:?>
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="pengantaran" value="ya">
+                                    <?php endif;?>
+                                    <label class="form-check-label" for="exampleCheck1">Lokasi penjemputan kendaraan di tempat rental</label>
+                                </div>
+                                <div class="form-group form-check">
+                                    <?php if($rental->PENGEMBALIAN == "ya"):?>
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="pengembalian" value="ya" checked>
+                                    <?php else:?>
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="pengembalian" value="ya">
+                                    <?php endif;?>
+                                    <label class="form-check-label" for="exampleCheck1">Lokasi pengembalian kendaraan di tempat rental</label>
+                                </div>
+                            </div>
                         </dl>
+                        
 
                         <input type="text" class="form-control" value="<?php echo $rental->ID_RENTAL?>" id="id_rental" name="id_rental" hidden>
                     <button type="submit" class="btn btn-warning tombol">
