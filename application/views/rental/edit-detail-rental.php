@@ -38,7 +38,9 @@
 
                             <dt class="col-sm-5 mt-2">Kota Rental</dt>
                             <dd class="col-sm-7 mt-2">
-                                <input type="text" class="form-control" placeholder="Kota Rental" value="<?php echo $rental->ID_KOTA?>" id="id_kota" name="id_kota" required>
+                                <?php foreach($kota as $kt):?>
+                                <input type="text" class="form-control" placeholder="Kota Rental" value="<?php echo $kt->kota?>" id="id_kota" name="id_kota" required>
+                                <?php endforeach;?>
                             </dd>
 
                             <dt class="col-sm-5 mt-2">Jam Buka</dt>

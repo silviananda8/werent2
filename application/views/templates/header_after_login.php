@@ -54,7 +54,7 @@
                       Profile
                     </a>
 
-                    <a class="dropdown-item" href="<?php echo site_url('rental/c_rental/index')?>">
+                    <a class="dropdown-item" href="<?php echo site_url('rental/c_session/auth')?>">
                       <i class="fas fa-business-time fa-sm fa-fw mr-2 text-gray-400"></i>
                       rental
                     </a>

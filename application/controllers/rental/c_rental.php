@@ -23,6 +23,7 @@ class c_rental extends CI_Controller {
     function editDetail(){
         $id_user = $this->session->userdata('ID_USER');
         $data['rental'] = $this->m_rental->rental($id_user)->result();
+        $data['kota'] = $this->m_rental->getKota($id_user)->result();
 
         $this->load->view('rental/header', $data);
         $this->load->view('rental/edit-detail-Rental');
@@ -31,6 +32,15 @@ class c_rental extends CI_Controller {
 
     function prosesEditDetail(){
         $id     = $this->input->post('id_rental');
+
+        //cari id kota berdasarkan nama kota
+        $kota = $this->input->post('id_kota');
+        $kt = $this->m_rental->getKotaByName($kota)->result();
+
+        foreach($kt as $k);
+        $id_kota=$k->id_kab;
+
+        //insert foto
         $foto   = $_FILES['foto_rental'];
         if($foto=''){}else{
             $config['upload_path']      = './assets/uploads/rental/image-profil/';
@@ -50,7 +60,7 @@ class c_rental extends CI_Controller {
 		$data = array(
 			'NAMA_RENTAL'	            => $this->input->post('nama_rental'),
             'ALAMAT_RENTAL'	            => $this->input->post('alamat_rental'),
-            'ID_KOTA'	            => $this->input->post('id_kota'),
+            'ID_KOTA'	                => $id_kota,
             'JAM_BUKA'	                => $this->input->post('jam_buka'),
             'JAM_TUTUP'	                => $this->input->post('jam_tutup'),
             'LAMA_PEMESANAN_MINIMUM'    => $this->input->post('lama_pemesanan_minimum'),
@@ -78,10 +88,18 @@ class c_rental extends CI_Controller {
         $id_user = $this->session->userdata('ID_USER');
         $this->m_rental->tambahPemilik($id_user);
 
+        //menambahkan pada tabel pemilik
         $ID_PEMILIK = $this->m_rental->getIdPemilik($id_user)->result();//mengambil ID_PEMILIK dari tabel pemilik 
 		foreach($ID_PEMILIK as $id); //mengubah menjadi string
         $id_pemilik=$id->ID_PEMILIK;
         
+        //cari id kota berdasarkan nama kota
+        $kota = $this->input->post('id_kota');
+        $kt = $this->m_rental->getKotaByName($kota)->result();
+
+        foreach($kt as $k);
+        $id_kota=$k->id_kab;
+
         // insert foto
         $foto   = $_FILES['foto'];
         if($foto=''){}else{
@@ -101,7 +119,7 @@ class c_rental extends CI_Controller {
 
 		$data = array(
             'ID_PEMILIK'                => $id_pemilik,
-            'ID_KOTA'                   => $this->input->post('id_kota'),
+            'ID_KOTA'                   => $id_kota,
             'NAMA_RENTAL'	            => $this->input->post('nama_rental'),
             'DESKRIPSI_RENTAL'	        => $this->input->post('deskripsi_rental'),
             'ALAMAT_RENTAL'	            => $this->input->post('alamat_rental'),
@@ -117,11 +135,15 @@ class c_rental extends CI_Controller {
 
     }
 
-    function search(){
-        $postData = $this->input->post();
-
-		$data = $this->m_rental->searchKota($postData);
-
-		echo json_encode($data);
+    function get_autocomplete(){
+        if (isset($_GET['term'])) {
+            $result = $this->m_rental->autocomplete($_GET['term']);
+            if (count($result) > 0) {
+            foreach ($result as $row)
+                $arr_result[] = $row->kota;
+                // $arr_result[] = $row->id_kota;
+                echo json_encode($arr_result);
+            }
+        }
     }
 }

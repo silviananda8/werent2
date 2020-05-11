@@ -48,27 +48,18 @@ class m_rental extends CI_Model  {
         return $query;
     }
 
-    function searchKota($postData){
-        $response = array();
+    function autocomplete($kota){
+        $this->db->like('kota', $kota , 'both');
+        $this->db->order_by('kota', 'ASC');
+        $this->db->limit(5);
+        return $this->db->get('kab_kota')->result();
+    }
 
-        $this->db->select('*');
-        if($postData['search'] ){
-            $this->db->where("kota like '%".$postData['search']."%' ");
-            $this->db->limit(5);
-            
-            $records = $this->db->get('kab_kota')->result();
-      
-            foreach($records as $row ){
-                $response[] = array(
-                  "value"=>$row->id_kab,
-                  "label"=>$row->kota
-                );
-            }
-       
-          }
-
-
-        return $response;
+    function getKotaByName($kota){
+        $this->db->select('id_kab');
+        $this->db->where('kota',$kota);
+        $this->db->limit(1);
+        return $this->db->get('kab_kota');
     }
 
 }
