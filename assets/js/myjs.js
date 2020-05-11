@@ -52,3 +52,9 @@
         hours12: false,
         step: 30,
     })
+
+    $('#tanggalLahir').datetimepicker({
+        datepicker: true,
+        timepicker: false,
+        format: 'Y-m-d'
+    });

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2020 at 02:27 AM
+-- Generation Time: May 11, 2020 at 07:11 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.28
 
@@ -753,6 +753,7 @@ CREATE TABLE `pesanan` (
   `ID_PENYEWA` int(11) DEFAULT NULL,
   `ID_Mobil` int(11) DEFAULT NULL,
   `ID_RENTAL` int(11) DEFAULT NULL,
+  `KODE_PEMESANAN` varchar(6) NOT NULL,
   `NAMA_PESAN` varchar(50) DEFAULT NULL,
   `DETAIL` text,
   `LOKASI_PENJEMPUTAN` varchar(50) DEFAULT NULL,
@@ -772,9 +773,9 @@ CREATE TABLE `pesanan` (
 -- Dumping data for table `pesanan`
 --
 
-INSERT INTO `pesanan` (`ID_PESAN`, `ID_PENYEWA`, `ID_Mobil`, `ID_RENTAL`, `NAMA_PESAN`, `DETAIL`, `LOKASI_PENJEMPUTAN`, `LOKASI_PENGANTARAN`, `TANGGAL_PENGAMBILAN`, `TANGGAL_PENGEMBALIAN`, `TARIF_JARAK_TEMPUH`, `TARIF_PER_MIL_TAMBAHAN`, `TARIF_JUMLAH_HARI`, `TARIF_JAM_TAMBAHAN`, `TARIF_KENDARAAN`, `TARIF_KENDARAAN_TAMBAHAN`, `TARIF_SEWA`) VALUES
-(1, 1, 3, NULL, 'test', NULL, NULL, NULL, '2020-05-11 10:42:55', '2020-05-12 10:43:06', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 1, 2, NULL, NULL, NULL, NULL, NULL, '2020-05-13 11:09:47', '2020-05-14 11:09:52', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `pesanan` (`ID_PESAN`, `ID_PENYEWA`, `ID_Mobil`, `ID_RENTAL`, `KODE_PEMESANAN`, `NAMA_PESAN`, `DETAIL`, `LOKASI_PENJEMPUTAN`, `LOKASI_PENGANTARAN`, `TANGGAL_PENGAMBILAN`, `TANGGAL_PENGEMBALIAN`, `TARIF_JARAK_TEMPUH`, `TARIF_PER_MIL_TAMBAHAN`, `TARIF_JUMLAH_HARI`, `TARIF_JAM_TAMBAHAN`, `TARIF_KENDARAAN`, `TARIF_KENDARAAN_TAMBAHAN`, `TARIF_SEWA`) VALUES
+(1, 1, 3, NULL, 'GJGC8D', 'test', NULL, NULL, NULL, '2020-05-11 10:42:55', '2020-05-12 10:43:06', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 1, 2, NULL, 'GJGC5D', NULL, NULL, NULL, NULL, '2020-05-13 11:09:47', '2020-05-14 11:09:52', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -858,7 +859,7 @@ CREATE TABLE `rental` (
 --
 
 INSERT INTO `rental` (`ID_RENTAL`, `ID_PEMILIK`, `ID_KOTA`, `NAMA_RENTAL`, `DESKRIPSI_RENTAL`, `ALAMAT_RENTAL`, `FOTO_RENTAL`, `LAMA_PEMESANAN_MINIMUM`, `JAM_BUKA`, `JAM_TUTUP`, `PERSYARATAN_JARAK_WAKTU_PEMESANAN`, `KEBIJAKAN_PEMBATALAN`, `HARI_1`, `HARI_2`, `PERSYARATAN_PENYEWA`, `PENGANTARAN`, `PENGEMBALIAN`) VALUES
-(1, 1, 192, 'Jaya Abadi Showroom', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Jl. Kenangan', 'flhtt4rrfb941.jpg', 1, '08:00:13', '22:00:52', 3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Selasa', 'Minggu', '1.Harga sewa mobil murah di Bali kami cantumkan di website adalah harga nett dan hanya berlaku untuk warga negara Indonesia (WNI) yang memiliki KTP.\r\n2.Rental mobil tanpa supir atau rent car Bali self drive, penyewa yang akan mengemudikan mobil diwajibkan memiliki SIM A yang masih berlaku. Penyewa diharapkan untuk memberikan data diri secara lengkap, seperti alamat tempat tinggal, nama tempat menginap seperti hotel, villa di Bali beserta nomer kamar dan nama penyewa yang terdaftar di hotel atau villa. Wira rental mobil Bali tidak akan mengunakan data pribadi dari penyewa selain untuk keperluan penyewaan mobil.\r\n3.Kartu identitas penyewa (KTP) akan disimpan atau di pinjam selama masa penyewaan, dan akan kami kembalikan pada saat pengembalian kendaraan yang disewa.\r\n4.Jika penggunaan mobil oleh penyewa melebihi dari waktu kesepakatan penyewaan, maka akan dikenakan biaya over time sebesar 10% dari harga sewa per hari. Jika over time melebihi dari 5 jam, maka akan di hitung biaya sewa selama 1 hari.\r\n5.Pick up dan delivery service dari mobil sewa kami, tidak di kenakan biaya untuk kawasan Denpasar, Kuta, Seminyak, Legian, Jimbaran, Sanur. Diluar wilayah tersebut akan dikenakan biaya bahan bakar. Pelayanan pick up dan delivery service secara gratis hanya berlaku pada jam 07:00 – 21:00 (waktu Bali). Pengantaran kendaraan dan penjemputan mobil di luar dari waktu diatas, akan dikenakan biaya sebesar Rp.20.000 (wilayah Denpasar, Kuta, Seminyak, Legian, Jimbaran, Sanur) diluar wilayah tersebut akan dikenakan biaya tambahan penggunaan bahan bakar.\r\n6.Pemakaian kendaraan hanya diperbolehkan khusus untuk penggunaan diwilayah provinsi Bali. Pengunaan kendaraan diluar provinsi Bali maka akan dikenakan sanksi sesuai dengan aturan dan ketentuan asosiasi penyewaan mobil Bali.\r\n7.Wira Rental Mobil & Tour Bali berhak menolak pesanan pelanggan, jika pelanggan menunjukan prilaku tidak sopan, menghina, mencaci, melakukan tindak kekerasan.', '', ''),
+(1, 1, 192, 'Jaya Abadi Showroom', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Jl. Kenangan', 'header-bg1.jpg', 1, '08:00:13', '22:00:52', 3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Selasa', 'Minggu', '1.Harga sewa mobil murah di Bali kami cantumkan di website adalah harga nett dan hanya berlaku untuk warga negara Indonesia (WNI) yang memiliki KTP.\r\n2.Rental mobil tanpa supir atau rent car Bali self drive, penyewa yang akan mengemudikan mobil diwajibkan memiliki SIM A yang masih berlaku. Penyewa diharapkan untuk memberikan data diri secara lengkap, seperti alamat tempat tinggal, nama tempat menginap seperti hotel, villa di Bali beserta nomer kamar dan nama penyewa yang terdaftar di hotel atau villa. Wira rental mobil Bali tidak akan mengunakan data pribadi dari penyewa selain untuk keperluan penyewaan mobil.\r\n3.Kartu identitas penyewa (KTP) akan disimpan atau di pinjam selama masa penyewaan, dan akan kami kembalikan pada saat pengembalian kendaraan yang disewa.\r\n4.Jika penggunaan mobil oleh penyewa melebihi dari waktu kesepakatan penyewaan, maka akan dikenakan biaya over time sebesar 10% dari harga sewa per hari. Jika over time melebihi dari 5 jam, maka akan di hitung biaya sewa selama 1 hari.\r\n5.Pick up dan delivery service dari mobil sewa kami, tidak di kenakan biaya untuk kawasan Denpasar, Kuta, Seminyak, Legian, Jimbaran, Sanur. Diluar wilayah tersebut akan dikenakan biaya bahan bakar. Pelayanan pick up dan delivery service secara gratis hanya berlaku pada jam 07:00 – 21:00 (waktu Bali). Pengantaran kendaraan dan penjemputan mobil di luar dari waktu diatas, akan dikenakan biaya sebesar Rp.20.000 (wilayah Denpasar, Kuta, Seminyak, Legian, Jimbaran, Sanur) diluar wilayah tersebut akan dikenakan biaya tambahan penggunaan bahan bakar.\r\n6.Pemakaian kendaraan hanya diperbolehkan khusus untuk penggunaan diwilayah provinsi Bali. Pengunaan kendaraan diluar provinsi Bali maka akan dikenakan sanksi sesuai dengan aturan dan ketentuan asosiasi penyewaan mobil Bali.\r\n7.Wira Rental Mobil & Tour Bali berhak menolak pesanan pelanggan, jika pelanggan menunjukan prilaku tidak sopan, menghina, mencaci, melakukan tindak kekerasan.', 'ya', 'ya'),
 (2, 2, 273, 'Sumber Makmur', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac diam massa. Nunc eleifend, lorem at feugiat dapibus, lectus arcu cursus velit, vel viverra lectus odio pellentesque ipsum. Etiam ac magna ex. Integer justo dolor, pharetra fermentum consectetur eu, feugiat a sem. In varius erat quis neque tincidunt pretium. Sed cursus porta ipsum. Nulla euismod tristique justo, tempus iaculis magna dictum ut. Etiam non risus sit amet tellus blandit blandit. Donec quis sollicitudin odio, ac malesuada ante. Sed ornare tellus et lorem viverra, vitae congue magna auctor. Nam hendrerit lacus quis nisi dapibus, et condimentum metus facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.', 'Jl. Jatinegara', NULL, NULL, '08:00:00', '22:00:59', NULL, NULL, 'Senin', 'Minggu', NULL, '', ''),
 (4, 5, 247, 'hmm showroom', 'kkkkkk', 'Jl. Cassablanca', 'flhtt4rrfb9412.jpg', 1, '08:00:00', '22:00:00', 7, 'nnnnnnnnn', NULL, NULL, 'mmmmmm', 'ya', 'ya'),
 (5, 7, 249, 'akbar showroom', 'iiiii', 'jl. kertas', 'avatar3.png', 3, '07:00:00', '10:00:00', 10, 'hhhhhhhhh', NULL, NULL, 'gggggg', '', '');
@@ -889,9 +890,9 @@ CREATE TABLE `user` (
   `PASSWORD` varchar(20) DEFAULT NULL,
   `NAMA` varchar(50) DEFAULT NULL,
   `JENIS_KELAMIN` varchar(10) DEFAULT NULL,
-  `DAERAH` varchar(25) DEFAULT NULL,
+  `KOTA` varchar(25) DEFAULT NULL,
   `TANGGAL_LAHIR` date DEFAULT NULL,
-  `NEGARA_TETMPAT_TINGGAL` varchar(20) DEFAULT NULL,
+  `NEGARA_TEMPAT_TINGGAL` varchar(20) DEFAULT NULL,
   `TELEPON_SELULER` int(11) DEFAULT NULL,
   `KETERANGAN_USER` varchar(7) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
@@ -900,9 +901,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`ID_USER`, `EMAIL`, `PASSWORD`, `NAMA`, `JENIS_KELAMIN`, `DAERAH`, `TANGGAL_LAHIR`, `NEGARA_TETMPAT_TINGGAL`, `TELEPON_SELULER`, `KETERANGAN_USER`) VALUES
+INSERT INTO `user` (`ID_USER`, `EMAIL`, `PASSWORD`, `NAMA`, `JENIS_KELAMIN`, `KOTA`, `TANGGAL_LAHIR`, `NEGARA_TEMPAT_TINGGAL`, `TELEPON_SELULER`, `KETERANGAN_USER`) VALUES
 (1, 'admin@gmail.com', 'admin', 'admin', 'L', 'SDA', '2020-05-01', 'indonesia', 81876855, 'admin'),
-(2, 'user@gmail.com', 'user', 'user', 'P', 'SBY', '2020-05-01', 'Indonesia', 986756334, 'user'),
+(2, 'user@gmail.com', 'user', 'user', NULL, 'Surabaya', '2000-07-25', 'Indonesia', 123456789, 'user'),
 (3, 'rahadianhanif98@gmail.com', 'alvern', 'Alvern', NULL, NULL, NULL, NULL, NULL, 'user'),
 (4, 'coba@gmail.com', '123', 'coba', NULL, NULL, NULL, NULL, NULL, 'user'),
 (5, 'ikhwan@gmail.com', '123', 'ikhwan', NULL, NULL, NULL, NULL, NULL, 'user'),
@@ -985,6 +986,7 @@ ALTER TABLE `penyewa`
 --
 ALTER TABLE `pesanan`
   ADD PRIMARY KEY (`ID_PESAN`) USING BTREE,
+  ADD UNIQUE KEY `KODE_PEMESANAN` (`KODE_PEMESANAN`),
   ADD KEY `ID_PENYEWA` (`ID_PENYEWA`) USING BTREE,
   ADD KEY `ID_RENTAL` (`ID_RENTAL`) USING BTREE,
   ADD KEY `ID_Mobil` (`ID_Mobil`) USING BTREE;
@@ -1014,7 +1016,8 @@ ALTER TABLE `transaksi`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`ID_USER`) USING BTREE;
+  ADD PRIMARY KEY (`ID_USER`) USING BTREE,
+  ADD UNIQUE KEY `EMAIL` (`EMAIL`);
 
 --
 -- AUTO_INCREMENT for dumped tables
