@@ -80,7 +80,6 @@ function __construct(){
 		}
 		$data['data']=$this->grafik_m->detail_mobil($id)->result();
 		$this->load->view('templates/header_after_login');
-		$this->load->view('tambahan/bar-panduan',$data);
 		$this->load->view('tambahan/filter-pencarian');
 		$this->load->view('auth/detailKendaraan',$data);
 		$this->load->view('templates/footer');
@@ -93,59 +92,77 @@ function __construct(){
 		}
 		$data['data']=$this->grafik_m->detail_motor($id)->result();
 		$this->load->view('templates/header_after_login');
-		$this->load->view('tambahan/bar-panduan2',$data);
+		// $this->load->view('tambahan/bar-panduan2',$data);
 		$this->load->view('tambahan/filter-pencarian');
 		$this->load->view('auth/detailKendaraan',$data);
 		$this->load->view('templates/footer');
 	}
 
-	public function persyaratanPenyewa($id)
-	{
-		$data['data']=$this->grafik_m->detail_mobil($id)->result();
-		$this->load->view('templates/header_after_login');
-		$this->load->view('tambahan/bar-panduan',$data);
-		$this->load->view('tambahan/filter-pencarian');
-		$this->load->view('auth/persyaratan-penyewa');
-		$this->load->view('templates/footer');
-	}
+	// public function persyaratanPenyewa($id)
+	// {
+	// 	$data['data']=$this->grafik_m->detail_mobil($id)->result();
+	// 	$this->load->view('templates/header_after_login');
+	// 	$this->load->view('tambahan/bar-panduan',$data);
+	// 	$this->load->view('tambahan/filter-pencarian');
+	// 	$this->load->view('auth/persyaratan-penyewa');
+	// 	$this->load->view('templates/footer');
+	// }
 
-	public function persyaratanPenyewa_motor($id)
-	{
-		$data['data']=$this->grafik_m->detail_motor($id)->result();
-		$this->load->view('templates/header_after_login');
-		$this->load->view('tambahan/bar-panduan2',$data);
-		$this->load->view('tambahan/filter-pencarian');
-		$this->load->view('auth/persyaratan-penyewa');
-		$this->load->view('templates/footer');
-	}
+	// public function persyaratanPenyewa_motor($id)
+	// {
+	// 	$data['data']=$this->grafik_m->detail_motor($id)->result();
+	// 	$this->load->view('templates/header_after_login');
+	// 	$this->load->view('tambahan/bar-panduan2',$data);
+	// 	$this->load->view('tambahan/filter-pencarian');
+	// 	$this->load->view('auth/persyaratan-penyewa');
+	// 	$this->load->view('templates/footer');
+	// }
 
-	function pembayaran($id){
-		$data['data']=$this->grafik_m->detail_mobil($id)->result();
-		$this->load->view('templates/header_after_login');
-		$this->load->view('tambahan/bar-panduan',$data);
-		$this->load->view('tambahan/filter-pencarian');
-		$this->load->view('auth/pembayaran.php');
-		$this->load->view('templates/footer');
-	}
+	// function pembayaran($id){
+	// 	$data['data']=$this->grafik_m->detail_mobil($id)->result();
+	// 	$this->load->view('templates/header_after_login');
+	// 	$this->load->view('tambahan/bar-panduan',$data);
+	// 	$this->load->view('tambahan/filter-pencarian');
+	// 	$this->load->view('auth/pembayaran.php');
+	// 	$this->load->view('templates/footer');
+	// }
 
-	function konfirmasi(){
+	function konfirmasi(){//pending dulu
 		$this->load->view('templates/header_after_login');
 		$this->load->view('auth/konfirmasi.php');
 		$this->load->view('templates/footer');
 	}
 
-	function konfirmasiBooking(){
-		// $data['data']=$this->grafik_m->detail_mobil($id)->result();
+	function konfirmasiBookingMobil($id){//halaman konfirmasi booking untuk mobil
+		$data['data']=$this->grafik_m->detail_mobil($id)->result();
 		$this->load->view('templates/header_after_login');
-		// $this->load->view('tambahan/bar-panduan');
-		// $this->load->view('tambahan/filter-pencarian');
-		$this->load->view('auth/konfirmasiBooking');
+		$this->load->view('auth/konfirmasiBooking',$data);
+		$this->load->view('templates/footer');
+	}
+
+	function pembayaranMobil(/*$id*/){//halaman pembayaran untuk mobil
+		//$data['data']=$this->grafik_m->detail_mobil($id)->result();
+		$this->load->view('templates/header_after_login');
+		$this->load->view('auth/pembayaran');
+		$this->load->view('templates/footer');
+	}
+
+	function konfirmasiBookingMotor($id){//halaman konfirmasi booking untuk motor
+		$data['data']=$this->grafik_m->detail_motor($id)->result();
+		$this->load->view('templates/header_after_login');
+		$this->load->view('auth/konfirmasiBooking',$data);
+		$this->load->view('templates/footer');
+	}
+
+	function pembayaranMotor(/*$id*/){//halaman pembayaran untuk motor
+		//$data['data']=$this->grafik_m->detail_motor($id)->result();
+		$this->load->view('templates/header_after_login');
+		$this->load->view('auth/pembayaran'/*,$data*/);
 		$this->load->view('templates/footer');
 	}
 
 
-	public function artikel()
-	{
+	public function artikel(){
 		$data['data']=$this->grafik_m->show_card_artikel()->result();
 		$data['coba']=$this->grafik_m->show_card_artikel_trending()->result();
 		if($this->session->userdata('logged_in') != TRUE){

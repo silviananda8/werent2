@@ -1,5 +1,6 @@
-<?php foreach($data as $dta):?>
-    
+
+
+    <?php foreach($data as $dta):?>
     <!-- == start detail kendaraan == -->
         <div class="col-7 mt-5 ml-5 ">
             <div class="card bg-white rounded p-2 box-shadow">
@@ -106,7 +107,13 @@
                 <div class="row">
                     <?php foreach($data as $dta):?>
                     <div class="col d-flex justify-content-end pl-3 pr-3" disable >
-                        <a type="button" href="<?php if($this->uri->segment('2')==='detailmotor'){echo site_url('auth/persyaratanPenyewa_motor/'.$dta->ID_MOTOR);} else if ($this->uri->segment('2')==='detailKendaraan') { echo site_url('auth/persyaratanPenyewa/'.$dta->ID_MOBIL);}?>" class="btn btn-warning font-weight-bolder tombol mr-3 mt-2">Selengkapnya</a>
+                        <a type="button" href="<?php if($this->uri->segment('2')==='detailmotor'){
+                            echo site_url('auth/konfirmasiBookingMotor/'.$dta->ID_MOTOR);
+                            } else if ($this->uri->segment('2')==='detailKendaraan') { 
+                                echo site_url('auth/konfirmasiBookingMobil/'.$dta->ID_MOBIL);}?>" 
+                            class="btn btn-warning font-weight-bolder tombol mr-3 mt-2">
+                            Selengkapnya
+                        </a>
                     </div>
                     <?php endforeach; ?>
                 </div>

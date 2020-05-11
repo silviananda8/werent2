@@ -1,7 +1,6 @@
-<div class="section">
+<!-- <div class="section">
     <div class="container mb-5">
 
-    <!-- == start bar panduan == -->
         <div class="container panduan-detail-kendaraan mt-3">
             <ul class="nav">
                 <li class="nav-item">
@@ -19,5 +18,4 @@
                 </li>
                 <?php endforeach; ?>
             </ul>
-        </div>
-    <!-- == end bar panduan == -->
+        </div> -->
