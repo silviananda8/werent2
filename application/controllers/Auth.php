@@ -140,10 +140,19 @@ function __construct(){
 		$this->load->view('templates/footer');
 	}
 
-	function pembayaranMobil(/*$id*/){//halaman pembayaran untuk mobil
-		//$data['data']=$this->grafik_m->detail_mobil($id)->result();
+	function pembayaranMobil($id){//halaman pembayaran untuk mobil
+		$data['data']=$this->grafik_m->detail_mobil($id)->result();
+		$AlamatAmbil= $this->input->post('AlamatAmbil');
+		$AlamatKembali=$this->input->post('AlamatKembali');
+		$SUPIR=$this->input->post('SUPIR');
+		$arraydata = array(
+            'AlamatAmbil'  => $AlamatAmbil,
+            'AlamatKembali'     => $AlamatKembali,
+            'SUPIR' => $SUPIR
+        );
+    	$this->session->set_userdata($arraydata);
 		$this->load->view('templates/header_after_login');
-		$this->load->view('auth/pembayaran');
+		$this->load->view('auth/pembayaran',$data);
 		$this->load->view('templates/footer');
 	}
 
@@ -154,10 +163,19 @@ function __construct(){
 		$this->load->view('templates/footer');
 	}
 
-	function pembayaranMotor(/*$id*/){//halaman pembayaran untuk motor
-		//$data['data']=$this->grafik_m->detail_motor($id)->result();
+	function pembayaranMotor($id){//halaman pembayaran untuk motor
+		$data['data']=$this->grafik_m->detail_motor($id)->result();
+		$AlamatAmbil= $this->input->post('AlamatAmbil');
+		$AlamatKembali=$this->input->post('AlamatKembali');
+		$SUPIR=$this->input->post('SUPIR');
+		$arraydata = array(
+            'AlamatAmbil'  => $AlamatAmbil,
+            'AlamatKembali'     => $AlamatKembali,
+            'SUPIR' => $SUPIR
+        );
+    	$this->session->set_userdata($arraydata);
 		$this->load->view('templates/header_after_login');
-		$this->load->view('auth/pembayaran'/*,$data*/);
+		$this->load->view('auth/pembayaran',$data);
 		$this->load->view('templates/footer');
 	}
 
@@ -225,4 +243,9 @@ function __construct(){
 		$this->grafik_m->register($email,$password,$nama);
 		redirect('Auth/index');
 	}
+
+	public function map(){
+	$this->load->view('tambahan/map');
+	}
+
 }

@@ -42,6 +42,10 @@ class grafik_m  extends CI_Model  {
         $sql=$this->db->query("SELECT *,TIME_FORMAT(JAM_BUKA,'%h %i') as buka,TIME_FORMAT(JAM_TUTUP,'%h %i') as tutup FROM rental JOIN motor WHERE ID_MOTOR='$id' AND motor.ID_RENTAL = rental.ID_RENTAL");
         return $sql;
     }
+     function pesanan($id){
+        $sql=$this->db->query("SELECT *,TIME_FORMAT(JAM_BUKA,'%h %i') as buka,TIME_FORMAT(JAM_TUTUP,'%h %i') as tutup FROM rental JOIN motor WHERE ID_MOTOR='$id' AND motor.ID_RENTAL = rental.ID_RENTAL");
+        return $sql;
+    }
 
     // Start Register 
     function register($email,$password,$nama){

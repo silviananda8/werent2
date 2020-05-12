@@ -87,7 +87,7 @@
                                 <p class=""><small><?php echo $dta->HARI_1;?>-<?php echo $dta->HARI_2;?></small></p>
                             </div>
                             <div class="col mr-5">
-                                <p class=""><small><?php echo $dta->buka;?> - <?php echo $dta->tutup;?></small></p>
+                                <p class=""><small><?php echo $dta->buka;?>-<?php echo $dta->tutup;?></small></p>
                             </div>
                         </div>
                         
@@ -99,7 +99,8 @@
                     <!-- Map -->
                     <div class="col">
                         <div class="map">
-                            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63316.450627349535!2d112.70970413268631!3d-7.32261999101443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb6c094d1b87%3A0xbc3def4f4bd2fa7!2sUniversitas%20Islam%20Negeri%20Sunan%20Ampel%20Surabaya!5e0!3m2!1sid!2sid!4v1587529136716!5m2!1sid!2sid" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            <!-- <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63316.450627349535!2d112.70970413268631!3d-7.32261999101443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb6c094d1b87%3A0xbc3def4f4bd2fa7!2sUniversitas%20Islam%20Negeri%20Sunan%20Ampel%20Surabaya!5e0!3m2!1sid!2sid!4v1587529136716!5m2!1sid!2sid" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
+                            <iframe src="<?php echo site_url('auth/map');?>"></iframe>
                         </div>
                     </div>
                 </div>
