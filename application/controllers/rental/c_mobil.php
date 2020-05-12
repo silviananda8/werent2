@@ -19,6 +19,14 @@ class c_mobil extends CI_Controller {
         $id_user = $this->session->userdata('ID_USER');
         $data['data']   =   $this->m_mobil->show_mobil($id_user)->result();
 
+        // $idMbl = $this->m_mobil->show_mobil($id_user)->result();
+        // foreach ($idMbl as $mbl);
+        // $id_mobil = $mbl->ID_MOBIL;
+
+        // $id_rental = $this->session->userdata('ID_RENTAL');
+        // $data['jumlah'] = $this->m_mobil->jumlahPesanan($id_rental,$id_mobil)->result();
+        // $data['pesanan'] = $this->m_mobil->detailPesanan($id_rental,$id_mobil)->result();
+
         $this->load->view('rental/header', $data);
         $this->load->view('rental/mobil-daftar');
         $this->load->view('rental/footer');

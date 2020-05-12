@@ -32,4 +32,26 @@ class m_mobil extends CI_Model{
         $this->db->where('ID_MOBIL', $id);
 		$this->db->update('mobil', $data);
     }
+
+    function jumlahPesanan($id_rental,$id_mobil){
+        $this->db->select('COUNT(pesanan.ID_Mobil) as jumlah');
+        $this->db->from('mobil, rental, pesanan');
+        $this->db->where('rental.ID_RENTAL = mobil.ID_RENTAL');
+        $this->db->where('pesanan.ID_Mobil = mobil.ID_MOBIL');
+        $this->db->where('mobil.ID_MOBIL',$id_mobil);
+        $this->db->where('rental.ID_RENTAL',$id_rental);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    function detailPesanan($id_mobil,$id_rental){
+        $this->db->select('*');
+        $this->db->from('mobil, rental, pesanan');
+        $this->db->where('rental.ID_RENTAL = mobil.ID_RENTAL');
+        $this->db->where('pesanan.ID_Mobil = mobil.ID_MOBIL');
+        $this->db->where('mobil.ID_MOBIL',$id_mobil);
+        $this->db->where('rental.ID_RENTAL',$id_rental);
+        $query = $this->db->get();
+        return $query;
+    }
 }
