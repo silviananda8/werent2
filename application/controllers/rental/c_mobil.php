@@ -16,17 +16,9 @@ class c_mobil extends CI_Controller {
     }
 
     function daftarKendaraan(){
-        $id_user = $this->session->userdata('ID_USER');
-        $data['data']   =   $this->m_mobil->show_mobil($id_user)->result();
-
-        // $idMbl = $this->m_mobil->show_mobil($id_user)->result();
-        // foreach ($idMbl as $mbl);
-        // $id_mobil = $mbl->ID_MOBIL;
-
-        // $id_rental = $this->session->userdata('ID_RENTAL');
-        // $data['jumlah'] = $this->m_mobil->jumlahPesanan($id_rental,$id_mobil)->result();
-        // $data['pesanan'] = $this->m_mobil->detailPesanan($id_rental,$id_mobil)->result();
-
+        $id_rental      = $this->session->userdata('ID_RENTAL');
+        $data['data']   = $this->m_mobil->show_mobil($id_rental)->result();
+        
         $this->load->view('rental/header', $data);
         $this->load->view('rental/mobil-daftar');
         $this->load->view('rental/footer');
@@ -110,5 +102,12 @@ class c_mobil extends CI_Controller {
 
         $this->m_mobil->updateMobil($data, $id);
         redirect('rental/c_mobil/daftarKendaraan');
+    }
+
+    function ambilId($id){
+        $id_rental      = $this->session->userdata('ID_RENTAL');
+        $data = $this->m_mobil->ambilId($id,$id_rental)->result();
+
+        echo json_encode($data);
     }
 }

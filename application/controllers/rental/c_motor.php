@@ -107,4 +107,11 @@ class c_motor extends CI_Controller {
         $this->m_motor->updateMotor($data, $id);
         redirect('rental/c_motor/daftarKendaraan');
     }
+
+    function ambilId($id){
+        $id_rental      = $this->session->userdata('ID_RENTAL');
+        $data = $this->m_motor->ambilId($id,$id_rental)->result();
+
+        echo json_encode($data);
+    }
 }

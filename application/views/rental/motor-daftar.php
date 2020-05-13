@@ -44,7 +44,7 @@
                                             <div class="col-lg-5 align-self-center">
                                                 <div class="row row-cols-4">
                                                     <div class="col-lg">
-                                                         <button class="btn btn " type="button" data-toggle="collapse" data-target="#jumlahPesanan<?= $i;  ?>" aria-expanded="false" aria-controls="collapseExample">
+                                                         <button class="btn btn " type="button" data-toggle="collapse" data-target="#jumlahPesanan<?= $i;  ?>" aria-expanded="false" aria-controls="collapseExample" onclick="ambilId(<?php echo $dta->ID_MOTOR;?>,2)">
                                                             <h4 class="display-3 text-center">
                                                             0
                                                             </h4>
@@ -83,6 +83,9 @@
                                         </div>
                                         
                                     </div>
+
+                                    <!-- ISI DROPDOWN -->
+                                    <div id="aaa<?php echo $dta->ID_MOTOR;?>">
                                     <div class="collapse" id="jumlahPesanan<?= $i;  ?>">
                                           <div class="card card-body border border-warning"><a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                             <div class="card border border-light shadow-sm  mb-5 bg-white rounded p-2" >
@@ -92,21 +95,21 @@
                                               
                                                 <div class="row justify-content-center">
                                                     <div class="col-lg-4">
-                                                        <h5>Nama Pemesan</h5>
-                                                        <p>Kode Pesanan <span class="font-weight-bold">9H983K</span></p>
+                                                        <h5>Nama Pemesan: <span id="nama<?php echo $dta->ID_MOTOR;?>"></h5>
+                                                        <p>Kode Pesanan <span class="font-weight-bold"><span id="kode_pemesanan<?php echo $dta->ID_MOTOR;?>"></span></p>
                                                         <a href="" class="badge badge-danger">Batalkan Pesanan</a>
                                                         <a class="badge badge-info" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Detail Pesanan</a>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="col icon-orange">
-                                                        <p>Pengambilan : <small>20/05/2020 jam 10:00 AM</small></p>
-                                                        <p><i class="fa fa-map-marker"></i>  UIN Sunan Ampel Surabaya jl.ahmad yani no 27-29 surabaya</p>
+                                                        <p>Pengambilan : <small><span id="tanggal_pengambilan<?php echo $dta->ID_MOTOR;?>"></small></p>
+                                                        <p><i class="fa fa-map-marker"></i><span id="lokasi_pengantaran<?php echo $dta->ID_MOTOR;?>"></p>
                                                       </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="col icon-orange">
-                                                        <p>Pengambilan : <small>20/05/2020 jam 10:00 AM</small></p>
-                                                        <p><i class="fa fa-map-marker"></i>  UIN Sunan Ampel Surabaya jl.ahmad yani no 27-29 surabaya</p>
+                                                        <p>Pengambilan : <small><span id="tanggal_pengembalian<?php echo $dta->ID_MOTOR;?>"></small></p>
+                                                        <p><i class="fa fa-map-marker"></i><span id="lokasi_penjemputan<?php echo $dta->ID_MOTOR;?>"></p>
                                                       </div>
                                                     </div>
                                                     <div class="col-lg-1">
@@ -120,12 +123,12 @@
                                                     <div class="col-lg-5 float-right">
                                                         <h5>Fasilitas YANG DIPESAN</h5>
                                                         <ul>
-                                                            <li>5 kursi</li>
-                                                            <li>AC</li>
-                                                            <li>Power Steering</li>
-                                                            <li>Transmisi Otomatis</li>
-                                                            <li>Airbag</li>
-                                                            <li>4 Pintu</li>
+                                                            <!-- <li>5 kursi</li> -->
+                                                            <!-- <li>AC</li> -->
+                                                            <!-- <li>Power Steering</li> -->
+                                                            <li>Transmisi <span id="transisi<?php echo $dta->ID_MOTOR;?>"></li>
+                                                            <!-- <li>Airbag</li> -->
+                                                            <!-- <li>4 Pintu</li> -->
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-7">
@@ -174,10 +177,10 @@
                                                           <li>
                                                               <div class="row">
                                                                   <div class="col-lg">
-                                                                      <p>Biaya Sewa</p>
+                                                                      <p>Biaya Sewa Kendaraan</p>
                                                                   </div>
                                                                   <div class="col-7">
-                                                                      <p><span>Rp</span> 1.500.000</p>
+                                                                      <p><span>Rp</span> <span id="harga_sewa_kendaraan<?php echo $dta->ID_MOTOR;?>"></p>
                                                                   </div>
                                                               </div>
                                                           </li>
@@ -197,9 +200,9 @@
                                               </div>
                                             </div>
                                             </div>
-                                            </a>
                                           </div>
                                         </div>
+                                    </div>
 
 
                                 </div>

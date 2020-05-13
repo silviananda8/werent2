@@ -32,4 +32,17 @@ class m_motor extends CI_Model{
         $this->db->where('ID_MOTOR', $id);
 		$this->db->update('motor', $data);
     }
+
+    function ambilId($id_motor, $id_rental){
+        $this->db->select('*');
+        $this->db->from('motor, rental, pesanan, penyewa, user');
+        $this->db->where('rental.ID_RENTAL = motor.ID_RENTAL');
+        $this->db->where('pesanan.ID_MOTOR = motor.ID_MOTOR');
+        $this->db->where('pesanan.ID_PENYEWA = penyewa.ID_PENYEWA');
+        $this->db->where('penyewa.ID_USER = user.ID_USER');
+        $this->db->where('motor.ID_MOTOR',$id_motor);
+        $this->db->where('rental.ID_RENTAL',$id_rental);
+        $query = $this->db->get();
+        return $query;
+    }
 }

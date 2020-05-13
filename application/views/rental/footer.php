@@ -36,8 +36,8 @@
   <script src="<?= base_url(''); ?>/assets/js/sb-admin-2.min.js"></script>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="<?= base_url('assets/'); ?>js/jquery-3.4.1.slim.min.js"></script>
-  <script src="<?= base_url('assets/'); ?>js/popper.min.js"></script>
+  <script src="<?= base_url('assets/'); ?>js/jquery-3.4.1.slim.min.js" ></script>
+  <script src="<?= base_url('assets/'); ?>js/popper.min.js" ></script>
   <script src="<?= base_url('assets/'); ?>js/jquery.datetimepicker.full.min.js" ></script>
   <script src="<?= base_url('assets/'); ?>js/myjs.js" ></script>
   <script src="<?php echo base_url().'assets/js/jquery.js'?>" type="text/javascript"></script>
@@ -49,7 +49,65 @@
               source: "<?php echo site_url('rental/c_rental/get_autocomplete/?');?>"
             });
         });
-    </script>
+  </script>
+
+  <script type="text/javascript">
+    function ambilId(id,kode){
+      console.log(kode);
+        if(kode==1){
+          $.ajax ({
+          type:"POST",
+          url:'<?php echo base_url()."rental/c_mobil/ambilId/"?>'+id+'',
+          dataType: 'json',
+          success: function(hasil){
+            if(hasil.length == 0){
+            $('#aaa'+id+'').hide();
+            }else{
+              for(i=0; i<hasil.length; i++){
+                  $("#nama"+id+"").html(hasil[0].NAMA);
+                  $("#kode_pemesanan"+id+"").html(hasil[0].KODE_PEMESANAN);
+                  $("#tanggal_pengambilan"+id+"").html(hasil[0].TANGGAL_PENGAMBILAN);
+                  $("#tanggal_pengembalian"+id+"").html(hasil[0].TANGGAL_PENGEMBALIAN);
+                  $("#lokasi_pengantaran"+id+"").html(hasil[0].LOKASI_PENGANTARAN);
+                  $("#lokasi_penjemputan"+id+"").html(hasil[0].LOKASI_PENJEMPUTAN);
+                  $("#kapasitas"+id+"").html(hasil[0].KAPASITAS);
+                  $("#pintu"+id+"").html(hasil[0].PINTU);
+                  $("#transisi"+id+"").html(hasil[0].TRANSISI);
+                  $("#pendingin_udara"+id+"").html(hasil[0].PENDINGIN_UDARA);
+                  $("#harga_sewa_kendaraan"+id+"").html(hasil[0].HARGA_SEWA_KENDARAAN);
+                }
+              }
+          }
+          });
+        }else{
+          $.ajax ({
+          type:"POST",
+          url:'<?php echo base_url()."rental/c_motor/ambilId/"?>'+id+'',
+          dataType: 'json',
+          success: function(hasil){
+            if(hasil.length == 0){
+            $('#aaa'+id+'').hide();
+            }else{
+              for(i=0; i<hasil.length; i++){
+                  $("#nama"+id+"").html(hasil[0].NAMA);
+                  $("#kode_pemesanan"+id+"").html(hasil[0].KODE_PEMESANAN);
+                  $("#tanggal_pengambilan"+id+"").html(hasil[0].TANGGAL_PENGAMBILAN);
+                  $("#tanggal_pengembalian"+id+"").html(hasil[0].TANGGAL_PENGEMBALIAN);
+                  $("#lokasi_pengantaran"+id+"").html(hasil[0].LOKASI_PENGANTARAN);
+                  $("#lokasi_penjemputan"+id+"").html(hasil[0].LOKASI_PENJEMPUTAN);
+                  $("#kapasitas"+id+"").html(hasil[0].KAPASITAS);
+                  $("#pintu"+id+"").html(hasil[0].PINTU);
+                  $("#transisi"+id+"").html(hasil[0].TRANSISI);
+                  $("#pendingin_udara"+id+"").html(hasil[0].PENDINGIN_UDARA);
+                  $("#harga_sewa_kendaraan"+id+"").html(hasil[0].HARGA_SEWA_KENDARAAN);
+                }
+              }
+          }
+          });
+        }
+        
+    }
+  </script>
 </body>
 
 </html>

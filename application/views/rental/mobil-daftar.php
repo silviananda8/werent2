@@ -18,7 +18,7 @@
                         </h4>
                     </div>
                     
-                    <?php 
+                    <?php //menampilkan kendaraan yang ada pada tabel pesanan
                     $i = 0;
                     foreach($data as $dta):?>
 
@@ -36,7 +36,7 @@
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <div class="container">
-                                                    <img src="<?= base_url('assets/uploads/kendaraan/') ?><?php echo $dta->FOTO?>" alt="Load" id="gambarKendaraan" >
+                                                    <img src="<?= base_url('assets/uploads/kendaraan/') ?><?php echo $dta->FOTO;?>" alt="Load" id="gambarKendaraan" >
                                                 </div>
                                             </div>
                         
@@ -44,7 +44,7 @@
                                             <div class="col-lg-5 align-self-center">
                                                 <div class="row row-cols-4">
                                                     <div class="col-lg">
-                                                         <button class="btn btn " type="button" data-toggle="collapse" data-target="#jumlahPesanan<?= $i;  ?>" aria-expanded="false" aria-controls="collapseExample">
+                                                         <button class="btn btn " type="button" data-toggle="collapse" data-target="#jumlahPesanan<?= $i;  ?>" aria-expanded="false" aria-controls="collapseExample" onclick="ambilId(<?php echo $dta->ID_MOBIL;?>,1)">
                                                             <h4 class="display-3 text-center">
                                                             0
                                                             </h4>
@@ -83,129 +83,133 @@
                                         </div>
                                         
                                     </div>
-                                    <div class="collapse" id="jumlahPesanan<?= $i;  ?>">
-                                          <div class="card card-body border border-warning"><a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                            <div class="card border border-light shadow-sm  mb-5 bg-white rounded p-2" >
-                                              <div class="card-body">
+
+                                    <!-- isi dropdown -->
+                                    <div id="aaa<?php echo $dta->ID_MOBIL;?>">
+                                        <div class="collapse" id="jumlahPesanan<?= $i;  ?>">
+                                            <div class="card card-body border border-warning"><a class="" data-toggle="collapse" href="#collapseExample<?= $i;?>" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                <div class="card border border-light shadow-sm  mb-5 bg-white rounded p-2" >
+                                                    <div class="card-body">
                                                 
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-lg-4">
+                                                                <h5>Nama Pemesan: <span id="nama<?php echo $dta->ID_MOBIL;?>"></span></h5>
+                                                                <p>Kode Pesanan <span class="font-weight-bold"><span id="kode_pemesanan<?php echo $dta->ID_MOBIL;?>"></span></span></p>
+                                                                <a href="" class="badge badge-danger">Batalkan Pesanan</a>
+                                                                <a class="badge badge-info" data-toggle="collapse" href="#collapseExample<?= $i;?>" role="button" aria-expanded="false" aria-controls="collapseExample<?= $i;  ?>">
+                                                                    Detail Pesanan
+                                                                </a>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="col icon-orange">
+                                                                    <p>Pengambilan : <small><span id="tanggal_pengambilan<?php echo $dta->ID_MOBIL;?>"></span></small></p>
+                                                                    <p><i class="fa fa-map-marker"></i><span id="lokasi_pengantaran<?php echo $dta->ID_MOBIL;?>"></span></p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="col icon-orange">
+                                                                    <p>Pengambilan : <small><span id="tanggal_pengembalian<?php echo $dta->ID_MOBIL;?>"></span></small></p>
+                                                                    <p><i class="fa fa-map-marker"></i><span id="lokasi_penjemputan<?php echo $dta->ID_MOBIL;?>"></span></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                 
-                                              
-                                                <div class="row justify-content-center">
-                                                    <div class="col-lg-4">
-                                                        <h5>Nama Pemesan</h5>
-                                                        <p>Kode Pesanan <span class="font-weight-bold">9H983K</span></p>
-                                                        <a href="" class="badge badge-danger">Batalkan Pesanan</a>
-                                                        <a class="badge badge-info" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Detail Pesanan</a>
                                                     </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="col icon-orange">
-                                                        <p>Pengambilan : <small>20/05/2020 jam 10:00 AM</small></p>
-                                                        <p><i class="fa fa-map-marker"></i>  UIN Sunan Ampel Surabaya jl.ahmad yani no 27-29 surabaya</p>
-                                                      </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="col icon-orange">
-                                                        <p>Pengambilan : <small>20/05/2020 jam 10:00 AM</small></p>
-                                                        <p><i class="fa fa-map-marker"></i>  UIN Sunan Ampel Surabaya jl.ahmad yani no 27-29 surabaya</p>
-                                                      </div>
-                                                    </div>
-                                                    <div class="col-lg-1">
-                                                        
+                                                    
+                                                    <div class="collapse" id="collapseExample<?= $i;?>">
+                                                        <div class="card card-body">
+                                                            <div class="row justify-content-center">
+                                                                <div class="col-lg-5 float-right">
+                                                                    <h5>Fasilitas YANG DIPESAN</h5>
+                                                                    <ul>
+                                                                        <li><span id="kapasitas<?php echo $dta->ID_MOBIL;?>"></span> Penumpang</li>
+                                                                        <li><span id="pendingin_udara<?php echo $dta->ID_MOBIL;?>"></span></li>
+                                                                        <!-- <li>Power Steering</li> -->
+                                                                        <li>Transmisi <span id="transisi<?php echo $dta->ID_MOBIL;?>"></span></li>
+                                                                        <!-- <li>Airbag</li> -->
+                                                                        <li><span id="pintu<?php echo $dta->ID_MOBIL;?>"></span> Pintu</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="col-lg-7">
+                                                                    <h5>Tarif Layanan</h5>
+                                                                    <ul class="list-unstyled">
+                                                                        <li>
+                                                                            <div class="row">
+                                                                                <div class="col-lg">
+                                                                                    <p>Jumlah Hari</p>
+                                                                                </div>
+                                                                                <div class="col-7">
+                                                                                    <p>1 <span> hari</span></p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="row">
+                                                                                <div class="col-lg">
+                                                                                    <p>Supir</p>
+                                                                                </div>
+                                                                                <div class="col-7">
+                                                                                    <p><span>Rp</span> 500.000</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="row">
+                                                                                <div class="col-lg">
+                                                                                    <p>Pengantaran Kendaraan</p>
+                                                                                </div>
+                                                                                <div class="col-7">
+                                                                                    <p><span>Rp</span> 50.000</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="row">
+                                                                                <div class="col-lg">
+                                                                                    <p>Penjemputan Kendaraan</p>
+                                                                                </div>
+                                                                                <div class="col-7">
+                                                                                    <p><span>Rp</span> 50.000</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="row">
+                                                                                <div class="col-lg">
+                                                                                    <p>Biaya Sewa Kendaraan</p>
+                                                                                </div>
+                                                                                <div class="col-7">
+                                                                                    <p><span>Rp</span><span id="harga_sewa_kendaraan<?php echo $dta->ID_MOBIL;?>"></span></p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="row">
+                                                                                <div class="col-lg">
+                                                                                    <p>Total Biaya Sewa</p>
+                                                                                </div>
+                                                                                <div class="col-7">
+                                                                                    <p><span>Rp</span> 2500.000</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            
-                                              </div><div class="collapse" id="collapseExample">
-                                              <div class="card card-body">
-                                                <div class="row justify-content-center">
-                                                    <div class="col-lg-5 float-right">
-                                                        <h5>Fasilitas YANG DIPESAN</h5>
-                                                        <ul>
-                                                            <li>5 kursi</li>
-                                                            <li>AC</li>
-                                                            <li>Power Steering</li>
-                                                            <li>Transmisi Otomatis</li>
-                                                            <li>Airbag</li>
-                                                            <li>4 Pintu</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-7">
-                                                        <h5>Tarif Layanan</h5>
-                                                        <ul class="list-unstyled">
-                                                          <li>
-                                                              <div class="row">
-                                                                  <div class="col-lg">
-                                                                      <p>Jumlah Hari</p>
-                                                                  </div>
-                                                                  <div class="col-7">
-                                                                      <p>1 <span> hari</span></p>
-                                                                  </div>
-                                                              </div>
-                                                          </li>
-                                                          <li>
-                                                              <div class="row">
-                                                                  <div class="col-lg">
-                                                                      <p>Supir</p>
-                                                                  </div>
-                                                                  <div class="col-7">
-                                                                      <p><span>Rp</span> 500.000</p>
-                                                                  </div>
-                                                              </div>
-                                                          </li>
-                                                          <li>
-                                                              <div class="row">
-                                                                  <div class="col-lg">
-                                                                      <p>Pengantaran Kendaraan</p>
-                                                                  </div>
-                                                                  <div class="col-7">
-                                                                      <p><span>Rp</span> 50.000</p>
-                                                                  </div>
-                                                              </div>
-                                                          </li>
-                                                          <li>
-                                                              <div class="row">
-                                                                  <div class="col-lg">
-                                                                      <p>Penjemputan Kendaraan</p>
-                                                                  </div>
-                                                                  <div class="col-7">
-                                                                      <p><span>Rp</span> 50.000</p>
-                                                                  </div>
-                                                              </div>
-                                                          </li>
-                                                          <li>
-                                                              <div class="row">
-                                                                  <div class="col-lg">
-                                                                      <p>Biaya Sewa</p>
-                                                                  </div>
-                                                                  <div class="col-7">
-                                                                      <p><span>Rp</span> 1.500.000</p>
-                                                                  </div>
-                                                              </div>
-                                                          </li>
-                                                          <li>
-                                                              <div class="row">
-                                                                  <div class="col-lg">
-                                                                      <p>Total Biaya Sewa</p>
-                                                                  </div>
-                                                                  <div class="col-7">
-                                                                      <p><span>Rp</span> 2500.000</p>
-                                                                  </div>
-                                                              </div>
-                                                          </li>
-                                                          </ul>
-                                                    </div>
-                                                </div>
-                                              </div>
                                             </div>
-                                            </div>
-                                            </a>
-                                          </div>
                                         </div>
+                                    </div>
+                                    
 
 
                                 </div>
                             </div>
                         
                         </div>
+                    
                     <?php
                     $i++;
                      endforeach; ?>
@@ -226,3 +230,5 @@
     </div>
 
     <!-- End of Page Wrapper -->
+
+    
