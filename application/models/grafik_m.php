@@ -59,5 +59,15 @@ class grafik_m  extends CI_Model  {
         $this->db->limit(5);
         return $this->db->get('kab_kota')->result();
     }
+    //filter
+    function filter($kota,$TANGGAL_PENGAMBILAN,$TANGGAL_PENGEMBALIAN,$TRANSISI,$KAPASITAS){
+       $sql=$this->db->query("SELECT * FROM mobil JOIN rental JOIN kab_kota ON mobil.ID_RENTAL = rental.ID_RENTAL AND rental.ID_KOTA =kab_kota.id_kab WHERE kab_kota.kota LIKE '$kota%' AND TRANSISI = '$TRANSISI' OR KAPASITAS='$KAPASITAS'  AND NOT ID_MOBIL IN (SELECT ID_MOBIL FROM pesanan WHERE TANGGAL_PENGAMBILAN>='$TANGGAL_PENGAMBILAN' AND TANGGAL_PENGEMBALIAN<='$TANGGAL_PENGEMBALIAN')");
+        return $sql;
+    }
+
+    function filterMotor($kota,$TANGGAL_PENGAMBILAN,$TANGGAL_PENGEMBALIAN,$TRANSISI,$KAPASITAS){
+       $sql=$this->db->query("SELECT * FROM motor JOIN rental JOIN kab_kota ON motor.ID_RENTAL = rental.ID_RENTAL AND rental.ID_KOTA =kab_kota.id_kab WHERE kab_kota.kota LIKE '$kota%' AND TRANSISI = '$TRANSISI' OR KAPASITAS='$KAPASITAS' AND NOT ID_MOTOR IN (SELECT ID_MOTOR FROM pesanan WHERE TANGGAL_PENGAMBILAN>='$TANGGAL_PENGAMBILAN' AND TANGGAL_PENGEMBALIAN<='$TANGGAL_PENGEMBALIAN')");
+        return $sql;
+    }
 }
 ?>

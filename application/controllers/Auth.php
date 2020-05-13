@@ -78,11 +78,16 @@ function __construct(){
 		if($this->session->userdata('logged_in') != TRUE){
 			redirect(base_url("auth"));
 		}
-		$data['data']=$this->grafik_m->detail_mobil($id)->result();
-		$this->load->view('templates/header_after_login');
-		$this->load->view('tambahan/filter-pencarian');
-		$this->load->view('auth/detailKendaraan',$data);
-		$this->load->view('templates/footer');
+		if ($id!='') {
+			$data['data']=$this->grafik_m->detail_mobil($id)->result();
+			$this->load->view('templates/header_after_login');
+			$this->load->view('tambahan/filter-pencarian');
+			$this->load->view('auth/detailKendaraan',$data);
+			$this->load->view('templates/footer');
+		}else{
+			redirect(base_url("auth"));
+		}
+		
 	}
 
 	public function detailmotor($id)
@@ -97,35 +102,6 @@ function __construct(){
 		$this->load->view('auth/detailKendaraan',$data);
 		$this->load->view('templates/footer');
 	}
-
-	// public function persyaratanPenyewa($id)
-	// {
-	// 	$data['data']=$this->grafik_m->detail_mobil($id)->result();
-	// 	$this->load->view('templates/header_after_login');
-	// 	$this->load->view('tambahan/bar-panduan',$data);
-	// 	$this->load->view('tambahan/filter-pencarian');
-	// 	$this->load->view('auth/persyaratan-penyewa');
-	// 	$this->load->view('templates/footer');
-	// }
-
-	// public function persyaratanPenyewa_motor($id)
-	// {
-	// 	$data['data']=$this->grafik_m->detail_motor($id)->result();
-	// 	$this->load->view('templates/header_after_login');
-	// 	$this->load->view('tambahan/bar-panduan2',$data);
-	// 	$this->load->view('tambahan/filter-pencarian');
-	// 	$this->load->view('auth/persyaratan-penyewa');
-	// 	$this->load->view('templates/footer');
-	// }
-
-	// function pembayaran($id){
-	// 	$data['data']=$this->grafik_m->detail_mobil($id)->result();
-	// 	$this->load->view('templates/header_after_login');
-	// 	$this->load->view('tambahan/bar-panduan',$data);
-	// 	$this->load->view('tambahan/filter-pencarian');
-	// 	$this->load->view('auth/pembayaran.php');
-	// 	$this->load->view('templates/footer');
-	// }
 
 	function konfirmasi(){//pending dulu
 		$this->load->view('templates/header_after_login');
@@ -155,7 +131,6 @@ function __construct(){
 		$this->load->view('auth/pembayaran',$data);
 		$this->load->view('templates/footer');
 	}
-
 	function konfirmasiBookingMotor($id){//halaman konfirmasi booking untuk motor
 		$data['data']=$this->grafik_m->detail_motor($id)->result();
 		$this->load->view('templates/header_after_login');
@@ -221,17 +196,25 @@ function __construct(){
 	//halaman admin
 	public function home_admin()
 	{
+		if($this->session->userdata('logged_in') != TRUE){
+			redirect(base_url("auth"));
+		}
 		$data['labelnya'] = $this->grafik_m->load_data();
 		$this->load->view('SbAdmin/index',$data);
 	}
 	public function tabel()
 	{
+		if($this->session->userdata('logged_in') != TRUE){
+			redirect(base_url("auth"));
+		}
 		$this->load->view('SbAdmin/grocery');
 	}
 
 	public function keuangan()
 	{
-
+		if($this->session->userdata('logged_in') != TRUE){
+			redirect(base_url("auth"));
+		}
 		$this->load->view('SbAdmin/keuangan');
 	}
 
@@ -242,10 +225,6 @@ function __construct(){
         $password = $this->input->post('password',TRUE);
 		$this->grafik_m->register($email,$password,$nama);
 		redirect('Auth/index');
-	}
-
-	public function map(){
-	$this->load->view('tambahan/map');
 	}
 
 }

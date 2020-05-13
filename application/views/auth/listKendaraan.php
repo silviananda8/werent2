@@ -76,7 +76,7 @@
           <!-- End Form Cari Pada Header -->
            <!-- Start Form Filter Kendaraan -->
             <div class="col-3 mt-3 mr-5 bg-white  filter-kendaraan rounded p-3 box-shadow" >
-              <form action="" class="" method="post">
+              <form action="<?php if ($this->uri->segment('2')==='listKendaraan'|| $this->uri->segment('2')==='FilterMobil') { echo site_url('c_search/FilterMobil');} else{echo site_url('c_search/FilterMotor');}?>" class="" method="post">
 
                 <!-- Start Peringkat Rental -->
                   <div class="row">
@@ -112,12 +112,12 @@
 
                 <div class="checkTransisi">
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="transisi1" value="Otomatis">
-                    <label class="custom-control-label" for="transisi1">Otomatis</label>
+                    <input type="checkbox" class="custom-control-input" name="TRANSISI" id="transisi1" value="Otomatis">
+                    <label class="custom-control-label" for="transisi1" >Otomatis</label>
                   </div>
 
                   <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="transisi2" value="Manual">
+                    <input type="checkbox" class="custom-control-input" name="TRANSISI" id="transisi2" value="Manual">
                     <label class="custom-control-label" for="transisi2">Manual</label>
                   </div>
                 </div>
@@ -131,7 +131,7 @@
                 </div>
 
                 <div class="banyakPenumpang">
-                  <input type="number" class="form-control w-50" id="penumpang" name="penumpang" min="1" max="8">
+                  <input type="number" class="form-control w-50" id="penumpang" name="KAPASITAS" min="1" max="8">
                   <div class="invalid-feedback">  
                     Penumpang Minimal = 1, Maksimal Maksimal = 8
                   </div>
@@ -231,9 +231,9 @@
                 
                   <div class="col-3 mt-5 align-self-center">
                     <p class="font-weight-bold">
-                     Rp. <?php echo $dta->HARGA_SEWA_KENDARAAN;?>,00
+                     Rp. <?php echo number_format($dta->HARGA_SEWA_KENDARAAN);?>
                     <p>
-                      <a href="<?php if ($this->uri->segment('2')==='listKendaraan') { echo site_url('auth/detailKendaraan/'.$dta->ID_MOBIL);} else{echo site_url('auth/detailmotor/'.$dta->ID_MOTOR);}?>" class="btn btn-warning font-weight-bolder tombol  ml-4" <?php if ($this->session->userdata('logged_in') != TRUE) {echo "data-toggle='modal' data-target='#modalMasuk'";}?>>Pesan</a>
+                      <a href="<?php if ($this->uri->segment('2')==='listKendaraan' || $this->uri->segment('2')==='FilterMobil') { echo site_url('auth/detailKendaraan/'.$dta->ID_MOBIL);} else{echo site_url('auth/detailmotor/'.$dta->ID_MOTOR);}?>" class="btn btn-warning font-weight-bolder tombol  ml-4" <?php if ($this->session->userdata('logged_in') != TRUE) {echo "data-toggle='modal' data-target='#modalMasuk'";}?>>Pesan</a>
                   </div>
                 </div>
 

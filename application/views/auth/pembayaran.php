@@ -102,7 +102,7 @@
                 <p><span>Rp </span><?php if ($this->session->userdata('AlamatAmbil')=='Kantor Rental'){
               echo "0";
             }else{
-              echo "300.000";
+              echo "300,000";
             } ?></p>
             </div>
             <div class="col-lg-7 ">
@@ -112,14 +112,14 @@
                 <p><span>Rp </span><?php if ($this->session->userdata('AlamatKembali')=='Kantor Rental'){
               echo "0";
             }else{
-              echo "300.000";
+              echo "300,000";
             } ?></p>
             </div>
               <div class="col-lg-7 ">
                 <p class="pl-3">Harga Sewa</p>
               </div>
               <div class="col-lg-5 font-weight-bolder">
-                <p><span>Rp </span><?php echo $dta->HARGA_SEWA_KENDARAAN;?></p>
+                <p><span>Rp </span><?php echo number_format($dta->HARGA_SEWA_KENDARAAN);?></p>
             </div>
              <div class="col-lg-7 ">
                 <p class="pl-3">Total biaya Sewa</p>
@@ -135,7 +135,7 @@
               ?>
               <div class="col-lg-5 font-weight-bolder">
                 <p><span>Rp </span><?php echo number_format($Total);?></p>
-                <a href="" class="btn btn-warning font-weight-normal mt-3">Buat Pesanan</a>
+                <a href="<?php echo site_url('auth/konfirmasi');?>" class="btn btn-warning font-weight-normal mt-3">Buat Pesanan</a>
             </div>
         </div>
        
@@ -152,7 +152,7 @@
               <div class="col-7">
                 <p class="font-weight-bolder mb-1"><?php echo $dta->NAMA_KENDARAAN;?></p>
                 <p><small><?php echo $dta->MERK_KENDARAAN;?></small></p>
-                <a href=""><small>Lihat Detail Kendaraan</small></a>
+                <!-- <a href=""><small>Lihat Detail Kendaraan</small></a> -->
               </div>
               <div class="h-divider mt-3"></div>
               </div>

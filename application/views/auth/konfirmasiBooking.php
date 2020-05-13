@@ -76,7 +76,7 @@
               <li class="list-group-item float-right">
                 <div class="row justify-content-center"> 
                   <div class=" col-lg form-group form-check pr-4">
-                    <input type="checkbox" class="form-check-input " name="SUPIR" value="1.500.000">
+                    <input type="checkbox" class="form-check-input " name="SUPIR" value="1,500,000">
                     <label class="form-check-label" for="exampleCheck1">Supir tambahan selama menyewa</label>
                   </div>
                   <div class="col-lg-3">  
@@ -113,7 +113,7 @@
               <div class="col-7">
                 <p class="font-weight-bolder mb-1"><?php echo $dta->NAMA_KENDARAAN;?></p>
                 <p><small><?php echo $dta->MERK_KENDARAAN;?></small></p>
-                <a href=""><small>Lihat Detail Kendaraan</small></a>
+                <!-- <a href=""><small>Lihat Detail Kendaraan</small></a> -->
               </div>
               <div class="h-divider mt-3"></div>
               </div>
