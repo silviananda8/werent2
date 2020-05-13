@@ -1,4 +1,5 @@
-<?php //foreach($data as $dta):?>
+<?php foreach($data as $dta):?>
+<form action="<?php if ($this->uri->segment('2')==='konfirmasiBookingMobil') { echo site_url('auth/pembayaranMobil/'.$dta->ID_MOBIL);} else{echo site_url('auth/pembayaranMotor/'.$dta->ID_MOTOR);}?>" method='post'>
 <section class="bg-light pt-3 ">
   <div class="container">
     <div class="row mt-4">
@@ -9,40 +10,42 @@
             <div class="yellow-divider mb-3"></div>
             <div class="row justify-content-center">
               <div class="col icon-orange">
-                <p><i class="fa fa-car "></i>  Pengambilan : <small>20/05/2020 jam 10:00 AM</small></p>
+                <p><i class="fa fa-car "></i>  Pengambilan : <small><?php echo $this->session->userdata('TANGGAL_PENGAMBILAN');?></small></p>
                 <div class="card mb-3">
-                  <div class="card-body p-2">
-                    <div class="form-check ">
-                   <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                   <label class="form-check-label" for="defaultCheck1">
-                     Default checkbox
+
+                  <div class="card-body p-2 form-check">
+                    <div class="form-check">
+                   <input class="form-check-input" type="radio" name="AlamatAmbil" value="Kantor Rental" checked id="kantor" onchange="disable()">
+                   <label class="form-check-label" for="AlamatAmbil1">
+                     Kantor Rental <br><small>Gratis</small>
                    </label>
                  </div>
                  </div>
                 </div>
                  <div class="card mb-3">
-                  <div class="card-body p-2">
+                  <div class="card-body p-2 form-check">
                     <div class="form-check ">
-                   <input class="form-check-input"  type="checkbox" value="" id="defaultCheck1">
-                   <label class="form-check-label" for="defaultCheck1">
+                   <input class="form-check-input" type="radio" name="AlamatAmbil" onchange="disable()" id="lokasilain" >
+                   <label class="form-check-label" for="AlamatAmbil2">
                      <p>  Lokasi lain :</p>
+                     <small>Dapat dikenakan biaya tambahan</small>
                    </label>
                  </div>
                  </div>
                  <div class="form-group p-2">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="alamat pengambilan">
+                <input  class="form-control" id="alamatambil" disabled placeholder="alamat pengambilan" name="AlamatAmbil">
                 </div>
                </div>
                           
               </div>
               <div class="col icon-orange">
-                <p><i class="fa fa-car "></i>  Pengembalian : <small>20/05/2020 jam 10:00 AM</small></p>
+                <p><i class="fa fa-car "></i>  Pengembalian : <small><?php echo $this->session->userdata('TANGGAL_PENGEMBALIAN');?></small></p>
                   <div class="card mb-3">
                   <div class="card-body p-2">
                     <div class="form-check ">
-                   <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                   <input class="form-check-input" type="radio" name="AlamatKembali" value="Kantor Rental" checked id="kantor2" onchange="disable2()">
                    <label class="form-check-label" for="defaultCheck1">
-                     Default checkbox
+                     Kantor Rental <br><small> Gratis</small>
                    </label>
                  </div>
                  </div>
@@ -50,14 +53,15 @@
                  <div class="card mb-3">
                   <div class="card-body p-2">
                     <div class="form-check ">
-                   <input class="form-check-input"  type="checkbox" value="" id="defaultCheck1">
+                   <input class="form-check-input" type="radio" name="AlamatKembali" id="lokasilain2" onchange="disable2()" value="Lokasi Lain">
                    <label class="form-check-label" for="defaultCheck1">
                      <p>  Lokasi lain :</p>
+                     <small>Dapat dikenakan biaya tambahan</small>
                    </label>
                  </div>
                  </div>
                  <div class="form-group p-2">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="alamat pengembalian">
+                <input class="form-control" id="alamatkembali" disabled placeholder="alamat pengembalian" name="AlamatKembali">
                 </div>
                </div>
               </div>
@@ -72,33 +76,11 @@
               <li class="list-group-item float-right">
                 <div class="row justify-content-center"> 
                   <div class=" col-lg form-group form-check pr-4">
-                    <input type="checkbox" class="form-check-input " id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Kendaraan diantar ke lokasi Penjemputan</label>
-                  </div>
-                  <div class="col-lg-3">  
-                    <p>Rp 1.500.000</p>
-                  </div>
-                </div>
-              </li>
-              <li class="list-group-item float-right">
-                <div class="row justify-content-center"> 
-                  <div class=" col-lg form-group form-check pr-4">
-                    <input type="checkbox" class="form-check-input " id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Kendaraan diantar ke lokasi Penjemputan</label>
-                  </div>
-                  <div class="col-lg-3">  
-                    <p>Rp 1.500.000</p>
-                  </div>
-                </div>
-              </li>
-              <li class="list-group-item float-right">
-                <div class="row justify-content-center"> 
-                  <div class=" col-lg form-group form-check pr-4">
-                    <input type="checkbox" class="form-check-input " id="exampleCheck1">
+                    <input type="checkbox" class="form-check-input " name="SUPIR" value="1,500,000">
                     <label class="form-check-label" for="exampleCheck1">Supir tambahan selama menyewa</label>
                   </div>
                   <div class="col-lg-3">  
-                    <p>Rp 1.500.000</p>
+                    <p><small>Rp1.500.000/Hari</small></p>
                   </div>
                 </div>
               </li>
@@ -120,25 +102,25 @@
           </div>
         </div>
       </div>
+
       <div class="col-lg-4 mb-4">
         <div class="card card-shadow" >
           <div class="card-body">
             <div class="row">
               <div class="col-5">
-                <img src="../assets/img/ford.jpg" class="img-fluid" style="height: 100px;width: 120px;" alt="">
-              </div>
+                <img src="<?= base_url('assets/uploads/kendaraan/') ?><?php echo $dta->FOTO?>" class="img-fluid" style="height: 100px;width: 100px;" alt="">
+              </div>      
               <div class="col-7">
-                <p class="font-weight-bolder mb-1">Nama Kendaraan</p>
-                <p><small>Jenis Kendaraan</small></p>
-                <a href=""><small>Lihat Detail Kendaraan</small></a>
+                <p class="font-weight-bolder mb-1"><?php echo $dta->NAMA_KENDARAAN;?></p>
+                <p><small><?php echo $dta->MERK_KENDARAAN;?></small></p>
+                <!-- <a href=""><small>Lihat Detail Kendaraan</small></a> -->
               </div>
               <div class="h-divider mt-3"></div>
               </div>
             </div>
             <div class="row justify-content-center ">
               <div class="col ">
-                <p class="pl-3">Nama Rental</p>           
-
+                <p class="pl-3"><?php echo $dta->NAMA_RENTAL;?></p>           
               </div>
               <div class="col icon-orange">
                 <p><i class="fas fa-star "></i> 7,5 / Bagus</p>
@@ -146,7 +128,7 @@
           </div>
           <div class="row">
            <div class="col">
-               <p class="pl-3">Alamat Kendaraan </p>
+               <p class="pl-3"><?php echo $dta->ALAMAT_RENTAL;?></p>
           </div>            
            <div class="h-divider"></div>
           </div>
@@ -162,15 +144,44 @@
                 <p class="pl-3">Harga Sewa</p>
               </div>
               <div class="col font-weight-bolder">
-                <p><span>Rp </span>1.500.000</p>
+                <p><span>Rp </span><?php echo $dta->HARGA_SEWA_KENDARAAN;?></p>
             </div>
         </div>
         
-        <a class="btn btn-lg btn-warning btn-block" href="<?php echo site_url('auth/pembayaranMobil/'/*.$dta->ID_MOBIL*/);?>">Pesan Sekarang</a>
-        <?php //endforeach;?>
+        <input class="btn btn-lg btn-warning btn-block" type="submit" value="Pesan Sekarang" ></input>
+        
       </div>
     </div>
   </div>
 </section>
-
+</form>
+<?php endforeach;?>
 <!-- akhir konfirmasi -->
+<script >
+function disable() {
+    //one radio button
+    var radio = document.getElementById("lokasilain");
+    var radio2 = document.getElementById("kantor");
+    var ambil = document.getElementById("alamatambil");
+    if (radio.checked == true) {
+        ambil.disabled  = false;
+    }else if(radio2.checked == true){
+      ambil.disabled  = true;
+      ambil.value="";
+    }
+}
+</script>
+<script >
+function disable2() {
+    //one radio button
+    var radio = document.getElementById("lokasilain2");
+    var radio2 = document.getElementById("kantor2");
+    var ambil = document.getElementById("alamatkembali");
+    if (radio.checked == true) {
+        ambil.disabled  = false;
+    }else if(radio2.checked == true){
+      ambil.disabled  = true;
+      ambil.value="";
+    }
+}
+</script>

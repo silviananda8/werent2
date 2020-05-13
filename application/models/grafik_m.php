@@ -42,6 +42,10 @@ class grafik_m  extends CI_Model  {
         $sql=$this->db->query("SELECT *,TIME_FORMAT(JAM_BUKA,'%h %i') as buka,TIME_FORMAT(JAM_TUTUP,'%h %i') as tutup FROM rental JOIN motor WHERE ID_MOTOR='$id' AND motor.ID_RENTAL = rental.ID_RENTAL");
         return $sql;
     }
+     function pesanan($id){
+        $sql=$this->db->query("SELECT *,TIME_FORMAT(JAM_BUKA,'%h %i') as buka,TIME_FORMAT(JAM_TUTUP,'%h %i') as tutup FROM rental JOIN motor WHERE ID_MOTOR='$id' AND motor.ID_RENTAL = rental.ID_RENTAL");
+        return $sql;
+    }
 
     // Start Register 
     function register($email,$password,$nama){
@@ -54,6 +58,16 @@ class grafik_m  extends CI_Model  {
         $this->db->order_by('kota', 'ASC');
         $this->db->limit(5);
         return $this->db->get('kab_kota')->result();
+    }
+    //filter
+    function filter($kota,$TANGGAL_PENGAMBILAN,$TANGGAL_PENGEMBALIAN,$TRANSISI,$KAPASITAS){
+       $sql=$this->db->query("SELECT * FROM mobil JOIN rental JOIN kab_kota ON mobil.ID_RENTAL = rental.ID_RENTAL AND rental.ID_KOTA =kab_kota.id_kab WHERE kab_kota.kota LIKE '$kota%' AND TRANSISI = '$TRANSISI' OR KAPASITAS='$KAPASITAS'  AND NOT ID_MOBIL IN (SELECT ID_MOBIL FROM pesanan WHERE TANGGAL_PENGAMBILAN>='$TANGGAL_PENGAMBILAN' AND TANGGAL_PENGEMBALIAN<='$TANGGAL_PENGEMBALIAN')");
+        return $sql;
+    }
+
+    function filterMotor($kota,$TANGGAL_PENGAMBILAN,$TANGGAL_PENGEMBALIAN,$TRANSISI,$KAPASITAS){
+       $sql=$this->db->query("SELECT * FROM motor JOIN rental JOIN kab_kota ON motor.ID_RENTAL = rental.ID_RENTAL AND rental.ID_KOTA =kab_kota.id_kab WHERE kab_kota.kota LIKE '$kota%' AND TRANSISI = '$TRANSISI' OR KAPASITAS='$KAPASITAS' AND NOT ID_MOTOR IN (SELECT ID_MOTOR FROM pesanan WHERE TANGGAL_PENGAMBILAN>='$TANGGAL_PENGAMBILAN' AND TANGGAL_PENGEMBALIAN<='$TANGGAL_PENGEMBALIAN')");
+        return $sql;
     }
 }
 ?>
