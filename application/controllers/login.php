@@ -36,9 +36,9 @@ class login extends CI_Controller {
                 redirect('Auth/index');
         }
     }else{
-        echo $this->session->set_flashdata('msg','Username or Password is Wrong');
+        echo $this->session->set_flashdata('msg','Email Atau Password Salah');
         // kosong
-        echo "password salah";
+        redirect('Auth/index');
     }
   }
 

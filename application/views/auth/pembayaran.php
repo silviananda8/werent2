@@ -131,14 +131,18 @@
                 if ($this->session->userdata('AlamatAmbil')=='Kantor Rental'){$ambil=(int)0;}else{$ambil=(int)300000;}
                 if ($this->session->userdata('AlamatKembali')=='Kantor Rental'){$kembali=(int)0;}else{$kembali=(int)300000;}
                 
-                $Total=$sewa+$Supir+$ambil+$kembali
+                $Total=$sewa+$Supir+$ambil+$kembali;
+                $array = array(
+               'TOTAL'  => $Total
+                 );
+                $this->session->set_userdata($array);
               ?>
               <div class="col-lg-5 font-weight-bolder">
                 <p><span>Rp </span><?php echo number_format($Total);?></p>
-                <a href="<?php echo site_url('auth/konfirmasi');?>" class="btn btn-warning font-weight-normal mt-3">Buat Pesanan</a>
+                <a href="<?php if ($this->uri->segment('2')==='pembayaranMobil') { echo site_url('auth/konfirmasiPembayaran/'.$dta->ID_MOBIL);}else{echo site_url('auth/konfirmasiPembayaran2/'.$dta->ID_MOTOR);}?>" class="btn btn-warning font-weight-normal mt-3">Buat Pesanan</a>
             </div>
+
         </div>
-       
           </div>
         </div>
       </div>
