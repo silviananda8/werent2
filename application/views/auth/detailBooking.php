@@ -2,7 +2,7 @@
      <section class="bg-light pt-2 pb-2">
       <div class="container ">
         <div class="mt-3 mb-4">
-          <a href="">Tampilkan semua pesanan saya</a>
+          <a href="<?php echo site_url('c_user/akunPenyewa/'.$kode=2);?>">Tampilkan semua pesanan saya</a>
         </div>
         <div class="card card-shadow mb-3">
           <div class="card-body p-2">

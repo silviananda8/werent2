@@ -11,7 +11,7 @@
  Target Server Version : 100138
  File Encoding         : 65001
 
- Date: 13/05/2020 11:43:00
+ Date: 15/05/2020 21:36:02
 */
 
 SET NAMES utf8mb4;
@@ -706,31 +706,12 @@ INSERT INTO `pemilik` VALUES (5, 4, NULL, NULL);
 INSERT INTO `pemilik` VALUES (7, 6, NULL, NULL);
 
 -- ----------------------------
--- Table structure for penyewa
--- ----------------------------
-DROP TABLE IF EXISTS `penyewa`;
-CREATE TABLE `penyewa`  (
-  `ID_PENYEWA` int(11) NOT NULL AUTO_INCREMENT,
-  `ID_USER` int(11) NOT NULL,
-  `FOTO_PENYEWA` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `REKENING_PENYEWA` int(11) NOT NULL,
-  PRIMARY KEY (`ID_PENYEWA`) USING BTREE,
-  INDEX `ID_USER`(`ID_USER`) USING BTREE,
-  CONSTRAINT `penyewa_ibfk_1` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of penyewa
--- ----------------------------
-INSERT INTO `penyewa` VALUES (1, 2, '', 0);
-
--- ----------------------------
 -- Table structure for pesanan
 -- ----------------------------
 DROP TABLE IF EXISTS `pesanan`;
 CREATE TABLE `pesanan`  (
   `ID_PESAN` int(11) NOT NULL AUTO_INCREMENT,
-  `ID_PENYEWA` int(11) NULL DEFAULT NULL,
+  `ID_USER` int(11) NULL DEFAULT NULL,
   `ID_Mobil` int(11) NULL DEFAULT NULL,
   `ID_RENTAL` int(11) NULL DEFAULT NULL,
   `KODE_PEMESANAN` varchar(6) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
@@ -743,10 +724,10 @@ CREATE TABLE `pesanan`  (
   `TOTAL` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`ID_PESAN`) USING BTREE,
   UNIQUE INDEX `KODE_PEMESANAN`(`KODE_PEMESANAN`) USING BTREE,
-  INDEX `ID_PENYEWA`(`ID_PENYEWA`) USING BTREE,
+  INDEX `ID_PENYEWA`(`ID_USER`) USING BTREE,
   INDEX `ID_RENTAL`(`ID_RENTAL`) USING BTREE,
   INDEX `ID_Mobil`(`ID_Mobil`) USING BTREE,
-  CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`ID_PENYEWA`) REFERENCES `penyewa` (`ID_PENYEWA`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID_USER`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`ID_RENTAL`) REFERENCES `rental` (`ID_RENTAL`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `pesanan_ibfk_3` FOREIGN KEY (`ID_Mobil`) REFERENCES `mobil` (`ID_MOBIL`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
@@ -754,8 +735,8 @@ CREATE TABLE `pesanan`  (
 -- ----------------------------
 -- Records of pesanan
 -- ----------------------------
-INSERT INTO `pesanan` VALUES (1, 1, 3, NULL, 'GJGC8D', 'test', NULL, NULL, NULL, '2020-05-11 10:42:55', '2020-05-12 10:43:06', NULL);
-INSERT INTO `pesanan` VALUES (2, 1, 2, NULL, 'GJGC5D', NULL, NULL, NULL, NULL, '2020-05-13 11:09:47', '2020-05-14 11:09:52', NULL);
+INSERT INTO `pesanan` VALUES (1, 2, 3, NULL, 'GJGC8D', 'test', NULL, NULL, NULL, '2020-05-11 10:42:55', '2020-05-12 10:43:06', NULL);
+INSERT INTO `pesanan` VALUES (2, 2, 2, NULL, 'GJGC5D', NULL, NULL, NULL, NULL, '2020-05-13 11:09:47', '2020-05-14 11:09:52', NULL);
 
 -- ----------------------------
 -- Table structure for prov

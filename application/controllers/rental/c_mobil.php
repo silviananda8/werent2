@@ -19,9 +19,16 @@ class c_mobil extends CI_Controller {
         $id_rental      = $this->session->userdata('ID_RENTAL');
         $data['data']   = $this->m_mobil->show_mobil($id_rental)->result();
         
+        $ass = $this->m_mobil->show_mobil($id_rental)->result();
+        foreach($ass as $dt){
+            $id_mobil = $dt->ID_MOBIL;
+            $data['pesan'] = $this->m_mobil->ambilId($id_mobil,$id_rental)->result();
+        }
+        $data['kd']     = 1;
+        
         $this->load->view('rental/header', $data);
         $this->load->view('rental/mobil-daftar');
-        $this->load->view('rental/footer');
+        $this->load->view('rental/footer', $data);
     }
 
     function editDetailKendaraan($id){
@@ -106,7 +113,7 @@ class c_mobil extends CI_Controller {
 
     function ambilId($id){
         $id_rental      = $this->session->userdata('ID_RENTAL');
-        $data = $this->m_mobil->ambilId($id,$id_rental)->result();
+        $data           = $this->m_mobil->ambilId($id,$id_rental)->result();
 
         echo json_encode($data);
     }

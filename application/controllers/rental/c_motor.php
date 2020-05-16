@@ -18,10 +18,11 @@ class c_motor extends CI_Controller {
     function daftarKendaraan(){
         $id_user = $this->session->userdata('ID_USER');
         $data['data']   =   $this->m_motor->show_motor($id_user)->result();
+        $data['kd']     = 2;
 
         $this->load->view('rental/header', $data);
         $this->load->view('rental/motor-daftar');
-        $this->load->view('rental/footer');
+        $this->load->view('rental/footer', $data);
     }
 
     function editDetailKendaraan($id){

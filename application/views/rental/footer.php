@@ -52,6 +52,18 @@
   </script>
 
   <script type="text/javascript">
+    
+    <?php if($kd==1):
+      foreach ($data as $dta):?>
+          ambilId(<?php echo $dta->ID_MOBIL;?>,<?php echo $kd;?>);
+      <?php endforeach;
+    elseif($kd==2):
+      foreach ($data as $dta):?>
+          ambilId(<?php echo $dta->ID_MOTOR;?>,<?php echo $kd;?>);
+      <?php endforeach;
+    else:
+    endif;?>
+    
     function ambilId(id,kode){
       console.log(kode);
         if(kode==1){
@@ -60,21 +72,25 @@
           url:'<?php echo base_url()."rental/c_mobil/ambilId/"?>'+id+'',
           dataType: 'json',
           success: function(hasil){
-            if(hasil.length == 0){
+            console.log(hasil);
+            if(hasil[0].jumlah == 0){
             $('#aaa'+id+'').hide();
+            $("#jumlah"+id+"").html(hasil[0].jumlah);
             }else{
+              $('#aaa'+id+'').show();
               for(i=0; i<hasil.length; i++){
-                  $("#nama"+id+"").html(hasil[0].NAMA);
-                  $("#kode_pemesanan"+id+"").html(hasil[0].KODE_PEMESANAN);
-                  $("#tanggal_pengambilan"+id+"").html(hasil[0].TANGGAL_PENGAMBILAN);
-                  $("#tanggal_pengembalian"+id+"").html(hasil[0].TANGGAL_PENGEMBALIAN);
-                  $("#lokasi_pengantaran"+id+"").html(hasil[0].LOKASI_PENGANTARAN);
-                  $("#lokasi_penjemputan"+id+"").html(hasil[0].LOKASI_PENJEMPUTAN);
-                  $("#kapasitas"+id+"").html(hasil[0].KAPASITAS);
-                  $("#pintu"+id+"").html(hasil[0].PINTU);
-                  $("#transisi"+id+"").html(hasil[0].TRANSISI);
-                  $("#pendingin_udara"+id+"").html(hasil[0].PENDINGIN_UDARA);
-                  $("#harga_sewa_kendaraan"+id+"").html(hasil[0].HARGA_SEWA_KENDARAAN);
+                  $("#nama"+id+"").html(hasil[i].NAMA);
+                  $("#kode_pemesanan"+id+"").html(hasil[i].KODE_PEMESANAN);
+                  $("#tanggal_pengambilan"+id+"").html(hasil[i].TANGGAL_PENGAMBILAN);
+                  $("#tanggal_pengembalian"+id+"").html(hasil[i].TANGGAL_PENGEMBALIAN);
+                  $("#lokasi_pengantaran"+id+"").html(hasil[i].LOKASI_PENGANTARAN);
+                  $("#lokasi_penjemputan"+id+"").html(hasil[i].LOKASI_PENJEMPUTAN);
+                  $("#kapasitas"+id+"").html(hasil[i].KAPASITAS);
+                  $("#pintu"+id+"").html(hasil[i].PINTU);
+                  $("#transisi"+id+"").html(hasil[i].TRANSISI);
+                  $("#pendingin_udara"+id+"").html(hasil[i].PENDINGIN_UDARA);
+                  $("#harga_sewa_kendaraan"+id+"").html(hasil[i].HARGA_SEWA_KENDARAAN);
+                  $("#jumlah"+id+"").html(hasil[i].jumlah);
                 }
               }
           }
@@ -85,21 +101,24 @@
           url:'<?php echo base_url()."rental/c_motor/ambilId/"?>'+id+'',
           dataType: 'json',
           success: function(hasil){
-            if(hasil.length == 0){
+            if(hasil[0].jumlah == 0){
             $('#aaa'+id+'').hide();
+            $("#jumlah"+id+"").html(hasil[0].jumlah);
             }else{
+              $('#aaa'+id+'').show();
               for(i=0; i<hasil.length; i++){
-                  $("#nama"+id+"").html(hasil[0].NAMA);
-                  $("#kode_pemesanan"+id+"").html(hasil[0].KODE_PEMESANAN);
-                  $("#tanggal_pengambilan"+id+"").html(hasil[0].TANGGAL_PENGAMBILAN);
-                  $("#tanggal_pengembalian"+id+"").html(hasil[0].TANGGAL_PENGEMBALIAN);
-                  $("#lokasi_pengantaran"+id+"").html(hasil[0].LOKASI_PENGANTARAN);
-                  $("#lokasi_penjemputan"+id+"").html(hasil[0].LOKASI_PENJEMPUTAN);
-                  $("#kapasitas"+id+"").html(hasil[0].KAPASITAS);
-                  $("#pintu"+id+"").html(hasil[0].PINTU);
-                  $("#transisi"+id+"").html(hasil[0].TRANSISI);
-                  $("#pendingin_udara"+id+"").html(hasil[0].PENDINGIN_UDARA);
-                  $("#harga_sewa_kendaraan"+id+"").html(hasil[0].HARGA_SEWA_KENDARAAN);
+                  $("#nama"+id+"").html(hasil[i].NAMA);
+                  $("#kode_pemesanan"+id+"").html(hasil[i].KODE_PEMESANAN);
+                  $("#tanggal_pengambilan"+id+"").html(hasil[i].TANGGAL_PENGAMBILAN);
+                  $("#tanggal_pengembalian"+id+"").html(hasil[i].TANGGAL_PENGEMBALIAN);
+                  $("#lokasi_pengantaran"+id+"").html(hasil[i].LOKASI_PENGANTARAN);
+                  $("#lokasi_penjemputan"+id+"").html(hasil[i].LOKASI_PENJEMPUTAN);
+                  $("#kapasitas"+id+"").html(hasil[i].KAPASITAS);
+                  $("#pintu"+id+"").html(hasil[i].PINTU);
+                  $("#transisi"+id+"").html(hasil[i].TRANSISI);
+                  $("#pendingin_udara"+id+"").html(hasil[i].PENDINGIN_UDARA);
+                  $("#harga_sewa_kendaraan"+id+"").html(hasil[i].HARGA_SEWA_KENDARAAN);
+                  $("#jumlah"+id+"").html(hasil[i].jumlah);
                 }
               }
           }

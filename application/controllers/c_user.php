@@ -11,7 +11,8 @@ function __construct(){
     function akunPenyewa($kode){
         $id_user = $this->session->userdata('ID_USER');
         $data['profil'] = $this->m_user->getProfil($id_user)->result();
-        $data['pesanan'] = $this->m_user->getPesanan($id_user)->result();
+        $data['mobil'] = $this->m_user->getMobil($id_user)->result();
+        $data['motor'] = $this->m_user->getMotor($id_user)->result();
 
 		$data['kode']=$kode;
 		$this->load->view('templates/header_after_login');
@@ -38,12 +39,23 @@ function __construct(){
         redirect('c_user/akunPenyewa/'.$kode=1,$pesan);
     }
 
-    function detailBooking($id_mobil){
+    function detailMobil($id_pesan){
         $id_user = $this->session->userdata('ID_USER');
-        $data['detail'] = $this->m_user->getDetailPesanan($id_user,$id_mobil)->result();
+        
+        $data['detail'] = $this->m_user->getDetailMobil($id_user,$id_pesan)->result();
 
-        $this->load->view('templates/header_after_login');
-		$this->load->view('auth/detailBooking',$data);
+        $this->load->view('templates/header_after_login',$data);
+		$this->load->view('auth/detailBooking');
+		$this->load->view('templates/footer');
+    }
+
+    function detailMotor($id_pesan){
+        $id_user = $this->session->userdata('ID_USER');
+        
+        $data['detail'] = $this->m_user->getDetailMotor($id_user,$id_pesan)->result();
+
+        $this->load->view('templates/header_after_login',$data);
+		$this->load->view('auth/detailBooking');
 		$this->load->view('templates/footer');
     }
 

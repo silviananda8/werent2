@@ -44,9 +44,9 @@
                                             <div class="col-lg-5 align-self-center">
                                                 <div class="row row-cols-4">
                                                     <div class="col-lg">
-                                                         <button class="btn btn " type="button" data-toggle="collapse" data-target="#jumlahPesanan<?= $i;  ?>" aria-expanded="false" aria-controls="collapseExample" onclick="ambilId(<?php echo $dta->ID_MOTOR;?>,2)">
+                                                         <button class="btn btn " type="button" data-toggle="collapse" data-target="#jumlahPesanan<?= $i;  ?>" aria-expanded="false" aria-controls="collapseExample" >
                                                             <h4 class="display-3 text-center">
-                                                            0
+                                                            <span id="jumlah<?php echo $dta->ID_MOTOR;?>">0</span>
                                                             </h4>
                                                             <p class="text-center">Jumlah pesanan</p>
                                                           </button>

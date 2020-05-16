@@ -14,7 +14,7 @@
                 <?php echo form_open_multipart('rental/c_mobil/prosesEditDetail');?>
                 <div class="row row-cols-2 mt-5 mb-5">
                 
-                <?php foreach ($data as $dta): ?>
+                <?php foreach ($data as $dta):?>
                     
                     <div class="col-4 mr-4">
 
@@ -25,7 +25,7 @@
                                     <div class="">
                                         <img src="<?= base_url('assets/uploads/kendaraan/') ?><?php echo $dta->FOTO;?>" alt="..." class="image-rental" style="width: 296px;">
                                             <div class="form-group mt-3">
-                                                <input type="file" class="form-control" id="foto" name="foto" required>
+                                                <input type="file" class="form-control" id="foto" name="foto" accept="image/png, image/jpeg" required>
                                                 
                                             </div>
                                     </div>
@@ -147,11 +147,27 @@
                                     <div class="form-group">
                                         <label for="transmisi">Transmisi Mobil</label>
                                         <select class="form-control" id="transmisi" name="transmisi" required>
-                                            <option></option>
-                                            <option value="otomatis">Otomatis</option>
-                                            <option value="manual">Manual</option>
-                                            <option value="continous variable">Continous Variable</option>
-                                            <option value="dual clutch">Dual Clutch</option>
+                                        <?php if($dta->TRANSISI == "Otomatis"):?>
+                                            <option value="Otomatis">Otomatis</option>
+                                            <option value="Manual">Manual</option>
+                                            <option value="Continous variable">Continous Variable</option>
+                                            <option value="Dual clutch">Dual Clutch</option>
+                                        <?php elseif($dta->TRANSISI == "Manual" ):?>
+                                            <option value="Manual">Manual</option>
+                                            <option value="Otomatis">Otomatis</option>
+                                            <option value="Continous variable">Continous Variable</option>
+                                            <option value="Dual clutch">Dual Clutch</option>
+                                        <?php elseif($dta->TRANSISI == "Continous variable"):?>
+                                            <option value="Continous variable">Continous Variable</option>
+                                            <option value="Otomatis">Otomatis</option>
+                                            <option value="Manual">Manual</option>
+                                            <option value="Dual clutch">Dual Clutch</option>
+                                        <?php else:?>
+                                            <option value="Dual clutch">Dual Clutch</option>
+                                            <option value="Otomatis">Otomatis</option>
+                                            <option value="Manual">Manual</option>
+                                            <option value="Continous variable">Continous Variable</option>
+                                        <?php endif;?>
                                         </select>
                                     </div>
                                     <div class="form-group">

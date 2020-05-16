@@ -107,7 +107,7 @@
       </li>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTransaksi" aria-expanded="true" aria-controls="collapseTransaksi">
           <i class="fas fa-money-check-alt"></i>
           <span>Transaksi</span>
@@ -118,7 +118,7 @@
             <a class="collapse-item" href="register.html">Sudah dikonvirmasi</a>
           </div>
         </div>
-      </li>
+      </li> -->
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
@@ -149,8 +149,8 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="<?php echo site_url('rental/c_mobil/daftarKendaraan');?>">Mobil</a>
             <a class="collapse-item" href="<?php echo site_url('rental/c_motor/daftarKendaraan');?>">Motor</a>
-            <a class="collapse-item" href="register.html">Sedang Disewa</a>
-            <a class="collapse-item" href="register.html">Sementara tidak disewa</a>
+            <!-- <a class="collapse-item" href="register.html">Sedang Disewa</a>
+            <a class="collapse-item" href="register.html">Sementara tidak disewa</a> -->
           </div>
         </div>
       </li>

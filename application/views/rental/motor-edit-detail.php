@@ -66,9 +66,13 @@
                                     <div class="form-group">
                                         <label for="transmisi">Transmisi Motor</label>
                                         <select class="form-control" id="transmisi" name="transmisi" required>
-                                            <option></option>
-                                            <option value="otomatis">Otomatis</option>
-                                            <option value="manual">Manual</option>
+                                        <?php if($dta->TRANSISI == "Manual" ):?>
+                                            <option value="Manual">Manual</option>
+                                            <option value="Otomatis">Otomatis</option>
+                                        <?php else:?>
+                                            <option value="Otomatis">Otomatis</option>
+                                            <option value="Manual">Manual</option>
+                                        <?php endif;?>
                                         </select>
                                     </div>
                                     <div class="form-group">

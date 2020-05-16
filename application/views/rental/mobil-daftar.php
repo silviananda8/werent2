@@ -15,7 +15,12 @@
                     <div class="row justify-content-center">
                         <h4 class="mt-4">
                             <strong>Daftar Semua Mobil</strong>
+
+                            <?php /*foreach($pesan as $ps):
+                                echo $ps->jumlah;
+                            endforeach*/;?>
                         </h4>
+                        
                     </div>
                     
                     <?php //menampilkan kendaraan yang ada pada tabel pesanan
@@ -44,9 +49,9 @@
                                             <div class="col-lg-5 align-self-center">
                                                 <div class="row row-cols-4">
                                                     <div class="col-lg">
-                                                         <button class="btn btn " type="button" data-toggle="collapse" data-target="#jumlahPesanan<?= $i;  ?>" aria-expanded="false" aria-controls="collapseExample" onclick="ambilId(<?php echo $dta->ID_MOBIL;?>,1)">
+                                                         <button class="btn btn " type="button" data-toggle="collapse" data-target="#jumlahPesanan<?= $i;  ?>" aria-expanded="false" aria-controls="collapseExample" >
                                                             <h4 class="display-3 text-center">
-                                                            0
+                                                            <span id="jumlah<?php echo $dta->ID_MOBIL;?>">0</span>
                                                             </h4>
                                                             <p class="text-center">Jumlah pesanan</p>
                                                           </button>
@@ -85,7 +90,7 @@
                                     </div>
 
                                     <!-- isi dropdown -->
-                                    <div id="aaa<?php echo $dta->ID_MOBIL;?>">
+                                    <div id="aaa">
                                         <div class="collapse" id="jumlahPesanan<?= $i;  ?>">
                                             <div class="card card-body border border-warning"><a class="" data-toggle="collapse" href="#collapseExample<?= $i;?>" role="button" aria-expanded="false" aria-controls="collapseExample">
                                                 <div class="card border border-light shadow-sm  mb-5 bg-white rounded p-2" >

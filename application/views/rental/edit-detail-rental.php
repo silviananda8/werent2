@@ -18,7 +18,7 @@
                     
                     <div class="form-group mt-3">
                         <label for="foto_rental">Upload Foto</label>
-                        <input type="file" class="form-control" id="foto_rental" name="foto_rental" required>
+                        <input type="file" class="form-control" id="foto_rental" name="foto_rental" accept="image/png, image/jpeg" required>
                     </div>
                 </div>
 

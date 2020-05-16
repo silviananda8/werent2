@@ -68,8 +68,8 @@
                                         <label for="transisi">Transmisi Motor</label>
                                         <select class="form-control" id="transisi" name="transisi" required>
                                             <option></option>
-                                            <option value="otomatis">Otomatis</option>
-                                            <option value="manual">Manual</option>
+                                            <option value="Otomatis">Otomatis</option>
+                                            <option value="Manual">Manual</option>
                                             
                                         </select>
                                     </div>

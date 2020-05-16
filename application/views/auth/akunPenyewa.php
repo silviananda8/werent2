@@ -38,7 +38,8 @@
                 </div>
                 <?php else:?>
               <?php endif;?>
-              <?php foreach($pesanan as $ps):?>
+
+              <?php foreach($mobil as $ps):?>
               <div class="card mb-3 shadow-sm p-3 mb-5 bg-white rounded" >
                 <div class="row no-gutters">
                   <div class="col-lg-2 p-2 mt-4">
@@ -62,7 +63,41 @@
                         </div>
                         <div class="col-lg-3 ml-auto">
 
-                          <a class="btn btn-info pl-4 pr-4 mb-3" href="<?php echo site_url('c_user/detailBooking/'.$ps->ID_MOBIL);?>" role="button">Melihat Rincian</a>
+                          <a class="btn btn-info pl-4 pr-4 mb-3" href="<?php echo site_url('c_user/detailMobil/'.$ps->ID_PESAN);?>" role="button">Melihat Rincian</a>
+                          <a class="btn btn-danger pl-3 pr-3" href="<?php echo site_url('c_user/deletePesanan/'.$ps->KODE_PEMESANAN);?>" role="button">Batalkan Pesanan</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <?php endforeach;?>
+
+              <?php foreach($motor as $ps):?>
+              <div class="card mb-3 shadow-sm p-3 mb-5 bg-white rounded" >
+                <div class="row no-gutters">
+                  <div class="col-lg-2 p-2 mt-4">
+                    <img src="<?= base_url('/assets/uploads/kendaraan/') ?><?php echo $ps->FOTO;?>" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-10">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-lg-3 text-left mt-1">
+                          <div><span class="badge badge-warning"><?php echo $ps->KODE_PEMESANAN;?></span><small> Kode Pemesanan</small>
+                          </div> 
+                              <h5 class="card-title mt-2"><?php echo $ps->MERK_KENDARAAN;?> <?php echo $ps->NAMA_KENDARAAN;?></h5>
+                              <p class="card-text font-weight-bold mt-2">Rp <?php echo $ps->HARGA_SEWA_KENDARAAN;?></p>
+
+                        </div>
+                        <div class="col-lg-6 text-left">
+                          <p>Pengambilan : <?php echo $ps->TANGGAL_PENGAMBILAN;?></p>
+                          <p>Lokasi Pengambilan : <?php echo $ps->LOKASI_PENJEMPUTAN;?> </p>
+                          <p>Pengembalian : <?php echo $ps->TANGGAL_PENGEMBALIAN;?></p>
+                          <p>Lokasi Pengambilan : <?php echo $ps->LOKASI_PENGANTARAN;?> </p>
+                        </div>
+                        <div class="col-lg-3 ml-auto">
+
+                          <a class="btn btn-info pl-4 pr-4 mb-3" href="<?php echo site_url('c_user/detailMotor/'.$ps->ID_PESAN);?>" role="button">Melihat Rincian</a>
                           <a class="btn btn-danger pl-3 pr-3" href="<?php echo site_url('c_user/deletePesanan/'.$ps->KODE_PEMESANAN);?>" role="button">Batalkan Pesanan</a>
                         </div>
                       </div>
