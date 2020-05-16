@@ -103,8 +103,33 @@ function __construct(){
 		$this->load->view('templates/footer');
 	}
 
-	function konfirmasi(){//pending dulu
-		$this->load->view('templates/header_after_login');
+	function konfirmasiPembayaran($id){
+		$ID_USER=$this->session->userdata('ID_USER');
+		$ID_MOBIL=$id;
+		$KODE_PEMESANAN=substr(str_shuffle(str_repeat('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', mt_rand(1,6))), 1, 6);
+		$LOKASI_PENGANTARAN=$this->session->userdata('AlamatAmbil');
+		$LOKASI_PENJEMPUTAN=$this->session->userdata('AlamatKembali');
+		$TANGGAL_PENGAMBILAN=$this->session->userdata('TANGGAL_PENGAMBILAN');
+		$TANGGAL_PENGEMBALIAN=$this->session->userdata('TANGGAL_PENGEMBALIAN');
+		$TOTAL=$this->session->userdata('TOTAL');
+		$this->grafik_m->pesan($ID_USER,$ID_MOBIL,$KODE_PEMESANAN,$LOKASI_PENGANTARAN,$LOKASI_PENJEMPUTAN,$TANGGAL_PENGAMBILAN,$TANGGAL_PENGEMBALIAN,$TOTAL);
+		$data['data']=$this->grafik_m->pembayaran($KODE_PEMESANAN,$TANGGAL_PENGAMBILAN,$TANGGAL_PENGEMBALIAN)->result();	
+		$this->load->view('templates/header_after_login',$data);
+		$this->load->view('auth/konfirmasi.php');
+		$this->load->view('templates/footer');
+	}
+	function konfirmasiPembayaran2($id){//MOTOR
+		$ID_USER=$this->session->userdata('ID_USER');
+		$ID_MOTOR=$id;
+		$KODE_PEMESANAN=substr(str_shuffle(str_repeat('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', mt_rand(1,6))), 1, 6);
+		$LOKASI_PENGANTARAN=$this->session->userdata('AlamatAmbil');
+		$LOKASI_PENJEMPUTAN=$this->session->userdata('AlamatKembali');
+		$TANGGAL_PENGAMBILAN=$this->session->userdata('TANGGAL_PENGAMBILAN');
+		$TANGGAL_PENGEMBALIAN=$this->session->userdata('TANGGAL_PENGEMBALIAN');
+		$TOTAL=$this->session->userdata('TOTAL');
+		$this->grafik_m->pesan2($ID_USER,$ID_MOTOR,$KODE_PEMESANAN,$LOKASI_PENGANTARAN,$LOKASI_PENJEMPUTAN,$TANGGAL_PENGAMBILAN,$TANGGAL_PENGEMBALIAN,$TOTAL);
+		$data['data']=$this->grafik_m->pembayaran($KODE_PEMESANAN,$TANGGAL_PENGAMBILAN,$TANGGAL_PENGEMBALIAN)->result();	
+		$this->load->view('templates/header_after_login',$data);
 		$this->load->view('auth/konfirmasi.php');
 		$this->load->view('templates/footer');
 	}
