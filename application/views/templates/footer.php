@@ -13,6 +13,7 @@
             </div>
             <div class="modal-body">
               <form action="<?php echo site_url('login/auth');?>" method='post'>
+                <span class="badge badge-warning"><?php echo $this->session->flashdata('msg'); ?></span>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
                   <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
