@@ -52,7 +52,7 @@
                           <div><span class="badge badge-warning"><?php echo $ps->KODE_PEMESANAN;?></span><small> Kode Pemesanan</small>
                           </div> 
                               <h5 class="card-title mt-2"><?php echo $ps->MERK_KENDARAAN;?> <?php echo $ps->NAMA_KENDARAAN;?></h5>
-                              <p class="card-text font-weight-bold mt-2">Rp <?php echo $ps->HARGA_SEWA_KENDARAAN;?></p>
+                              <p class="card-text font-weight-bold mt-2">Rp <?php echo number_format($ps->HARGA_SEWA_KENDARAAN);?></p>
 
                         </div>
                         <div class="col-lg-6 text-left">

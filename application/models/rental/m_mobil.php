@@ -31,7 +31,7 @@ class m_mobil extends CI_Model{
     }
 
     function ambilId($id_mobil, $id_rental){
-        $this->db->select('*, COUNT(pesanan.ID_Mobil) as jumlah');
+        $this->db->select('*');
         $this->db->from('mobil, rental, pesanan, user');
         $this->db->where('rental.ID_RENTAL = mobil.ID_RENTAL');
         $this->db->where('pesanan.ID_Mobil = mobil.ID_MOBIL');
@@ -41,4 +41,22 @@ class m_mobil extends CI_Model{
         $query = $this->db->get();
         return $query;
     }
+
+    function coba($id_rental){
+        $query = $this->db->query("SELECT ID_Mobil, COUNT(pesanan.ID_Mobil) as jumlah from pesanan WHERE ID_Mobil IN (select ID_Mobil FROM mobil WHERE ID_RENTAL=$id_rental) GROUP BY (ID_Mobil)");
+        return $query;
+    }
+
+    function jumlahPesanan($id_mobil, $id_rental){
+        $this->db->select('COUNT(pesanan.ID_Mobil) as jumlah');
+        $this->db->from('mobil, rental, pesanan, user');
+        $this->db->where('rental.ID_RENTAL = mobil.ID_RENTAL');
+        $this->db->where('pesanan.ID_Mobil = mobil.ID_MOBIL');
+        $this->db->where('pesanan.ID_USER = user.ID_USER');
+        $this->db->where('mobil.ID_MOBIL',$id_mobil);
+        $this->db->where('rental.ID_RENTAL',$id_rental);
+        $query = $this->db->get();
+        return $query;
+    }
+
 }

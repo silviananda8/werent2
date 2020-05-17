@@ -17,12 +17,15 @@ class c_motor extends CI_Controller {
 
     function daftarKendaraan(){
         $id_user = $this->session->userdata('ID_USER');
+        $id_rental      = $this->session->userdata('ID_RENTAL');
         $data['data']   =   $this->m_motor->show_motor($id_user)->result();
+        $data['pesan']  = $this->m_motor->coba($id_rental)->result();
         $data['kd']     = 2;
 
         $this->load->view('rental/header', $data);
         $this->load->view('rental/motor-daftar');
-        $this->load->view('rental/footer', $data);
+        $this->load->view('rental/footer');
+        $this->load->view('rental/footer-tambahan', $data);
     }
 
     function editDetailKendaraan($id){
@@ -111,7 +114,11 @@ class c_motor extends CI_Controller {
 
     function ambilId($id){
         $id_rental      = $this->session->userdata('ID_RENTAL');
-        $data = $this->m_motor->ambilId($id,$id_rental)->result();
+        $b = $this->m_motor->jumlahPesanan($id,$id_rental)->result();
+        $a = $this->m_motor->ambilId($id,$id_rental)->result();
+        
+
+        $data = array($b,$a);
 
         echo json_encode($data);
     }

@@ -76,7 +76,7 @@
                   <p class="pl-3">Supir</p>
                   </div>
                   <div class="col-lg-5 font-weight-bolder">
-                      <p><span>Rp </span>400.000</p>
+                      <p><span>Rp </span>0</p>
                   </div>
                 </div>
               </li>
@@ -86,7 +86,7 @@
                   <p class="pl-3">Pengantaran Kendaraan</p>
                   </div>
                   <div class="col-lg-5 font-weight-bolder">
-                      <p><span>Rp </span>50.000</p>
+                      <p><span>Rp </span>0</p>
                   </div>
                 </div>
               </li>
@@ -96,7 +96,7 @@
                   <p class="pl-3">Pengambilan Kendaraan</p>
                   </div>
                   <div class="col-lg-5 font-weight-bolder">
-                      <p><span>Rp </span>50.000</p>
+                      <p><span>Rp </span>0</p>
                   </div>
                 </div>
               </li>
@@ -106,7 +106,7 @@
                   <p class="pl-3">Harga Sewa</p>
                   </div>
                   <div class="col-lg-5 font-weight-bolder">
-                      <p><span>Rp </span><?php echo $dt->HARGA_SEWA_KENDARAAN;?></p>
+                      <p><span>Rp </span><?php echo number_format($dt->HARGA_SEWA_KENDARAAN);?></p>
                   </div>
                 </div>
               </li>
@@ -116,7 +116,7 @@
                   <p class="pl-3">Total Sewa</p>
                   </div>
                   <div class="col-lg-5 font-weight-bolder">
-                      <p><span>Rp </span>1.000.000</p>
+                      <p><span>Rp </span><?php echo number_format($dt->TOTAL);?></p>
                   </div>
                 </div>
               </li>
