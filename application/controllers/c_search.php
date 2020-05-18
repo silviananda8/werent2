@@ -67,7 +67,6 @@ class c_search extends CI_Controller {
         $TANGGAL_PENGEMBALIAN=$this->session->userdata('TANGGAL_PENGEMBALIAN');
         $TRANSISI= $this->input->post('TRANSISI');
         $KAPASITAS= $this->input->post('KAPASITAS');
-        var_dump($kota);
         $data['data']=$this->grafik_m->filter($kota,$TANGGAL_PENGAMBILAN,$TANGGAL_PENGEMBALIAN,$TRANSISI,$KAPASITAS)->result();
         if($this->session->userdata('logged_in') != TRUE){
             $this->load->view('templates/header');

@@ -5,7 +5,7 @@
 
           <!-- Start Form Cari Pada Header -->
             <div class="col-lg-12 mt-4 mb-5 bg-white  rounded p-2 card-shadow">
-              <form action="<?php if ($this->uri->segment('2')==='listKendaraan') { echo site_url('c_search/SearchMobil');} else{echo site_url('c_search/SearchMotor');}?>" method="post">
+              <form action="<?php if ($this->uri->segment('2')==='listKendaraan'|| $this->uri->segment('2')==='FilterMobil') { echo site_url('c_search/SearchMobil');} else{echo site_url('c_search/SearchMotor');}?>" method="post">
                 <h2 class="font-weight-bold">
                   Cari Kendaraan Yang Tersedia
                 </h2>

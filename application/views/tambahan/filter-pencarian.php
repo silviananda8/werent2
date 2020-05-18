@@ -15,12 +15,7 @@
                 <label for="tempatPenjemputan">Tempat Penjemputan</label>
                 <input name="kota" type="text" class="form-control" id="tempatPenjemputan" placeholder="Berdasarkan Kota, Bandara, Stasiun, Daerah, ..." value="<?php echo $this->session->userdata('kota');?>">
             </div>
-  <!--           <div class="form-group mb-3">
-                <label for="tempatPengembalian">Tempat Pengembalian</label>
-                <input type="text" class="form-control" id="tempatPengembalian" placeholder="Berdasarkan Kota, Bandara, Stasiun, Daerah, ...">
-            </div>
- -->
-                <div class="form-group >
+                <div class="form-group">
                   <label for="tanggalPenjemputan">Waktu Penjemputan</label>
                   <div class="input-group">
                       <input name="TANGGAL_PENGAMBILAN" type="text" class="form-control" id="tanggalPenjemputan" value="<?php echo $this->session->userdata('TANGGAL_PENGAMBILAN');?>">
@@ -31,12 +26,6 @@
                       </div>
                 </div>
 
-          <!--       <div class="form-group col-lg-md-6 mb-3">
-                  <label for="waktuPenjemputan"></label>
-                  <input type="text" class="form-control mt-2" id="waktuPenjemputan">
-                </div>
- -->
-
                   <label for="tanggalPengembalian">Waktu Pengembalian</label>
                   <div class="input-group">
                       <input name="TANGGAL_PENGEMBALIAN" type="text" class="form-control" id="tanggalPengembalian"name="TANGGAL_PENGEMBALIAN" class="form-control" value="<?php echo $this->session->userdata('TANGGAL_PENGEMBALIAN');?>">
@@ -46,12 +35,6 @@
                         </div>
                   </div>
                 </div>
-
-<!-- 
-                <div class="form-group col-lg-md-6 mb-3">
-                  <label for="waktuPengembalian"></label>
-                  <input type="text" class="form-control mt-2" id="waktuPengembalian">
-                </div> -->
               </div>
 
               <div class="row">

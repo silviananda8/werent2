@@ -44,7 +44,6 @@
                 <li class="nav-item ">
                   <a class="btn btn-warning font-weight-bolder tombol "  type="button" data-toggle="modal" data-target="#modalMasuk" href="#">Masuk</a>
                 </li>
-                
               </ul>
             </div>
           </div>

@@ -53,7 +53,6 @@
 
       <!-- Akhir Modal masuk-->
 
-
       <!-- Modal Daftar-->
       <div class="modal fade " id="modalDaftar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg-3 modal-dialog-centered" role="document">
