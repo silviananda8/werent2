@@ -39,9 +39,6 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a class="nav-link " href="#">Cara Pesan</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link " text-white href="<?php echo site_url('auth/artikel')?>">Tips & Artikel</a>
                 </li>
                 <li class="nav-item ">

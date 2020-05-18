@@ -2,21 +2,23 @@
 
     <?php foreach($data as $dta):?>
     <!-- == start detail kendaraan == -->
-        <div class="col-7 mt-5 ml-5 ">
-            <div class="card bg-white rounded p-2 box-shadow">
+        <div class="col-lg-8 mt-4 ml-3 ">
+            <div class="row">
+                <div class="col-lg">
+                    <div class="card bg-white rounded p-2 box-shadow">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-lg-4">
                         <label for="namaKendaraan">
-                            <h4 class="col font-weight-bold"><?php echo $dta->MERK_KENDARAAN;?> <?php echo $dta->NAMA_KENDARAAN;?></h4>
+                            <h4 class="col font-weight-bold"><?php echo $dta->MERK_KENDARAAN;?> <small><?php echo $dta->NAMA_KENDARAAN;?> </small> </h4>
                         </label>
-                        <img src="<?= base_url('assets/uploads/kendaraan/') ?><?php echo $dta->FOTO?>" alt="ford" class="ml-3 mt-3" id="gambarKendaraan">
+                        <img src="<?= base_url('assets/uploads/kendaraan/') ?><?php echo $dta->FOTO?>" alt="ford" class="ml-3 mt-3 img-fluid" id="gambarKendaraan">
                     </div>
 
-                    <div class="col-5 mt-5">
+                    <div class="col-lg-5 mt-5">
                         <div class="container">
                             <small>
                             <div class="row row-cols-2">
-                                <div class="col">
+                                <div class="col ">
                                 <i class="fas fa-couch"></i>
                                 <?php echo $dta->KAPASITAS;?> orang
                                 </div>
@@ -41,12 +43,12 @@
                         <div class="container">
                             <small>
                                 <p>Termasuk Harga:</p>
-                                <div class="ml-2">
-                                    <div class="row row-cols-2">
-                                        <p><i class="fas fa-check mr-1"></i>Pembatalan</p>
+                                <div class="ml-2 ">
+                                    <div class="row row-cols-2 icon-orange">
+                                        <p><i class="fas fa-check mr-1 "></i>Pembatalan</p>
                                         <p><i class="fas fa-check mr-1"></i>Amandemen</p>
                                     </div>
-                                    <div class="row row-cols-2">
+                                    <div class="row row-cols-2 icon-orange">
                                         <p><i class="fas fa-check mr-1"></i>Perlindungan Pencurian</p>
                                         <p><i class="fas fa-check mr-1"></i>Pengabaian Tabrakan</p>
                                     </div>
@@ -55,26 +57,29 @@
                         </div>
                     </div>
                 
-                    <div class="col-3 align-self-center mt-5">
-                        <p class="font-weight-bold">
+                    <div class="col-lg-3 align-self-center"><small>  Harga Sewa</small>
+                        <h4 class="mb-3 text-warning">
                              Rp. <?php echo number_format($dta->HARGA_SEWA_KENDARAAN);?>
-                        <p>
+                        <h4>
 
-                        <a href="#" class="btn btn-warning font-weight-bolder tombol ml-2">Chatting</a>
+                    </div>
+
+                </div>
+                <div class="row ">
+                    <div class="col-lg pl-4">
+                        <h5>Deskripsi Kendaraan</h5>
+                        <p>Spesifikasi Toyota Avanza menggunakan transmisi Manual / Otomatis dengan bahan bakar Bensin. Spek Toyota Avanza yang berjenis mobil MPV ini memiliki kapasitas mesin sebesar 1329 & 1496 cc.</p>
                     </div>
                 </div>
             </div>
 
 
-            <div class="card bg-white rounded p-2 box-shadow mt-3">
+            <div class="card bg-white rounded p-2 box-shadow mt-3 pb-4 mb-4">
                 <div class="row">
                     <div class="col list-group ml-4">
                         <!-- Nama Rental -->
                         <h5 class="mb-1">Nama Rental</h5>
                         <p class="mb-1"><small><?php echo $dta->NAMA_RENTAL;?></small></p>
-
-                        <!-- Rating -->
-                        <h5 class="mb-1 mt-3">Rating <small>3</small><i class="fas fa-star ml-1 rating"></i></h5>
 
                         <!-- Lokasi Rental -->
                         <h5 class="mb-1 mt-3">Lokasi Rental</h5>
@@ -127,6 +132,9 @@
 
         
     </div>
+                </div>
+            </div>
+            
 </div>
 
 <?php endforeach; ?>

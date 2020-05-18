@@ -28,7 +28,7 @@
 
       <!-- akhir artikel -->
     </div>
-
+</section>
 
 <!-- cara Kerja -->
 
@@ -40,7 +40,7 @@
                 <span class="title-line"><i class="fa fa-car"></i></span>
                 
             </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum necessitatibus eius earum voluptates sed!</p>
+          <p>Berikut langkah-langkah yang akan dilalui saat akan menyewa kendaraan melalui kami</p>
         </div>
       </div>
       <div class="how-it-works d-flex">

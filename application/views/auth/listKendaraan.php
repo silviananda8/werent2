@@ -1,10 +1,10 @@
-
+<section class="bg-light pb-3">
     <!-- Start Form List Kendaraan -->
       <div class="container text-justify mb-5">
         <div class="row justify-content-center">
 
           <!-- Start Form Cari Pada Header -->
-            <div class="col-11 mt-3 mb-5 bg-white  rounded p-2 box-shadow">
+            <div class="col-lg-12 mt-4 mb-5 bg-white  rounded p-2 card-shadow">
               <form action="<?php if ($this->uri->segment('2')==='listKendaraan') { echo site_url('c_search/SearchMobil');} else{echo site_url('c_search/SearchMotor');}?>" method="post">
                 <h2 class="font-weight-bold">
                   Cari Kendaraan Yang Tersedia
@@ -12,20 +12,12 @@
 
                   <div class="form-row mt-2">
                     <!-- Tempat Penjemputan -->
-                    <div class="form-group col">
+                    <div class="form-group col-lg-4">
                       <label for="tempatPenjemputan">Tempat Penjemputan</label>
                       <input type="text" class="form-control" name="kota" id="tempatPenjemputan" aria-describedby="textHelp" placeholder="Berdasarkan Kota, Bandara, Stasiun, Daerah, ..." value="<?php echo $this->session->userdata('kota');?>">
                       </div>
 
-                    <!-- Tempat Pengambilan -->        
-                    <div class="form-group col">
-                      <label for="tempatPengembalian">Tempat Pengembalian</label>
-                      <input type="text"  class="form-control" id="tempatPengembalian" aria-describedby="textHelp" placeholder="Berdasarkan Kota, Bandara, Stasiun, Daerah, ...">
-                    </div>
-                  </div>
-
-                  <div class="form-row mt-2">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-lg-3">
                       <label for="tanggalPenjemputan">Waktu Penjemputan</label>
                       <div class="input-group">
                           <input type="text" name="TANGGAL_PENGAMBILAN" class="form-control" value="<?php echo $this->session->userdata('TANGGAL_PENGAMBILAN');?>" id="tanggalPenjemputan">
@@ -35,15 +27,11 @@
                             </div>
                           </div>
                       </div>
-                    </div>
 
-                    <div class="form-group col-md-2">
-                      <label for="waktuPenjemputan"></label>
-                      <input type="text" class="form-control mt-2" id="waktuPenjemputan">
-                    </div>
+                  </div>
 
 
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-lg-3">
                       <label for="tanggalPengembalian">Waktu Pengembalian</label>
                       <div class="input-group">
                           <input type="text" name="TANGGAL_PENGEMBALIAN" class="form-control" value="<?php echo $this->session->userdata('TANGGAL_PENGEMBALIAN');?>"id="tanggalPengembalian">
@@ -56,52 +44,21 @@
                     </div>
 
 
-                    <div class="form-group col-md-2">
-                      <label for="waktuPengembalian"></label>
-                      <input type="text" class="form-control mt-2" id="waktuPengembalian">
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col d-flex justify-content-end">
-                      <button type="submit" class="btn btn-warning font-weight-bolder tombol m-2">
+                    <div class="col-2">
+                      <button type="submit" class="btn btn-warning font-weight-bolder tombol-filter  ">
                         Cari 
                       </button>
                     </div>
                   </div>
-                  
               </form>
 
             </div>
           <!-- End Form Cari Pada Header -->
            <!-- Start Form Filter Kendaraan -->
-            <div class="col-3 mt-3 mr-5 bg-white  filter-kendaraan rounded p-3 box-shadow" >
+            <div class="col-lg-3  bg-white  filter-kendaraan rounded p-3 card-shadow" >
               <form action="<?php if ($this->uri->segment('2')==='listKendaraan'|| $this->uri->segment('2')==='FilterMobil') { echo site_url('c_search/FilterMobil');} else{echo site_url('c_search/FilterMotor');}?>" class="" method="post">
 
-                <!-- Start Peringkat Rental -->
-                  <div class="row">
-                    <label for="filterPeringkatRental" class="col font-weight-bold">
-                      Peringkat Rental
-                    </label>
-                  </div>
-                  
-                  <div class="checkPeringkat">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="peringkat1" value="Sangat Bagus">
-                      <label class="custom-control-label" for="peringkat1">Sangat Bagus</label>
-                    </div>
-
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="peringkat2" value="Bagus">
-                      <label class="custom-control-label" for="peringkat2">Bagus</label>
-                    </div>
-
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="peringkat3" value="Cukup">
-                      <label class="custom-control-label" for="peringkat3">Cukup</label>
-                    </div>
-                  </div>
-                <!-- End Peringkat Rental -->
+              
                 
                 <!-- Start Transisi Kendaraan -->
                 <div class="row mt-3">
@@ -160,8 +117,8 @@
                 </div>
 
                 <div class="row m-2">
-                  <div class="col d-flex justify-content-center">
-                    <button type="submit" class="btn btn-warning font-weight-bold m-2">
+                  <div class="col d-flex ">
+                    <button type="submit" class="btn btn-warning font-weight-bold m-2 mt-4 tombol-filter">
                       Cari 
                     </button>
                   </div>
@@ -172,12 +129,13 @@
           <!-- End Form Filter Kendaraan -->
 
           <!-- Start List Kendaraan -->
-          
-            <div class="col-7 mt-3 ml-5 bg-white list-kendaraan rounded p-2 box-shadow">
+          <div class="col-lg">
+            <div class="row-lg">
+               <div class="col-lg  bg-white rounded p-2 ml-2 card-shadow">
               <?php foreach($data as $dta):?>
               <div class="card">
                 <div class="row">
-                  <div class="col-4">
+                  <div class="col-lg-4">
                     <label for="namaKendaraan">
                       <h4 class="col font-weight-bold"><?php echo $dta->MERK_KENDARAAN;?> <?php echo $dta->NAMA_KENDARAAN;?></h4>
                     </label>
@@ -186,7 +144,7 @@
                   </div>
   
                 
-                  <div class="col-5 mt-5">
+                  <div class="col-lg-5 mt-5">
                     <div class="container">
                       <small>
                         <div class="row row-cols-2">
@@ -229,7 +187,7 @@
                     </div>
                   </div>
                 
-                  <div class="col-3 mt-5 align-self-center">
+                  <div class="col-lg-3 mt-5 align-self-center">
                     <p class="font-weight-bold">
                      Rp. <?php echo number_format($dta->HARGA_SEWA_KENDARAAN);?>
                     <p>
@@ -239,10 +197,10 @@
 
                 <div class="card-footer mt-2">
                   <div class="row ml-1">
-                    <div class="col-4">
+                    <div class="col-lg-4">
                         <p class=""><small><?php echo $dta->NAMA_RENTAL;?></small><i class="fas fa-star ml-1 rating"></i></p>
                     </div>
-                    <div class="col-8 ">
+                    <div class="col-lg-8 ">
                       <p class=""><small><?php echo $dta->ALAMAT_RENTAL;?></small><i class="fas fa-map-marker icon-map ml-1"></i></p>
                     </div>
                   </div>
@@ -252,7 +210,13 @@
             </div>
            
           <!-- End List Kendaraan -->
+            </div>
+          </div>
+          
+           
 
         </div>
       </div>
     <!-- End Form List Kendaraan -->
+
+</section>

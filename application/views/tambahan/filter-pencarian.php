@@ -1,11 +1,13 @@
-<div class="section">
-    <div class="container mb-5">
+<div class="section bg-light">
+    <div class="container">
     
         <div class="row justify-content-center">
 
 <!-- == start filter pencarian == -->
-    <div class="col-4 mt-5 mr-4 bg-white filter-pencarian rounded p-3 box-shadow">
-        <form action="<?php if ($this->uri->segment('2')==='detailKendaraan') { echo site_url('c_search/SearchMobil');} else{echo site_url('c_search/SearchMotor');}?>" class="" method="post">
+    <div class="col-lg-3 mt-4 ">
+      <div class="row">
+        <div class="col bg-white pb-4 rounded p-3 box-shadow">
+           <form action="<?php if ($this->uri->segment('2')==='detailKendaraan') { echo site_url('c_search/SearchMobil');} else{echo site_url('c_search/SearchMotor');}?>" class="" method="post">
             <h4 class="font-weight-bold mb-3">
               Cari Mobil Yang Tersedia
             </h4>
@@ -18,8 +20,7 @@
                 <input type="text" class="form-control" id="tempatPengembalian" placeholder="Berdasarkan Kota, Bandara, Stasiun, Daerah, ...">
             </div>
  -->
-            <div class="form-row mb-3">
-                <div class="form-group col-md-6">
+                <div class="form-group >
                   <label for="tanggalPenjemputan">Waktu Penjemputan</label>
                   <div class="input-group">
                       <input name="TANGGAL_PENGAMBILAN" type="text" class="form-control" id="tanggalPenjemputan" value="<?php echo $this->session->userdata('TANGGAL_PENGAMBILAN');?>">
@@ -28,16 +29,14 @@
                           <i class="fas fa-calendar"></i>
                         </div>
                       </div>
-                  </div>
                 </div>
 
-          <!--       <div class="form-group col-md-6 mb-3">
+          <!--       <div class="form-group col-lg-md-6 mb-3">
                   <label for="waktuPenjemputan"></label>
                   <input type="text" class="form-control mt-2" id="waktuPenjemputan">
                 </div>
  -->
 
-                <div class="form-group col-md-6 mb-3">
                   <label for="tanggalPengembalian">Waktu Pengembalian</label>
                   <div class="input-group">
                       <input name="TANGGAL_PENGEMBALIAN" type="text" class="form-control" id="tanggalPengembalian"name="TANGGAL_PENGEMBALIAN" class="form-control" value="<?php echo $this->session->userdata('TANGGAL_PENGEMBALIAN');?>">
@@ -45,25 +44,28 @@
                         <div class="input-group-text">
                           <i class="fas fa-calendar"></i>
                         </div>
-                      </div>
                   </div>
                 </div>
 
 <!-- 
-                <div class="form-group col-md-6 mb-3">
+                <div class="form-group col-lg-md-6 mb-3">
                   <label for="waktuPengembalian"></label>
                   <input type="text" class="form-control mt-2" id="waktuPengembalian">
                 </div> -->
               </div>
 
               <div class="row">
-                <div class="col d-flex justify-content-center">
-                  <button type="submit" class="btn btn-warning font-weight-bolder tombol pl-4 pr-4">
+                <div class="col-lg mt-3 justify-content-center">
+                  <button type="submit" class="btn btn-warning font-weight-bolder btn-block tombol pl-4 pr-4">
                     Cari 
                   </button>
                 </div>
               </div>
 
         </form>
+        </div>
+      </div>
+       
     </div>
+
 <!-- == end filter pencarian == -->

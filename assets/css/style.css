@@ -24,7 +24,7 @@
 .jumbotron	{
 	background-image: url(../img/banner1.jpg);
 	background-size: cover;
-	height: 300px;
+	height: 200px;
 	position: relative;
 }	
 .jumbotron .container{
@@ -46,10 +46,11 @@
 .jumbotron .display-4{
 	color: white;
 	text-align: center;
-	margin-top: 230px;
+	margin-top: -230px;
 	font-weight: 500;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
 	font-size: 20px;
+	padding-top: -40px;
 
 }
 
@@ -221,11 +222,19 @@
 	/*border-radius: 10px;*/
 }
 
+.tombol-filter{
+	text-transform: uppercase;
+	border-radius: 4px;
+	margin-top: 28px;
+	margin-left: 25px;
+	padding: 10px 30px;
+}
+
 .tombol-pencarian{
 	text-transform: uppercase;
 	border-radius: 10px;
-	margin-top: 50px;
-	margin-left: 30px;
+	margin-top: 2px;
+	margin-left: 10px;
 	padding: 15px 25px;
 	font-size: 20px;
 }
@@ -257,6 +266,7 @@
 
 	.jumbotron .display-4{
 	font-size: 62px;
+	margin-top: 230px
 }
 
 
@@ -265,7 +275,7 @@
 
 /* -- == Filter List Kendaraan == -- */
 .filter-kendaraan{
-	margin-bottom: 220px;
+	margin-bottom: 30px;
 	position: relative;
 }
 
@@ -281,8 +291,8 @@
 
 .box-shadow{
 	position: relative;
-    box-shadow: 0 3px 28px rgba(0,0,0,0.5);
-	border-radius: 12px;
+	box-shadow: 0 3px 1px rgba(0,0,0,0.7);
+	border-radius: 6px;
 	background-color: white;
 }
 
@@ -297,6 +307,10 @@
 
 .icon-map{
     color: #ff1e00;
+}
+
+.icon-orange i{
+	color: orange;
 }
 
 
