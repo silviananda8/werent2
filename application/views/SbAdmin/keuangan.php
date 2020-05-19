@@ -62,19 +62,7 @@
           <span>Konten</span></a>
       </li>
 
-      <!-- Nav Item - rental -->
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-car"></i>
-          <span>Rental</span></a>
-      </li>
-      
-      <!-- Nav Item - akun -->
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-user"></i>
-          <span>Akun</span></a>
-      </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider">

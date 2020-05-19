@@ -41,10 +41,6 @@ class c_artikel extends CI_Controller {
 			$crud = new grocery_CRUD();
 			$crud->set_theme('flexigrid');
 			$crud->set_table('rental');
-			$crud->columns('judul','thumbnail','artikel');
-			$crud->set_field_upload('thumbnail','assets/uploads/thumbnail');
-
-			$crud->set_subject('artikel');
 			$output = $crud->render();
 
 			$this->_example_output($output);
@@ -59,6 +55,15 @@ class c_artikel extends CI_Controller {
 			// $crud->set_field_upload('thumbnail','assets/uploads/thumbnail');
 
 			$crud->set_subject('keuntungan');
+			$output = $crud->render();
+
+			$this->_example_output($output);
+	}
+	public function user()
+	{
+			$crud = new grocery_CRUD();
+			$crud->set_theme('flexigrid');
+			$crud->set_table('user');
 			$output = $crud->render();
 
 			$this->_example_output($output);
